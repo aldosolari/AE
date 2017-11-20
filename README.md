@@ -1,6 +1,6 @@
-# Analisi Eplorativa
+# Analisi Esplorativa
 
-Università Milano-Bicocca, SSE, A.A. 2017/18
+Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche (SSE), A.A. 2017/18
 
 ### Avvisi
 
