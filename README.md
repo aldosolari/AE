@@ -22,6 +22,6 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 *Seconda settimana*
 
 3. 27/11 10:30-12:30 Laboratorio 718/719 
-    + [R: la matrice dei dati X]()
-    + [R: rappresentazioni grafiche]()
-    + [R: spazio delle variabili e delle osservazioni]()
+    + [R: la matrice dei dati X](https://github.com/aldosolari/AE/blob/master/code/2_dati.pdf)
+    + [R: rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/code/3_rapgraf.pdf)
+    + [R: spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/code/4_spazi.pdf)
