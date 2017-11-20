@@ -19,4 +19,9 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [Rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/slides/3_rapgraf.pdf) : Matrice di diagrammi di dispersione; diagramma tridimensionale; Diagramma di dispersione condizionato; Facce di Chernoff; Stelle
     + [Spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/slides/4_spazi.pdf) : Interpretazione geometrica del vettore delle medie, della varianza, della correlazione
 
-    
+*Seconda settimana*
+
+3. 27/11 10:30-12:30 Laboratorio 718/719 
+    + [R: la matrice dei dati X]()
+    + [R: rappresentazioni grafiche]()
+    + [R: spazio delle variabili e delle osservazioni]()
