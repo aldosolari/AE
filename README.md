@@ -18,6 +18,8 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 2. 22/11 8:30-11:30 Aula U9-02
     + [Rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/slides/3_rapgraf.pdf) : Matrice di diagrammi di dispersione; diagramma tridimensionale; Diagramma di dispersione condizionato; Facce di Chernoff; Stelle
     + [Spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/slides/4_spazi.pdf) : Interpretazione geometrica del vettore delle medie, della varianza, della correlazione
+    + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf) : Matrice centrata e di centramento; matrice standardizzata
+    
 
 *Seconda settimana*
 
@@ -25,9 +27,19 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [R: la matrice dei dati X](https://github.com/aldosolari/AE/blob/master/code/2_dati.pdf)
     + [R: rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/code/3_rapgraf.pdf)
     + [R: spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/code/4_spazi.pdf)
+    + [R: dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/code/5_fmatr.pdf)
+
 
 4. 28/11 8:30-11:30 Aula U1-10
-    + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf) : Matrice centrata e di centramento; matrice standardizzata
+    + [Varianza totale e generalizzata](https://github.com/aldosolari/AE/blob/master/slides/6_varianze.pdf) : Varianza totale; Varianza Generalizzata; Iper-ellissoidi
+
+5. 29/11 8:30-11:30 Aula U9-02
+    + [Decomposizione spettrale]() : Decomposizione spettrale; Dati ortogonalizzati; Singular Value Decomposition
+
+
+
+*Terza settimana*
+
     
 ### Dati
 
