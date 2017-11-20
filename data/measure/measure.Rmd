@@ -1,0 +1,34 @@
+---
+title: "measure"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+setwd("~/Dropbox/Public/AE/Data/")
+```
+
+```{r}
+measure <- read.csv("measure.csv")
+head(measure)
+```
+
+Chest, waist, and hip measurements (in inches) on a sample of 20 men and women. 
+
+Two questions might be addressed by such data
+
+* Could body size and body shape be summarised in some way by combining the three measurements into a single number?
+
+* Are there subtypes of body shapes amongst the men and amongst the
+women within which individuals are of similar shapes and between which
+body shapes differ?
+
+The first question might be answered by principal components analysis, and the second question could be investigated using cluster analysis. In practise, it seems intuitively likely that we would have needed to record the three measurements on many more than 20 individuals to have any chance
+of being able to get convincing answers from these techniques to the questions
+of interest.
+
+Source: Everitt B.S., Hothorn T. (2011) An Introduction to Applied Multivariate Analysis with R, Springer
+
+

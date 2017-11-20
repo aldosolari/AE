@@ -25,3 +25,13 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [R: la matrice dei dati X](https://github.com/aldosolari/AE/blob/master/code/2_dati.pdf)
     + [R: rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/code/3_rapgraf.pdf)
     + [R: spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/code/4_spazi.pdf)
+
+4. 28/11 8:30-11:30 Aula U1-10
+    + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf)
+    
+### Dati
+
+  + [measure]() : Misurazioni del petto, vita e fianchi. [Download .csv]()
+  + [heptathlon]() : Risultati delle gare di eptathlon, Seoul 1988.
+  + [whisky]() : Punteggi sul sapore di 86 whisky. [Download .txt]()
+  + [face]() : Immagine 243 x 220 pixels. [Download .Rda]()
