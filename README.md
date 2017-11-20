@@ -14,9 +14,9 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [Introduzione al corso](https://github.com/aldosolari/AE/blob/master/slides/0_intro.pdf)
     + [L'analisi multivariata](https://github.com/aldosolari/AE/blob/master/slides/1_multi.pdf) : Riduzione della dimensionalità; raggruppamento di unità statistiche
     + [La matrice dei dati X](https://github.com/aldosolari/AE/blob/master/slides/2_dati.pdf) : Tipologie di variabili; valori mancanti; valori anomali; la matrice dei dati X; diagramma di dispersione
+    + [Rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/slides/3_rapgraf.pdf) : Matrice di diagrammi di dispersione; diagramma tridimensionale; Diagramma di dispersione condizionato; Facce di Chernoff; Stelle
     
 2. 22/11 8:30-11:30 Aula U9-02
-    + [Rappresentazioni grafiche](https://github.com/aldosolari/AE/blob/master/slides/3_rapgraf.pdf) : Matrice di diagrammi di dispersione; diagramma tridimensionale; Diagramma di dispersione condizionato; Facce di Chernoff; Stelle
     + [Spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/slides/4_spazi.pdf) : Interpretazione geometrica del vettore delle medie, della varianza, della correlazione
     + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf) : Matrice centrata e di centramento; matrice standardizzata
     
