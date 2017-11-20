@@ -31,7 +31,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     
 ### Dati
 
-  + [measure]() : Misurazioni del petto, vita e fianchi. [Download .csv]()
-  + [heptathlon]() : Risultati delle gare di eptathlon, Seoul 1988.
-  + [whisky]() : Punteggi sul sapore di 86 whisky. [Download .txt]()
-  + [face]() : Immagine 243 x 220 pixels. [Download .Rda]()
+  + [measure](https://github.com/aldosolari/AE/blob/master/data/measure/measure.pdf) : Misurazioni del petto, vita e fianchi. [Download .csv](https://github.com/aldosolari/AE/blob/master/data/measure/measure.csv)
+  + [heptathlon](https://github.com/aldosolari/AE/blob/master/data/heptathlon/heptathlon.pdf) : Risultati delle gare di eptathlon, Seoul 1988.
+  + [whisky](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.pdf) : Punteggi sul sapore di 86 whisky. [Download .txt](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.txt)
+  + [face](https://github.com/aldosolari/AE/blob/master/data/face/face.pdf) : Immagine 243 x 220 pixels. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/face/face.Rda)
