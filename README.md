@@ -27,7 +27,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [R: spazio delle variabili e delle osservazioni](https://github.com/aldosolari/AE/blob/master/code/4_spazi.pdf)
 
 4. 28/11 8:30-11:30 Aula U1-10
-    + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf)
+    + [Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/slides/5_fmatr.pdf) : Matrice centrata e di centramento; matrice standardizzata
     
 ### Dati
 
