@@ -72,4 +72,6 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
   + [heptathlon](https://github.com/aldosolari/AE/blob/master/data/heptathlon/heptathlon.pdf) : Risultati delle gare di eptathlon, Seoul 1988.
   + [whisky](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.pdf) : Punteggi sul sapore di 86 whisky. [Download .txt](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.txt)
   + [face](https://github.com/aldosolari/AE/blob/master/data/face/face.pdf) : Immagine 243 x 220 pixels. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/face/face.Rda)
-  + [wine](https://github.com/aldosolari/AE/blob/master/data/wine/wine.pdf) : Immagine 243 x 220 pixels. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/wine/wine.Rdata)
+  + [wine](https://github.com/aldosolari/AE/blob/master/data/wine/wine.pdf) : Analisi chimica per 178 vini italiani. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/wine/wine.Rdata)
+  + [paesi](https://github.com/aldosolari/AE/blob/master/data/paesi/paesi.pdf) : Forza lavoro paesi europei 1970. [Download .Rdata](https://github.com/aldosolari/AE/blob/master/data/paesi/paesi.Rdata)
+  + [iris](https://github.com/aldosolari/AE/blob/master/data/iris/iris.pdf) : Lunghezza e la larghezza del sepalo e del petalo.
