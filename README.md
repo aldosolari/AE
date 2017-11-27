@@ -35,11 +35,35 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [Varianza totale e generalizzata](https://github.com/aldosolari/AE/blob/master/slides/6_varianze.pdf) : Varianza totale; Varianza Generalizzata; Iper-ellissoidi
 
 5. 29/11 8:30-11:30 Aula U9-02
-    + [Decomposizione spettrale]() : Decomposizione spettrale; Dati ortogonalizzati; Singular Value Decomposition
+    + [Decomposizione spettrale](https://github.com/aldosolari/AE/blob/master/slides/7_spectral.pdf) : Decomposizione spettrale; Dati ortogonalizzati; Singular Value Decomposition
 
 
 
 *Terza settimana*
+
+6. 4/12 10:30-12:30 Laboratorio 718/719 
+    + [R: Dati centrati e standardizzati](https://github.com/aldosolari/AE/blob/master/code/5_fmatr.pdf)
+    + [R: Varianza totale e generalizzata](https://github.com/aldosolari/AE/blob/master/code/6_varianze.pdf)
+    + [R: Decomposizione spettrale](https://github.com/aldosolari/AE/blob/master/code/7_spectral.pdf)
+    
+7. 5/12 8:30-11:30 Aula U1-10
+    + [PCA](https://github.com/aldosolari/AE/blob/master/slides/8_pca.pdf) : Analisi delle componenti principali
+    
+8. 6/12 8:30-11:30 Aula U9-02
+    + [PCA: applicazioni](https://github.com/aldosolari/AE/blob/master/slides/9_pca2.pdf) : Esempi di applicazione dell'analisi delle componenti principali
+    
+*Quarta settimana*
+
+9. 11/12 10:30-12:30 Laboratorio 718/719 
+    + [R: PCA](https://github.com/aldosolari/AE/blob/master/code/8_pca.pdf)
+    + [R: PCA applicazioni](https://github.com/aldosolari/AE/blob/master/code/9_pca2.pdf)
+    
+10. 5/12 8:30-11:30 Aula U1-10
+    + CA: metodo K-means : Analisi dei gruppi: metodo delle K-medie
+    
+11. 6/12 8:30-11:30 Aula U9-02
+    + Distanze : Distanza di Minkowski; distanza di Mahalanobis; Outliers multivariati; Invarianza rispetto alle trasformazioni lineari; Indici di similarità
+    
 
     
 ### Dati
@@ -48,3 +72,4 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
   + [heptathlon](https://github.com/aldosolari/AE/blob/master/data/heptathlon/heptathlon.pdf) : Risultati delle gare di eptathlon, Seoul 1988.
   + [whisky](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.pdf) : Punteggi sul sapore di 86 whisky. [Download .txt](https://github.com/aldosolari/AE/blob/master/data/whisky/whisky.txt)
   + [face](https://github.com/aldosolari/AE/blob/master/data/face/face.pdf) : Immagine 243 x 220 pixels. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/face/face.Rda)
+  + [wine](https://github.com/aldosolari/AE/blob/master/data/wine/wine.pdf) : Immagine 243 x 220 pixels. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/wine/wine.Rdata)
