@@ -85,4 +85,4 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 
   + [21 Aprile 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE210417.pdf)
 
-  + [21 Aprile 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE210417.pdf)
+  + [11 Settembre 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE110917.pdf)
