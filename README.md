@@ -48,21 +48,23 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     
 7. 5/12 8:30-11:30 Aula U1-10
     + [PCA](https://github.com/aldosolari/AE/blob/master/slides/8_pca.pdf) : Analisi delle componenti principali
+    + [PCA: applicazioni](https://github.com/aldosolari/AE/blob/master/slides/9_pca2.pdf) : Esempi di applicazione dell'analisi delle componenti principali
     
 8. 6/12 8:30-11:30 Aula U9-02
-    + [PCA: applicazioni](https://github.com/aldosolari/AE/blob/master/slides/9_pca2.pdf) : Esempi di applicazione dell'analisi delle componenti principali
+	+ [K-means](https://github.com/aldosolari/AE/blob/master/slides/10_kmeans.pdf) : Cluster Analysis: metodo delle $K$-medie
     
 *Quarta settimana*
 
 9. 11/12 10:30-12:30 Laboratorio 718/719 
     + [R: PCA](https://github.com/aldosolari/AE/blob/master/code/8_pca.pdf)
     + [R: PCA applicazioni](https://github.com/aldosolari/AE/blob/master/code/9_pca2.pdf)
+    + [R: k-means](https://github.com/aldosolari/AE/blob/master/code/10_kmeans.pdf)
     
 10. 5/12 8:30-11:30 Aula U1-10
-    + CA: metodo K-means : Analisi dei gruppi: metodo delle K-medie
+    + [Cluster Analysis: Distanze](https://github.com/aldosolari/AE/blob/master/slides/11_dist.pdf) : Distanza di Minkowski; distanza di Mahalanobis; Outliers multivariati; Invarianza rispetto alle trasformazioni lineari; Indici di similarità
     
 11. 6/12 8:30-11:30 Aula U9-02
-    + Distanze : Distanza di Minkowski; distanza di Mahalanobis; Outliers multivariati; Invarianza rispetto alle trasformazioni lineari; Indici di similarità
+	+ [Cluster Analysis: metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/12_hclust.pdf) : Cluster Analysis: metodi gerarchici
     
 
     
