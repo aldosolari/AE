@@ -51,7 +51,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [PCA: applicazioni](https://github.com/aldosolari/AE/blob/master/slides/9_pca2.pdf) : Esempi di applicazione dell'analisi delle componenti principali
     
 8. 6/12 8:30-11:30 Aula U9-02
-	+ [K-means](https://github.com/aldosolari/AE/blob/master/slides/10_kmeans.pdf) : Cluster Analysis: metodo delle $K$-medie
+	+ [K-means](https://github.com/aldosolari/AE/blob/master/slides/10_kmeans.pdf) : Cluster Analysis: metodo delle K-medie
     
 *Quarta settimana*
 
@@ -61,10 +61,10 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [R: k-means](https://github.com/aldosolari/AE/blob/master/code/10_kmeans.pdf)
     
 10. 5/12 8:30-11:30 Aula U1-10
-    + [Cluster Analysis: Distanze](https://github.com/aldosolari/AE/blob/master/slides/11_dist.pdf) : Distanza di Minkowski; distanza di Mahalanobis; Outliers multivariati; Invarianza rispetto alle trasformazioni lineari; Indici di similarità
+    + [Distanze](https://github.com/aldosolari/AE/blob/master/slides/11_dist.pdf) : Distanza di Minkowski; distanza di Mahalanobis; Outliers multivariati; Invarianza rispetto alle trasformazioni lineari; Indici di similarità
     
 11. 6/12 8:30-11:30 Aula U9-02
-	+ [Cluster Analysis: metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/12_hclust.pdf) : Cluster Analysis: metodi gerarchici
+	+ [Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/12_hclust.pdf) : Cluster Analysis: metodi gerarchici
     
 
     
@@ -77,3 +77,12 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
   + [wine](https://github.com/aldosolari/AE/blob/master/data/wine/wine.pdf) : Analisi chimica per 178 vini italiani. [Download .Rda](https://github.com/aldosolari/AE/blob/master/data/wine/wine.Rdata)
   + [paesi](https://github.com/aldosolari/AE/blob/master/data/paesi/paesi.pdf) : Forza lavoro paesi europei 1970. [Download .Rdata](https://github.com/aldosolari/AE/blob/master/data/paesi/paesi.Rdata)
   + [iris](https://github.com/aldosolari/AE/blob/master/data/iris/iris.pdf) : Lunghezza e la larghezza del sepalo e del petalo.
+  
+
+### Prove d'esame A.A. 2016/17
+
+  + [14 Febbraio 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE140217.pdf)
+
+  + [21 Aprile 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE210417.pdf)
+
+  + [21 Aprile 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE210417.pdf)
