@@ -4,7 +4,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 
 ### Avvisi
 
-* Prima lezione: martedì 21/11 ore 8:30 aula U1-10
+* Caricate nuove prove d'esame e codice R disponibile durante l'esame
 
 ### Lezioni
 
