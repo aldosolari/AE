@@ -66,6 +66,12 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 11. 6/12 8:30-11:30 Aula U9-02
 	+ [Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/12_hclust.pdf) : Cluster Analysis: metodi gerarchici
     
+    
+*Quinta settimana*
+
+12. 20/12 8:30-11:30 Laboratorio 718/719 
+    + [R: Distanze](https://github.com/aldosolari/AE/blob/master/code/11_dist.pdf)
+    + [R: Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/code/12_hclust.pdf)
 
     
 ### Dati
@@ -80,7 +86,15 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
   
 
 ### Prove d'esame A.A. 2016/17
-
+  + [10 Febbraio 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE100217.pdf)
   + [14 Febbraio 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE140217.pdf)
+  + [23 Febbraio 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE230217.pdf)
   + [21 Aprile 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE210417.pdf)
+  + [27 Giugno 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE270617.pdf)
+  + [11 Luglio 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE110717.pdf)
   + [11 Settembre 2017](https://github.com/aldosolari/AE/blob/master/esami/testo_AE110917.pdf)
+
+
+### Codice per l'esame
+
+  + [code](https://github.com/aldosolari/AE/blob/master/esami/code.R)

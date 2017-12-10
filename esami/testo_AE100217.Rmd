@@ -1,0 +1,216 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ 
+
+Corso di laurea: $\square$ SGI $\square$ SSE $\quad$ Anno: $\square$ II $\square$ III o più
+
+
+## Prova scritta di ASM - Modulo Analisi Esplorativa del 10.02.2017
+
+*La durata della prova è di 60 minuti*.\
+*Si svolgano gli esercizi 1 e 2 riportando il risultato dove indicato.*
+
+
+### Esercizio 1. Punteggio: 7
+
+Alla matrice $\underset{n\times p}{X}$ sono associati i seguenti autovalori
+$\lambda_1 = 6, \lambda_2 =4$
+e autovettori normalizzati $\underset{2\times 1}{v_1} = \left[
+\begin{array}{c}
+1/\sqrt{5}\\
+2/\sqrt{5}\\
+\end{array}
+\right]$, $\underset{2\times 1}{v_2} = \left[
+\begin{array}{c}
+2/\sqrt{5}\\
+-1/\sqrt{5}\\
+\end{array}
+\right]$. 
+
+a. Quante sono le colonne di $\underset{n\times p}{X}$? $p=\ldots$
+
+b. Determinare la matrice di varianze/covarianze $\underset{p\times p}{S} = 
+\left[
+\begin{array}{c}
+\\
+\\
+\\
+\\
+\end{array}\right.$
+
+
+c. Riportare 
+    - varianza totale = $\ldots\ldots\ldots\ldots$ e generalizzata  = $\ldots\ldots\ldots\ldots$ 
+     - l'indice di variabilità relativo (arrontondare al secondo decimale)  = $\ldots\ldots\ldots\ldots$. 
+
+d. Determinare $\underset{p\times p}{S^{2}} = 
+\left[
+\begin{array}{c}
+\\
+\\
+\\
+\\
+\end{array}\right.$
+
+e. Calcolare la proporzione di varianza spiegata dalla prima componente principale
+$$=\ldots\ldots\ldots$$
+
+f. Calcolare la correlazione tra la prima colonna $\underset{n\times 1}{\tilde{x}_1}$ di $\underset{n\times p}{\tilde{X}}$ e i punteggi $\underset{n\times 1}{y_1}$ della prima componente principale, arrotondando al secondo decimale 
+$$= \ldots\ldots\ldots$$
+
+g. Determinare (arrotondando al secondo decimale) la matrice di correlazione $\underset{p\times p}{R} = 
+\left[
+\begin{array}{c}
+\\
+\\
+\\
+\\
+\end{array}\right.$
+
+h. Riportare (arrotondando al secondo decimale) gli autovalori e gli autovettori normalizzati di $\underset{p\times p}{R}$ calcolata al punto precedente.
+
+\fbox{\parbox[b][8em][t]{1\textwidth}{ 
+
+\bigskip
+$\qquad$
+
+}}
+
+
+\newpage
+
+```{r, echo=F, include=T}
+rm(list=ls())
+# b.
+Lambda = diag(c(6,4))
+V = matrix(c(1/sqrt(5),2/sqrt(5),2/sqrt(5),-1/sqrt(5)), byrow=F, ncol=2)
+( S = V %*% Lambda %*% t(V) )
+# c.
+prod(diag(Lambda))
+sum(diag(Lambda))
+round( det(S) / prod( diag(S) ), 2)
+# d. 
+( S2 = V %*% Lambda^2 %*% t(V) )
+# e. 
+Lambda[1,1]/sum(diag(Lambda))
+# f. 
+round( V[1,1]*sqrt(Lambda[1,1])/sqrt(S[1,1]) , 2)
+# g. 
+R = diag(diag(S)^(-1/2)) %*% S %*% diag(diag(S)^(-1/2))
+round(R,2)
+# h.
+round(eigen(R)$values,2)
+round(eigen(R)$vectors,2)
+```
+
+
+
+\newpage
+
+
+## Esercizio 2. Punteggio: 6.5
+
+Si consideri il dataset `quakes` presente nella libreria `datasets`, che contiene $n=1000$ osservazioni (eventi sismici) su cui sono state misurate le seguenti $5$ variabili:
+
+* *lat* latitudine dell'evento sismico
+* *long* longitudine dell'evento sismico
+* *depth* profondità (in km) dell'evento sismico
+* *mag* magnitudo (scala Richter) 
+* *stations* Numero di stazioni che hanno riportato l'evento sismico
+
+
+a. Si consideri la matrice $\underset{1000\times 5}{X}$ che contiene le seguenti variabili: *lat*, *long*, *depth*, *mag* e *stations*. Si costruisca il diagramma a scatola con baffi (*boxplot*) per ciascuna delle variabili presenti in $\underset{1000\times 5}{X}$ e si riporti il numero di valori anomali (*outliers*). 
+
+\begin{tabular}{|c|c|c|c|c|c|}
+ & lat & long & depth & mag  & stations\\
+ \hline
+ numero di valori anomali & & & & & \\
+  & & & & & \\
+ \hline
+\end{tabular}
+
+```{r, echo=F, include=T}
+rm(list=ls())
+X = quakes
+apply(X,2,function(x) length(boxplot.stats(x)$out))
+```
+
+b. Per la matrice $\underset{1000\times 5}{X}$ calcolata al punto a., si calcoli il quadrato della distanza di Mahalanobis di ciascuna unità statistica $u'_i$ dal baricentro $\bar{x}'$ e si riporti il valore minimo e il valore massimo, arrotondando i calcoli al \underline{secondo decimale}. 
+
+```{r, echo=F, include=T}
+n = nrow(X)
+# vettore medie
+xbar = matrix(colMeans(X), ncol=1)
+S = var(X)*((n-1)/n)
+# matrice inversa
+InvS = solve(S)
+# quadrato della distanza di Mahalanobis per le n osservazioni
+dM2 = apply(X,1, function(u) t(u-xbar) %*% InvS %*% (u - xbar) )
+# valore minimo e massimo delle distanze di Mahalanobis al quadrato 
+round( min(dM2) , 2)
+round( max(dM2) , 2)
+```
+
+\fbox{\parbox[b][4em][t]{1\textwidth}{ 
+
+\bigskip
+
+$\displaystyle \min_{i=1,\ldots,1000}\{ d^2_M(u_i,\bar{x}) \}= \ldots\ldots\ldots\ldots \qquad \qquad \qquad \qquad \max_{i=1,\ldots,1000}\{ d^2_M(u_i,\bar{x}) \}= \ldots\ldots\ldots\ldots$
+
+
+}}
+
+
+c. Utilizzare l'algoritmo delle K-medie (specificando `algorithm = "Lloyd"`) per formare $K = 4$ gruppi sulla base della matrice dei dati standardizzati $\underset{1000\times 5}{Z}$ ottenuta a partire da $\underset{1000\times 5}{X}$, inizializzando i centroidi
+con le osservazioni di riga 200, 400, 600 e 800, ed eseguendo l’algoritmo una sola volta. Riportare i valori dei centroidi dei 4 gruppi ottenuti, arrotondando alla seconda cifra decimale. 
+
+```{r, echo=F, include=T}
+# kmeans
+Z <- scale(X, center=T, scale = sqrt(diag(S)))
+km = kmeans(Z, centers=Z[c(200,400,600,800),], algorithm = "Lloyd")
+round( km$centers, 2)
+```
+
+
+\begin{tabular}{|c|c|c|c|c|c|}
+ & \multicolumn{5}{c}{Centroidi}\\
+ & lat & long & depth & mag  & stations\\
+ \hline
+Gruppo 1 & $\qquad\quad$ & $\qquad\quad$& $\qquad\quad$& $\qquad\quad$& $\qquad\quad$\\
+& & & & & \\
+\hline
+Gruppo 2 & & & & & \\
+& & & & & \\
+ \hline
+Gruppo 3 & & & & & \\
+& & & & & \\
+ \hline
+Gruppo 4 & & & & & \\
+& & & & & \\
+ \hline
+\end{tabular}
+
+d. Calcolare, arrotondando al secondo decimale, l'indice di Calinski and Harabasz per i quattro gruppi individuati al punto c.
+
+```{r, echo=F, include=T}
+# indice di Calinski and Harabasz
+W = km$tot.withinss
+B = km$betweenss 
+K = 4
+( CH = (B/(K-1)) / (W/(n-K)) )
+```
+
+\fbox{\parbox[b][4em][t]{1\textwidth}{ 
+
+\bigskip
+
+Indice di Calinski and Harabasz = 
+}}

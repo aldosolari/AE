@@ -1,0 +1,357 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ 
+
+
+## Prova scritta di ASM - Modulo Analisi Esplorativa del 14.02.2017
+
+*La durata della prova è di 90 minuti*.\
+*Si svolgano gli esercizi A e B riportando il risultato dove indicato.*
+
+
+### Esercizio A (Punti: 14)
+
+1. *Decomposizione Spettrale e Analisi delle Componenti Principali*
+
+Alla matrice di varianze/covarianze relativa a $\underset{n\times p}{X}$ sono associati i seguenti autovalori e autovettori normalizzati:
+$\lambda_1 = 9$, $\lambda_2 =6$, $\underset{2\times 1}{v_1} = \left[
+\begin{array}{c}
+1/\sqrt{5}\\
+2/\sqrt{5}\\
+\end{array}
+\right]$ e $\underset{2\times 1}{v_2} = \left[
+\begin{array}{c}
+2/\sqrt{5}\\
+-1/\sqrt{5}\\
+\end{array}
+\right]$. 
+
+
+a. Determinare la matrice di varianze/covarianze $\underset{p\times p}{S} = 
+\left[
+\begin{array}{cc}
+\\
+\ldots\ldots &  \ldots\ldots \\
+\\
+\ldots\ldots &  \ldots\ldots \\
+\end{array}\right]$
+
+
+b. Riportare
+
+    - varianza totale = $\ldots\ldots\ldots\ldots$ e generalizzata  = $\ldots\ldots\ldots\ldots$ 
+    
+    - l'indice di variabilità relativo (\underline{arrotondare al secondo decimale})  = $\ldots\ldots\ldots\ldots$. 
+
+c. Determinare, \underline{arrotondando al secondo decimale}, $\underset{p\times p}{S^{1/2}} = 
+\left[
+\begin{array}{cc}
+\\
+\ldots\ldots &  \ldots\ldots \\
+\\
+\ldots\ldots &  \ldots\ldots \\
+\end{array}\right]$
+
+d. Calcolare la correlazione tra la seconda colonna $\underset{n\times 1}{\tilde{x}_2}$ di $\underset{n\times p}{\tilde{X}}$ e i punteggi $\underset{n\times 1}{y_2}$ della seconda componente principale, \underline{arrotondando al secondo decimale}. 
+$$= \ldots\ldots\ldots$$
+
+```{r, echo=F, include=T}
+rm(list=ls())
+# 1.a
+Lambda = diag(c(9,6))
+V = matrix(c(1/sqrt(5),2/sqrt(5),2/sqrt(5),-1/sqrt(5)), byrow=F, ncol=2)
+S = V %*% Lambda %*% t(V)
+round(S,2)
+# 1.b.
+prod(diag(Lambda))
+sum(diag(Lambda))
+round( det(S) / prod( diag(S) ), 2)
+# 1.c 
+sqrtS = V %*% Lambda^(1/2) %*% t(V)
+round(sqrtS,2)
+# 1.d 
+round( V[2,2]*sqrt(Lambda[2,2])/sqrt(S[2,2]) , 2)
+```
+
+2. *Distanze e Cluster Analysis*
+
+
+a. Per una generica matrice di dati $\underset{n\times p}{X}$, si riporti la definizione di distanza di Minkowski $d_{m}(u_i,u_l)$ di ordine $m\geq 1$ tra due unità statistiche $\underset{1\times p}{u'_i}$ e $\underset{1\times p}{u'_l}$. 
+
+\fbox{\parbox[b][6em][t]{1\textwidth}{
+
+\bigskip
+
+\bigskip
+$d_{m}(u_i,u_l) = $
+\bigskip
+
+}}
+
+
+b. Per una generica matrice di distanze $\underset{n\times n}{D}$ con elemento di posizione $(i,l)$ pari a $d(u_i, u_l)$, si riporti la definizione di legame medio tra due gruppi $G_1$ e $G_2$. 
+
+\fbox{\parbox[b][6em][t]{1\textwidth}{
+
+\bigskip
+
+\bigskip
+$d(G_1,G_2) = $
+\bigskip
+
+}}
+
+
+c. Si calcoli il valore dell'indice di similarità di Jaccard per il seguente esempio:
+
+\[
+\displaystyle 
+\left[
+\begin{array}{cccccc}
+0 & 1 & 0 & 1 & 1 \\
+0 & 1 & 0 & 1 & 0 \\
+\end{array}
+\right] = 
+\left[
+\begin{array}{c}
+u'_1      \\
+u'_2\\
+\end{array}
+\right] 
+\]
+
+\fbox{\parbox[b][6em][t]{1\textwidth}{
+
+\bigskip
+
+\bigskip
+$s_J(u_1,u_2) = $
+\bigskip
+
+}}
+
+3. *Analisi Fattoriale*
+
+a. Si riportino le assunzioni del modello fattoriale con $k$ fattori $\underset{p\times 1}{x} = \underset{p\times k}{\Lambda} \underset{k\times 1}{f} + \underset{p\times 1}{u}$. 
+
+\fbox{\parbox[b][12em][t]{1\textwidth}{ 
+
+\bigskip
+- $\mathbb{E}(\underset{p\times 1}{x} ) = $ 
+
+\bigskip
+- $\mathbb{E}(\underset{k\times 1}{f} ) = \qquad  \qquad\qquad\qquad, \mathbb{C}\mathrm{ov}(\underset{k\times 1}{f} ) =$
+
+\bigskip
+- $\mathbb{E}(\underset{p\times 1}{u} )  = \qquad  \qquad\qquad\qquad, \mathbb{C}\mathrm{ov}(\underset{p\times 1}{u} )  =$
+
+\bigskip
+- $\mathbb{C}\mathrm{ov}(\underset{p\times 1}{u},\underset{k\times 1}{f}) = $
+
+
+}}
+
+b. La seguente tabella riporta la stima della matrice di pesi fattoriali $\underset{5\times 2}{\hat{\Lambda}}$ di un modello fattoriale a due fattori ottenuta a partire dalla matrice di correlazione $\underset{5\times 5}{R}$. 
+
+$$\displaystyle \underset{5\times 2}{\hat{\Lambda}} = 
+\left[
+\begin{array}{cc}
+.56 & ? \\ 
+.78 & -.53\\
+.65 & .75 \\
+.94 & -.10\\
+? & -.54\\ 
+\end{array}
+\right]
+\begin{array}{c}
+x_1 \\
+x_2\\
+x_3 \\
+x_4\\
+x_5\\
+\end{array}$$
+
+Sapendo che le varianze specifiche di $x_1$ e $x_5$ sono pari a $\hat{\psi}_1 = 0.02$ e $\hat{\psi}_5 = 0.07$, determinare, \underline{arrotondando al secondo decimale},
+$$\hat{\lambda}_{12} = \ldots\ldots\ldots, \qquad \hat{\lambda}_{51} = \ldots\ldots\ldots$$
+
+```{r, echo=F, include=T}
+rm(list=ls())
+# 3.b
+round( sqrt(1 - (0.56^2) - 0.02) , 2)
+round( sqrt(1 - ((-0.54)^2) - 0.07), 2)
+```
+
+
+
+
+4. *Dimostrazione*
+
+Dimostrare che la matrice di centramento $\underset{n\times n}{H}$ è idempotente, giustificano tutti i passaggi. 
+
+\fbox{\parbox[b][12em][t]{1\textwidth}{ 
+
+\bigskip
+$\quad$
+
+}}
+
+
+\newpage 
+
+## Esercizio B (Punti: 13)
+
+
+Si consideri il dataset `iris` presente nella libreria `datasets` che contiene $n=150$ unità statistiche (fiori di genere Iris) relative alle $4$ variabili 
+
+* *Sepal.Length* (lunghezza dei sepali)
+* *Sepal.Width* (larghezza dei sepali)
+* *Petal.Length* (lunghezza dei petali)
+* *Petal.Width* (larghezza dei petali)  
+
+più l'ultima colonna *Species* che specifica la specie (con modalità *setosa*, *versicolor* e *virginica*). 
+
+
+1. Si consideri la matrice $\underset{150\times 4}{X}$ che contiene le seguenti variabili: *Sepal.Length*, *Sepal.Width*, *Petal.Length* e *Petal.Width*. si calcoli il quadrato della distanza di Mahalanobis di ciascuna unità statistica $u'_i$ dal baricentro $\bar{x}'$ e si riporti il valore medio e il valore massimo, arrotondando i calcoli al \underline{secondo decimale}. 
+
+```{r, echo=F, include=T}
+rm(list=ls())
+X = iris[,-5]
+n = nrow(X)
+# vettore medie
+xbar = matrix(colMeans(X), ncol=1)
+S = var(X)*((n-1)/n)
+# matrice inversa
+InvS = solve(S)
+# quadrato della distanza di Mahalanobis per le n osservazioni
+dM2 = apply(X,1, function(u) t(u-xbar) %*% InvS %*% (u - xbar) )
+# valore medio e massimo delle distanze di Mahalanobis al quadrato 
+round( mean(dM2) , 2)
+round( max(dM2) , 2)
+```
+
+\fbox{\parbox[b][6em][t]{1\textwidth}{ 
+
+\bigskip
+
+\bigskip
+
+$\displaystyle \frac{1}{150}\sum_{i=1}^{150} d^2_M(u_i,\bar{x}) = \ldots\ldots\ldots\ldots \qquad \qquad \qquad \qquad \max_{i=1,\ldots,150}\{ d^2_M(u_i,\bar{x}) \}= \ldots\ldots\ldots\ldots$
+
+
+}}
+
+
+
+2. Per la matrice di dati $\underset{150\times 4}{X}$, utilizzare l'algoritmo delle K-medie (specificando `algorithm = "Lloyd"`) per formare $K=3$ gruppi, inizializzando i centroidi con le osservazioni di riga 30, 80 e 110, ed eseguendo l’algoritmo una sola volta. Riportare 
+ 
+a. la numerosità dei 3 gruppi ottenuti; 
+
+b. i valori della tabella a doppia entrata che incrocia la classificazione ottenuta e la variabile *Species*; 
+
+c. il valore medio della silhouette (\underline{arrotondando al secondo decimale}) per i tre gruppi (utilizzando il comando `silhouette` presente nella libreria `cluster`) considerando come matrice delle distanze quella ottenuta con la metrica Euclidea.
+
+
+\fbox{\parbox[b][18em][t]{1\textwidth}{ 
+
+\bigskip
+
+a. Numerosità gruppo 1 = $\ldots\ldots\quad$, gruppo 2 = $\ldots\ldots\quad$, gruppo 3 = $\ldots\ldots$
+
+\bigskip
+\bigskip
+
+b. 
+\begin{tabular}{cccc}
+& setosa &  versicolor & virginica \\
+\\
+gruppo 1 & $\ldots\ldots$ & $\ldots\ldots$ & $\ldots\ldots$ \\
+\\
+gruppo 2 & $\ldots\ldots$ & $\ldots\ldots$ & $\ldots\ldots$\\
+\\
+gruppo 3 & $\ldots\ldots$ & $\ldots\ldots$ & $\ldots\ldots$\\
+\end{tabular}
+
+\bigskip
+\bigskip
+
+c. Valore medio silhouette per il gruppo 1 = $\ldots\ldots\quad$, gruppo 2 = $\ldots\ldots\quad$, gruppo 3 = $\ldots\ldots$
+
+}}
+
+
+
+```{r, echo=F, include=T}
+km = kmeans(X, centers = X[c(30,80,110),], algorithm = "Lloyd")
+
+table(km$cluster)
+table(km$cluster, iris$Species)
+D = dist(X, method = "euclidean")
+require(cluster)
+sil = silhouette(km$cluster, dist=D)
+round( summary(sil)$ clus.avg.widths, 2)
+```
+
+
+\newpage
+
+3. Partendo dalla matrice $\underset{150\times 4}{X}$ determinata al punto a., si calcoli la matrice dei dati standardizzati $\underset{150\times 4}{Z}$. Si conduca l'analisi delle componenti principali basata su $\underset{150\times 4}{Z}$ utilizzando il comando `prcomp()`, riportando (\underline{arrotondando alla seconda cifra decimale})
+
+
+a.  la proporzione di varianza spiegata dalle prime due componenti principali
+
+b.  l'equazione del punteggio (*score*) $y_{i2}$ della seconda componente principale per l'$i$-sima unità statistica
+
+c.  la correlazione tra i punteggi della prima componente principale e la prima colonna di $Z$
+
+
+```{r, echo=F, include=T}
+# matrice dei dati standardizzati Z
+Z = scale( X, center=TRUE, scale=sqrt(diag(S)) )
+# Analisi delle componenti principali
+pca = prcomp(Z, center=F, scale. = F)
+# Proporzione di varianza spiegata dalle prime due componenti principali
+round( summary(pca)$importance[3,2] , 2)
+# Pesi della seconda componente principale
+round( pca$rotation[,2, drop=F] , 2)
+# Correlazione punteggi prima componente principale e prima colonna di X
+round( cor( pca$x[,1] , Z[,1]), 2)
+sqrt(eigen(cor(Z))$values[1])*eigen(cor(Z))$vector[1,1]
+```
+
+
+\fbox{\parbox[b][16em][t]{1\textwidth}{ 
+
+\bigskip
+\bigskip
+
+a. Proporzione di varianza spiegata dalle prime due componenti principali: $\ldots\ldots$
+
+\bigskip
+\bigskip
+
+b. Punteggio $y_{i2}$ della prima componente principale per l'$i$-sima unità statistica:
+
+\bigskip
+$\displaystyle y_{i2} = \ldots\ldots\ldots \cdot z_{i1} +  \ldots\ldots\ldots \cdot z_{i2} + \ldots\ldots\ldots \cdot z_{i3} + \ldots\ldots\ldots \cdot z_{i4}$
+
+\bigskip
+\bigskip
+
+c. Correlazione tra i punteggi della prima componente principale e la prima colonna di $Z$: $\ldots\ldots$
+
+}}
+
+
+PUNTEGGI
+
+ESERCIZIO A (14 punti): 1/1/1/2/1.5/1.5/1/1.5/1.5/2
+
+ESERCIZIO B (13 punti): 2/1/2/2/2/2/2
