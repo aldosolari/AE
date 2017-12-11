@@ -24,7 +24,7 @@ p = ncol(X)
 ```
 
 2. Calcolare la matrice dei dati centrati $\tilde{X}$ come trasformazione lineare $\underset{n\times p}{X}\underset{p\times q}{A'} + 
-\underset{n\times 1}{1}\underset{1\times q}{b'}$ con $q=p$, $A = \underset{p\times p}{I}$ e $b = -\underset{1\times p}{\bar{x}}$
+\underset{n\times 1}{1}\underset{1\times q}{b'}$ con $q=p$, $A = \underset{p\times p}{I}$ e $b = -\underset{p\times 1}{\bar{x}}$
 
 ```{r}
 A = diag(rep(1,p))
