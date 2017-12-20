@@ -179,7 +179,7 @@ sum(dE2.Ztilde  - dM2)
 ```{r}
 
 Y = X
-Y[,"logbody"] = X[,"logbody"] - log(1000)
+Y[,"logbody"] = X[,"logbody"] + log(1000)
 n = nrow(Y)
 p = ncol(Y)
 
