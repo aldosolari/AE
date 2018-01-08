@@ -73,6 +73,11 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
     + [R: Distanze](https://github.com/aldosolari/AE/blob/master/code/11_dist.pdf)
     + [R: Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/code/12_hclust.pdf)
 
+*Sesta settimana*
+
+13. 9/1 8:30-11:30 Aula U1-10
+	+ [Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/13_fact.pdf) : Analisi fattoriale
+    
     
 ### Dati
 
