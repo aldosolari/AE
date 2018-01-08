@@ -76,7 +76,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 *Sesta settimana*
 
 13. 9/1 8:30-11:30 Aula U1-10
-	+ [Metodi gerarchici](https://github.com/aldosolari/AE/blob/master/slides/13_fact.pdf) : Analisi fattoriale
+	+ [Analisi fattoriale](https://github.com/aldosolari/AE/blob/master/slides/13_fact.pdf) : Modello fattoriale; Metodi di stima
     
     
 ### Dati
