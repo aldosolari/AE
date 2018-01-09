@@ -21,7 +21,7 @@ Corso di laurea: $\square$ SGI $\square$ SSE $\quad$ Anno: $\square$ II $\square
 
 ### Esercizio 1. Punteggio: 7
 
-Alla matrice $\underset{n\times p}{X}$ sono associati i seguenti autovalori
+Alla matrice $\underset{p\times p}{S}$ sono associati i seguenti autovalori
 $\lambda_1 = 6, \lambda_2 =4$
 e autovettori normalizzati $\underset{2\times 1}{v_1} = \left[
 \begin{array}{c}
