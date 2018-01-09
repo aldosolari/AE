@@ -77,6 +77,16 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 
 13. 9/1 8:30-11:30 Aula U1-10
 	+ [Analisi fattoriale](https://github.com/aldosolari/AE/blob/master/slides/13_fact.pdf) : Modello fattoriale; Metodi di stima
+	
+*Settima settimana*
+
+14. 16/1 8:30-11:30 Aula U1-10
+	+ [AF applicazioni](https://github.com/aldosolari/AE/blob/master/slides/14_fact2.pdf) : Analisi fattoriale: applicazioni
+	
+15. 17/1 8:30-11:30 8:30-11:30 Laboratorio 718/719 
+	+ [R: Analisi fattoriale](https://github.com/aldosolari/AE/blob/master/code/14_fact.pdf) 
+	
+	
     
     
 ### Dati
