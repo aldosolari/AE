@@ -301,6 +301,24 @@ round( R - fit, 4)</code></pre>
 <pre class="r"><code>factanal(covmat=R, factors=1, n.obs = n)$PVAL</code></pre>
 <pre><code>##    objective 
 ## 4.528823e-08</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Si calcolino le statistiche test rapporto di verosimiglianza <span class="math inline">\(T= n \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)\)</span> e <span class="math inline">\(T_{Bartlett}= ((n-1) - (2p+4k+5)/6) \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)\)</span> e il corrispondente <span class="math inline">\(p\)</span>-value. Infine, determinare <span class="math inline">\(c\)</span> per la regione critica <span class="math inline">\([c,+\infty)\)</span> al livello <span class="math inline">\(\alpha=5\%\)</span>.</li>
+</ol>
+<pre class="r"><code>k=1
+p=6
+af = factanal(covmat=R, factors=k, n.obs = n)
+Lambda = af$loadings[,]
+Psi = diag(af$uniqueness)
+fit = Lambda %*% t(Lambda) + Psi
+t = n*log(det(fit)/det(R))
+gdl = ((p-k)^2 - p - k)/2
+pchisq(t, lower.tail=TRUE, df=gdl)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code># regione critica livello 5%
+alpha=0.05
+c= qchisq(1-alpha, df=gdl)
+c</code></pre>
+<pre><code>## [1] 16.91898</code></pre>
 
 </div>
 <div id="dati-openclosed-book-examination-data" class="section level2">

@@ -142,6 +142,26 @@ round( R - fit, 4)
 factanal(covmat=R, factors=1, n.obs = n)$PVAL
 ```
 
+5. Si calcolino le statistiche test rapporto di verosimiglianza $T= n \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)$ e $T_{Bartlett}= ((n-1) - (2p+4k+5)/6) \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)$ e il corrispondente $p$-value. Infine, determinare $c$ per la regione critica $[c,+\infty)$ al livello $\alpha=5\%$.
+
+```{r, echo=T}
+k=1
+p=6
+af = factanal(covmat=R, factors=k, n.obs = n)
+Lambda = af$loadings[,]
+Psi = diag(af$uniqueness)
+fit = Lambda %*% t(Lambda) + Psi
+t = n*log(det(fit)/det(R))
+gdl = ((p-k)^2 - p - k)/2
+pchisq(t, lower.tail=TRUE, df=gdl)
+# regione critica livello 5%
+alpha=0.05
+c= qchisq(1-alpha, df=gdl)
+c
+```
+
+
+
 \newpage
 
 ## Dati Open/Closed Book Examination Data
