@@ -66,8 +66,10 @@ round(det(R),2)
 lambdas = round(eigen(R)$values,2)
 lambdas
 # d.  
+S = var(X)*((n-1)/n)
+Z = scale(X, center=F, scale = sqrt(diag(S)) )
 v1 = t(t(round(eigen(R)$vectors[,1],2)))
-y1 = (X %*% v1)
+y1 = (Z %*% v1)
 y1[1]
 # e. 
 v1[1] * sqrt(lambdas[1])

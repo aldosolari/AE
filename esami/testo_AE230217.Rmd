@@ -153,7 +153,7 @@ b. Calcolare la matrice dei dati standardizzati $\underset{200\times 5}{Z}$. Sul
 Riportare i valori della tabella a doppia entrata che incrocia la classificazione ottenuta e la variabile `sp`. 
 
 ```{r, echo=F, include=T}
-Z = scale(X, center=T, scale = diag(S)^(1/2))
+Z = scale(X, center=T, scale = diag(S)^(1/2))[,]
 D = dist(Z, method="maximum")
 hc = hclust(D, method="complete")
 gruppi = cutree(hc, k=3)
