@@ -562,6 +562,117 @@ Y <- pca$x[,1:2]
 km.pca <- kmeans(Y, centers = Y[c(25,75,125),], nstart=1, algorithm = "Lloyd")
 table(km.pca$cluster, iris$Species)
 
+#=======================
+# 14_fact
+#=======================
+
+R = matrix(c(
+  1.000, 0.439, 0.410, 0.288, 0.329, 0.248,
+  0.439, 1.000, 0.351, 0.354, 0.320, 0.329,
+  0.410, 0.351, 1.000, 0.164, 0.190, 0.181,
+  0.288, 0.354, 0.164, 1.000, 0.595, 0.470,
+  0.329, 0.320, 0.190, 0.595, 1.000, 0.464,
+  0.248, 0.329, 0.181, 0.470, 0.464, 1.000
+), byrow=T, ncol=6)
+colnames(R) = c("Gaelic", "English", "History", "Arithmetic", "Algebra", "Geometry")
+n = 220
+af <- factanal(covmat=R, factors=2, rotation="none", n.obs=n)   
+Lambda <- af$loadings[,]
+round(Lambda,3)
+h2 <- apply(af$loadings^2,1,sum)
+round(h2,3)
+Psi <- diag(af$uniquenesses)
+round(diag(Psi),3)
+fit = Lambda%*%t(Lambda) + Psi
+round( R - fit, 4)
+af2 <- factanal(covmat = R, factors=2, rotation="varimax", n.obs=n) # default
+round(af2$uniquenesses,3)
+af2$rotmat
+af2$loadings
+plot(af$loadings,xlim=c(-1,1), ylim=c(-1,1), pch="", asp=1)
+text(af$loadings, colnames(R))
+abline(h=0)
+abline(v=0)
+af2 <- varimax(af$loadings,normalize=FALSE)
+abline(0, af2$rotmat[2,1]/af2$rotmat[1,1], lty=2)
+abline(0, af2$rotmat[2,2]/af2$rotmat[1,2], lty=2)
+invR =  solve(R)
+h2<-1-1/(diag(solve(R)))
+round(h2,3)
+Psi = diag(1-h2)
+Rstar = R - Psi
+eigen = eigen(Rstar)
+k = 2
+Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
+h2 = apply(Lambda^2,1,sum)
+Psi = diag(1-h2)
+fit = Lambda%*%t(Lambda) + Psi
+round( R - fit, 4)
+factanal(covmat=R, factors=1, n.obs = n)$PVAL
+k=1
+p=6
+af = factanal(covmat=R, factors=k, n.obs = n)
+Lambda = af$loadings[,]
+Psi = diag(af$uniqueness)
+fit = Lambda %*% t(Lambda) + Psi
+t = n*log(det(fit)/det(R))
+gdl = ((p-k)^2 - p - k)/2
+pchisq(t, lower.tail=TRUE, df=gdl)
+alpha=0.05
+c= qchisq(1-alpha, df=gdl)
+library(bootstrap)
+data(scor)
+X <- scor
+n <- nrow(X)
+p <- ncol(X)
+R <- cor(X)
+round(R, 2)
+R0 <- R - diag(rep(1,p))
+h2 <- apply(abs(R0), 2, max)
+Psi = diag(1-h2)
+Rstar <- R - Psi 
+round(Rstar,2)
+eigen <- eigen(Rstar)
+k = 2
+Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
+h2.new = apply(Lambda^2, 1, sum)
+Psi.new <- diag(1-h2.new)
+Rstar.new = R - Psi.new
+for (i in 1:100){
+  h2 <- apply(Lambda^2, 1, sum)
+  Rstar <- R0 + diag(h2)
+  eigen <- eigen(Rstar)
+  Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
+}
+h2 <- apply(Lambda^2, 1, sum)
+Psi = diag(1-h2)
+fit = Lambda%*%t(Lambda) + Psi
+round( R - fit, 4)
+af <- factanal(X, factors=2, rotation="none")   
+Lambda <- af$loadings[,]
+h2 <- apply(af$loadings^2,1,sum)
+Psi <- diag(af$uniquenesses)
+fit = Lambda%*%t(Lambda) + Psi
+round( R - fit, 4)
+af2 <- factanal(X, factors=2, rotation="varimax") # default
+af2$uniquenesses
+af2$loadings
+plot(af$loadings,xlim=c(-1,1), ylim=c(-1,1), pch="", asp=1)
+text(af$loadings, names(X))
+abline(h=0)
+abline(v=0)
+af2 <- varimax(af$loadings,normalize=FALSE)
+abline(0, af2$rotmat[2,1]/af2$rotmat[1,1], lty=2)
+abline(0, af2$rotmat[2,2]/af2$rotmat[1,2], lty=2)
+punt.t <- factanal(X, factors=2, rotation="none", scores="regression") 
+plot(punt.t$scores,pch="")
+text(punt.t$scores, labels=c(1:88))
+scor[66,]
+scor[81,] 
+scor[2,]
+scor[87,]
+
+
 
 
 
