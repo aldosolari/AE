@@ -111,9 +111,7 @@ Università Milano-Bicocca, Corso di Laurea in Scienze Statistiche ed Economiche
 
 
 ### Esiti prove d'esame
-  + [25 Gennaio 2018](https://github.com/aldosolari/AE/blob/master/esami/esiti_AE250118.pdf)
-   + [Soluzione A](https://github.com/aldosolari/AE/blob/master/esami/soluzioneA_AE250118.pdf)
-   + [Soluzione B](https://github.com/aldosolari/AE/blob/master/esami/soluzioneB_AE250118.pdf)
+  + [25 Gennaio 2018](https://github.com/aldosolari/AE/blob/master/esami/esiti_AE250118.pdf), [Soluzione A](https://github.com/aldosolari/AE/blob/master/esami/soluzioneA_AE250118.pdf), [Soluzione B](https://github.com/aldosolari/AE/blob/master/esami/soluzioneB_AE250118.pdf)
 
 
 ### Codice per l'esame
