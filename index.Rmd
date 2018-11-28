@@ -1,0 +1,47 @@
+---
+title: "**Analisi Esplorativa**"
+output:
+  html_document:
+    theme: cosmo
+    toc: yes
+    toc_float: yes
+---
+
+Docente: [Aldo Solari](https://aldosolari.github.io/)
+
+__Analisi Esplorativa__ è il secondo modulo dell'insegnamento __Analisi Statistica Multivariata__. 
+Il modulo si propone di fornire un'introduzione ai principali metodi statistici per l'analisi di dati multidimensionali al fine di identificare strutture che consentano di ridurne la complessità preservando l'informazione originariamente presente nelle misurazioni.
+Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) del corso per maggiori dettagli. 
+
+
+# **Ultimi avvisi**
+
+* __28/11/2018__: Il corso inizia Venerdì 30 Novembre alle ore 13:30 in aula U9-01
+
+# **Calendario delle lezioni**
+
+Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali]().
+
+| N | Data | Aula | Orario | Argomenti | 
+|-|-|---|----|----|
+| 1 | 30/11/2018 | U9-01 | 13:30-16:30 (3h) | Introduzione al corso |
+| |  |  |  | [L'analisi multivariata](docs/slides/1_multi.pdf) |
+| |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) |
+||||||
+| 2 | 5/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Rappresentazioni grafiche](docs/slides/3_rapgraf.pdf)  |
+| |  |  |  | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf)  |
+||||||
+| 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  R: la matrice dei dati X |
+| |  |  |  | R: rappresentazioni grafiche  |
+| |  |  |  | R: spazio delle variabili e delle osservazioni  |
+
+# **Esami**
+
+Calendario degli esami
+
+TBD
+
+
+
+Questa pagina è stata aggiornata il `r Sys.time()`.
+
