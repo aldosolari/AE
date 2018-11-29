@@ -135,8 +135,8 @@ I testi delle domande del Questionario non verranno messi a disposizione, ma ver
 # **Dati**
 
 * [measures.csv](https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv)
-* [whisky.txt]()
-* [face.Rda]()
+* [whisky.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/whisky.txt)
+* [face.Rda](https://github.com/aldosolari/AE/blob/master/dati/face.Rda)
 
 # **Ricevimento**
 
