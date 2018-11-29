@@ -24,7 +24,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 
 | N | Data | Aula | Orario | Argomenti | 
 |-|-|---|----|------|
-| 1 | 30/11/2018 | U9-01 | 13:30-16:30 (3h) | Introduzione al corso |
+| 1 | 30/11/2018 | U9-01 | 13:30-16:30 (3h) | [Introduzione al corso](docs/slides/0_intro.pdf) |
 | |  |  |  | [L'analisi multivariata](docs/slides/1_multi.pdf) |
 | |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) |
 ||||||
@@ -103,7 +103,7 @@ La prova consiste in:
 
 2. Solo se 1. viene superato con esito positivo (almeno 3 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
 
-Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il seguente file contenente del codice R che potrebbe essere d'aiuto per la risoluzione degli esercizi
+Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il seguente file contenente esempi di comandi in R che potrebbero essere d'aiuto per la risoluzione degli esercizi
 
 * [codiceR](docs/esami/codiceR.pdf)
 
