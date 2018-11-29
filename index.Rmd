@@ -31,8 +31,8 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 | 2 | 5/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Rappresentazioni grafiche](docs/slides/3_rapgraf.pdf)  |
 | |  |  |  | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf)  |
 ||||||
-| 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  R: la matrice dei dati |
-| |  |  |  | R: rappresentazioni grafiche  |
+| 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  [R: la matrice dei dati](docs/labs/2_dati.html) |
+| |  |  |  | [R: rappresentazioni grafiche](docs/labs/3_rapgraf.html)  |
 | |  |  |  | R: spazio delle variabili e delle osservazioni  |
 ||||||
 | 4 | 12/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf)  |
@@ -115,7 +115,7 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 I testi delle domande del Questionario non verranno messi a disposizione, ma verranno discussi a lezione. Per quanto riguarda la Prova Scritta e di Laboratorio, vengono riportati i testi dell'anno passato (con i risultati ma senza il codice R per produrli):
 
 * [25 Gennaio 2018](docs/esami/scritto_AE250118.pdf)
-* 12 Febbraio 2018
+* [12 Febbraio 2018](docs/esami/scritto_AE120218.pdf)
 * 19 Aprile 2018
 * 3 Luglio 2018
 * 12 Settembre 2018
