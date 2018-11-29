@@ -120,7 +120,23 @@ I testi delle domande del Questionario non verranno messi a disposizione, ma ver
 * 3 Luglio 2018
 * 12 Settembre 2018
 
+# **Programma esteso**
 
+* __La matrice dei dati__: tipologie di variabili; valori mancanti; valori anomali; la matrice dei dati
+* __Rappresentazioni grafiche__: matrice di diagrammi di dispersione; diagramma tridimensionale; diagramma di dispersione condizionato; facce di Chernoff; stelle
+* __Spazio delle variabili e delle osservazioni__: interpretazione geometrica del vettore delle medie, della varianza, della correlazione
+* __Dati centrati e standardizzati__: matrice centrata e di centramento; matrice standardizzata
+* __Varianza totale e generalizzata__: varianza totale; varianza generalizzata; iper-ellissoidi
+* __Decomposizione spettrale__: teorema; dati ortogonalizzati; *Singular Value Decomposition*
+* __Analisi delle componenti principali__: teoria e applicazioni
+* __Analisi dei gruppi__: metodi gerarchici e non-gerarchici; metodo delle K-medie; distanza di Minkowski; distanza di Mahalanobis; *outliers* multivariati; invarianza delle distanze rispetto a trasformazioni lineari; indici di similarità; algoritmi agglomerativi
+* __Analisi fattoriale__: il modello fattoriale; metodi di stima; applicazioni
+
+# **Dati**
+
+* [measures.csv](https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv)
+* [whisky.txt]()
+* [face.Rda]()
 
 # **Ricevimento**
 
