@@ -11,7 +11,7 @@ Docente: [Aldo Solari](https://aldosolari.github.io/)
 
 __Analisi Esplorativa__ è il secondo modulo dell'insegnamento __Analisi Statistica Multivariata__. 
 Il modulo si propone di fornire un'introduzione ai principali metodi statistici per l'analisi di dati multidimensionali al fine di identificare strutture che consentano di ridurne la complessità preservando l'informazione originariamente presente nelle misurazioni.
-Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) del corso per maggiori dettagli. 
+Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) del corso per ulteriori dettagli. 
 
 
 # **Ultimi avvisi**
@@ -20,10 +20,10 @@ Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) de
 
 # **Calendario delle lezioni**
 
-Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali]().
+Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
 
 | N | Data | Aula | Orario | Argomenti | 
-|-|-|---|----|----|
+|-|-|---|----|------|
 | 1 | 30/11/2018 | U9-01 | 13:30-16:30 (3h) | Introduzione al corso |
 | |  |  |  | [L'analisi multivariata](docs/slides/1_multi.pdf) |
 | |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) |
@@ -31,15 +31,100 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 | 2 | 5/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Rappresentazioni grafiche](docs/slides/3_rapgraf.pdf)  |
 | |  |  |  | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf)  |
 ||||||
-| 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  R: la matrice dei dati X |
+| 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  R: la matrice dei dati |
 | |  |  |  | R: rappresentazioni grafiche  |
 | |  |  |  | R: spazio delle variabili e delle osservazioni  |
+||||||
+| 4 | 12/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf)  |
+| |  |  |  | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf)  |
+||||||
+| 5 | 14/12/2018 | U9-01 | 13:30-16:30 (3h) |  [Decomposizione spettrale](docs/slides/7_spectral.pdf)  |
+||||||
+| 6 | 8/1/2019 | Lab719 | 15:30-17:30 (2h) |  R: Dati centrati e standardizzati |
+| |  |  |  | R: Varianza totale e generalizzata  |
+| |  |  |  | R: Decomposizione spettrale |
+||||||
+| 7 | 9/1/2019 | U9-01 | 12:30-15:30 (3h) |  [Analisi delle componenti principali](docs/slides/8_pca.pdf)  |
+| |  |  |  | [PCA: applicazioni](docs/slides/9_pca2.pdf)  |
+||||||
+| 8 | 11/1/2019 | U9-01 | 13:30-16:30 (3h) |  [*Cluster analysis*: metodo delle K-medie](docs/slides/10_kmeans.pdf)  |
+||||||
+| 9 | 15/1/2019 | Lab719 | 15:30-18:30 (3h) |  R: PCA |
+| |  |  |  | R: k-means |
+||||||
+| 10 | 16/1/2019 | U9-01 | 12:30-15:30 (3h) |  [Distanze](docs/slides/11_dist.pdf)  |
+||||||
+| 11 | 18/1/2019 | U9-01 | 13:30-16:30 (3h) |  [*Cluster Analysis*: metodi gerarchici ](docs/slides/12_hclust.pdf)  |
+||||||
+| 12 | 22/1/2019 | Lab719 | 15:30-18:30 (2h) |  R: Distanze |
+| |  |  |  | R: Metodi gerarchici  |
+||||||
+| 13 | 23/1/2019 | U9-01 | 12:30-15:30 (3h) |  [Analisi fattoriale](docs/slides/13_fact.pdf)  |
+||||||
+| 14 | 25/1/2019 | U9-01 | 13:30-16:30 (3h) |  [Analisi fattoriale: applicazioni ](docs/slides/14_fact2.pdf)  |
+||||||
+| 15 | 29/1/2019 | Lab719 | 15:30-18:30 (3h) |  R: Analisi fattoriale |
+||||||
+
 
 # **Esami**
 
-Calendario degli esami
+L'esame di Analisi Statistica Multivariata (15 CFU) può essere sostenuto superando le tre __prove parziali__ relative a ciascuna modulo: 
 
-TBD
+1. R per l'Analisi Statistica Multivariata (3 CFU)
+2. Analisi Esplorativa (6 CFU)
+3. Modelli (6 CFU)
+
+e sostenendo poi una __prova orale facoltativa__ (che può essere richiesta dallo studente oppure dal docente).
+
+Si ricorda che 
+
+1. è necessario iscriversi alla prova parziale di Analisi Esplorativa
+2. è necessario iscriversi poi alla prova totale (15 CFU) ai fini dell'eventuale orale e verbalizzazione. 
+
+Calendario delle prove parziali di Analisi Esplorativa:
+
+| Data | Aula | Orario |
+|----|----|----|
+| 6 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 10:00 |
+| 22 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 14:30 |
+| Aprile | TBD | TBD |
+| Giugno | TBD | TBD |
+| Luglio | TBD | TBD |
+| Settembre | TBD | TBD |
+
+
+## Modalità d'esame
+
+La prova parziale di Analisi Esplorativa si svolgerà in __Laboratorio__. 
+La prova consiste in:
+
+1. __Questionario__: 5 domande a risposta chiusa (4 possibilità, una sola corretta) con 8 minuti di tempo a disposizione
+
+2. Solo se 1. viene superato con esito positivo (almeno 3 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
+
+Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il seguente file contenente del codice R che potrebbe essere d'aiuto per la risoluzione degli esercizi
+
+* [codiceR](docs/esami/codiceR.pdf)
+
+Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4 anni. 
+
+
+## Prove parziali passate
+
+I testi delle domande del Questionario non verranno messi a disposizione, ma verranno discussi a lezione. Per quanto riguarda la Prova Scritta e di Laboratorio, vengono riportati i testi dell'anno passato (con i risultati ma senza il codice R per produrli):
+
+* [25 Gennaio 2018](docs/esami/scritto_AE250118.pdf)
+* 12 Febbraio 2018
+* 19 Aprile 2018
+* 3 Luglio 2018
+* 12 Settembre 2018
+
+
+
+# **Ricevimento**
+
+Il Giovedì dalle 17:30 alle 18:30, stanza 2030, II piano, edificio U7. Per fissare un appuntamento, si prega di contattare il docente in anticipo via posta elettronica all'indirizzo aldo.solari@unimib.it. 
 
 
 
