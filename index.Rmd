@@ -33,7 +33,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 | 3 | 11/12/2018 | Lab719 | 15:30-17:30 (2h) |  [R: la matrice dei dati](docs/labs/2_dati.html) |
 | |  |  |  | [R: rappresentazioni grafiche](docs/labs/3_rapgraf.html)  |
-| |  |  |  | R: spazio delle variabili e delle osservazioni  |
+| |  |  |  | [R: spazio delle variabili e delle osservazioni](docs/labs/4_spazi.html)  |
 ||||||
 | 4 | 12/12/2018 | U9-01 | 12:30-15:30 (3h) |  [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf)  |
 | |  |  |  | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf)  |

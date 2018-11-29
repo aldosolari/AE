@@ -19,7 +19,7 @@ Importare i dati `measures`.
 ```{r}
 rm(list=ls())
 library(RCurl)
-measure <-read.csv(text=getURL("https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure/measure.csv"), header=T)
+measure <-read.csv(text=getURL("https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv"), header=T)
 ```
 
 1. Costruire il diagramma tridimensionale per le variabili `chest`, `waist` e `hips`,  utilizzando il comando `cloud()` che è disponibile nel pacchetto `lattice`:
