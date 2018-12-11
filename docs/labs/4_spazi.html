@@ -239,12 +239,15 @@ Caio      160   50</code></pre>
 <h3>Spazio delle variabili</h3>
 <pre class="r"><code>plot(X, xlim=c(0,200), ylim=c(0,200))
 text(x=X[,&quot;Altezza&quot;], y=X[,&quot;Peso&quot;], labels = row.names(X), pos=3)
-# baricentro (vettore delle medie trasposto)
-( barx = matrix(colMeans(X), ncol=1) )</code></pre>
+# vettore delle medie
+barx = matrix(colMeans(X), ncol=1)
+barx</code></pre>
 <pre><code>     [,1]
 [1,]  170
 [2,]   60</code></pre>
-<pre class="r"><code>( baricentro = t(barx) )</code></pre>
+<pre class="r"><code># baricentro (vettore delle medie trasposto)
+baricentro = t(barx)
+baricentro</code></pre>
 <pre><code>     [,1] [,2]
 [1,]  170   60</code></pre>
 <pre class="r"><code>points(baricentro, pch=19)</code></pre>
@@ -264,19 +267,21 @@ arrows(x0=0,y0=0,x1=tX[,&quot;Tizio&quot;], y1=tX[,&quot;Caio&quot;])</code></pr
 <p>Matrice <span class="math inline">\(X\)</span></p>
 <pre class="r"><code>n = 3
 p = 2
-X = matrix(c(4,1,-1,3,3,5) ,byrow=T ,ncol=p,nrow=n)
+X = matrix(c(4,1,-1,3,3,5) ,byrow=TRUE, ncol=p, nrow=n)
 X</code></pre>
 <pre><code>     [,1] [,2]
 [1,]    4    1
 [2,]   -1    3
 [3,]    3    5</code></pre>
 <p>Spazio delle osservazioni: vettori scarto dalla media</p>
-<pre class="r"><code>( tildex1 = matrix(X[,1] - mean(X[,1]), ncol=1) )</code></pre>
+<pre class="r"><code>tildex1 = matrix(X[,1] - mean(X[,1]), ncol=1)
+tildex1</code></pre>
 <pre><code>     [,1]
 [1,]    2
 [2,]   -3
 [3,]    1</code></pre>
-<pre class="r"><code>( tildex2 = matrix(X[,2] - mean(X[,2]), ncol=1) )</code></pre>
+<pre class="r"><code>tildex2 = matrix(X[,2] - mean(X[,2]), ncol=1)
+tildex2</code></pre>
 <pre><code>     [,1]
 [1,]   -2
 [2,]    0
@@ -328,6 +333,15 @@ acos(r12)</code></pre>
 acos(r12)*(180/pi)</code></pre>
 <pre><code>         [,1]
 [1,] 100.8934</code></pre>
+<p>Si provi a risolvere il seguente esercizio. Data una matrice <span class="math inline">\(X\)</span> di dimensioni <span class="math inline">\(10\times 2\)</span>, sapendo che:</p>
+<ul>
+<li>la lunghezza dei due vettori scarto dalla media <span class="math inline">\(\tilde{x}_1\)</span> e <span class="math inline">\(\tilde{x}_2\)</span> è pari a 4 e 9 rispettivamente</li>
+<li>l’angolo (in gradi) tra <span class="math inline">\(\tilde{x}_1\)</span> e <span class="math inline">\(\tilde{x}_2\)</span> è pari a <span class="math inline">\(70\)</span></li>
+</ul>
+<p>calcolare la matrice di varianze e covarianze <span class="math inline">\(S\)</span>.</p>
+<pre><code>         [,1]     [,2]
+[1,] 1.600000 2.279949
+[2,] 2.279949 8.100000</code></pre>
 </div>
 
 

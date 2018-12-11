@@ -2,12 +2,12 @@
 ---
 title: '**Rappresentazioni grafiche di tre o più dimensioni**'
 output:
+  pdf_document:
+    toc: yes
   html_document:
     theme: cosmo
     toc: yes
     toc_float: yes
-  pdf_document:
-    toc: yes
 ---
 
 ```{r startup, include = FALSE, message = FALSE, warning = FALSE}
@@ -21,9 +21,8 @@ Importare i dati `measures`.
 
 ```{r}
 rm(list=ls())
-# i dati si trovano nella cartella "dati" all'indirizzo: 
-# https://github.com/aldosolari/AE/tree/master/dati
-# potete scaricarli (da formato "Raw" e tasto destro "Save as")
+# i dati si trovano sezione "dati" della pagina web del corso:
+# potete scaricarli cliccando il tasto destro "Save as"
 # oppure usare il loro URL (Uniform Resource Locator)
 url <- "https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv"
 measure <- read.csv(url)
@@ -45,7 +44,7 @@ cloud(chest ~ waist + hips, group=gender, data=measure)
 
 Funzioni R più avanzate permettono di costruire un diagramma tridimensionale interattivo:
 
-```{r, echo=FALSE, eval=T}
+```{r, echo=FALSE, eval=F}
 library(plotly)
 p <- plot_ly(measure, x = ~waist, y = ~hips, z = ~chest, color = ~gender, colors = c("pink","blue")) %>%
   add_markers() %>%

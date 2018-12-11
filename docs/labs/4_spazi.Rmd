@@ -1,6 +1,8 @@
 ---
-title: "**Spazio delle variabili e delle osservazioni**"
+title: '**Spazio delle variabili e delle osservazioni**'
 output:
+  pdf_document:
+    toc: yes
   html_document:
     theme: cosmo
     toc: yes
@@ -29,9 +31,12 @@ X
 ```{r}
 plot(X, xlim=c(0,200), ylim=c(0,200))
 text(x=X[,"Altezza"], y=X[,"Peso"], labels = row.names(X), pos=3)
+# vettore delle medie
+barx = matrix(colMeans(X), ncol=1)
+barx
 # baricentro (vettore delle medie trasposto)
-( barx = matrix(colMeans(X), ncol=1) )
-( baricentro = t(barx) )
+baricentro = t(barx)
+baricentro
 points(baricentro, pch=19)
 ```
 
@@ -52,7 +57,7 @@ Matrice $X$
 ```{r}
 n = 3
 p = 2
-X = matrix(c(4,1,-1,3,3,5) ,byrow=T ,ncol=p,nrow=n)
+X = matrix(c(4,1,-1,3,3,5) ,byrow=TRUE, ncol=p, nrow=n)
 X
 ```
 
@@ -60,8 +65,10 @@ X
 Spazio delle osservazioni: vettori scarto dalla media
 
 ```{r}
-( tildex1 = matrix(X[,1] - mean(X[,1]), ncol=1) )
-( tildex2 = matrix(X[,2] - mean(X[,2]), ncol=1) )
+tildex1 = matrix(X[,1] - mean(X[,1]), ncol=1)
+tildex1
+tildex2 = matrix(X[,2] - mean(X[,2]), ncol=1)
+tildex2
 ```
 
 Per una rappresentazione dei due vettori scarto dalla media, si veda Figura 1. 
@@ -125,3 +132,25 @@ acos(r12)
 # angolo in gradi tra tildex1 e tildex2
 acos(r12)*(180/pi)
 ```
+
+Si provi a risolvere il seguente esercizio. Data una matrice $X$ di dimensioni $10\times 2$, sapendo che:
+
+* la lunghezza dei due vettori scarto dalla media $\tilde{x}_1$ e $\tilde{x}_2$ è pari a 4 e 9 rispettivamente
+* l'angolo (in gradi) tra $\tilde{x}_1$ e $\tilde{x}_2$ è pari a $70$
+
+calcolare la matrice di varianze e covarianze $S$. 
+
+```{r, echo=F}
+n = 10
+p = 2
+s11 = (4^2)/n
+s22 = (9^2)/n
+a_grad = 70
+a_rad = (a_grad * pi)/180
+r12 = cos(a_grad)
+s12 = r12 * sqrt(s11)*sqrt(s22)
+s21 = s12
+S = matrix(c(s11,s12,s21,s22), ncol=p, byrow=T)
+S
+```
+
