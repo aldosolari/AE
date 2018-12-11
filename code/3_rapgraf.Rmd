@@ -5,9 +5,9 @@ output:
   html_document: default
 ---
 
-```{r setup, include=FALSE}
-rm(list=ls())
-knitr::opts_chunk$set(echo = TRUE)
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = T, eval=T, message=F, warning=F, error=F, 
+                      comment=NA, cache=F)
 ```
 
 ## Dati Measures
@@ -15,21 +15,41 @@ knitr::opts_chunk$set(echo = TRUE)
 Importare i dati `measures`.
 
 ```{r}
-measure <- read.csv("~/Dropbox/Public/AE/Data/measure.csv")
+rm(list=ls())
+# i dati si trovano nella cartella "dati" all'indirizzo: 
+# https://github.com/aldosolari/AE/tree/master/dati
+# potete scaricarli (da formato "Raw" e tasto destro "Save as")
+# oppure usare il loro URL (Uniform Resource Locator)
+url <- "https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv"
+measure <- read.csv(url)
 ```
 
 1. Costruire il diagramma tridimensionale per le variabili `chest`, `waist` e `hips`,  utilizzando il comando `cloud()` che è disponibile nel pacchetto `lattice`:
 
-```{r, message=FALSE}
-require(lattice)
+```{r}
+library(lattice)
 cloud(chest ~ waist + hips, data=measure)
 ```
 
 2. Costruire il diagramma tridimensionale colorando le unità statistiche con colori diversi a seconda del sesso.
 
-```{r, message=FALSE}
+```{r}
 cloud(chest ~ waist + hips, group=gender, data=measure)
 ```
+
+
+Funzioni R più avanzate permettono di costruire un diagramma tridimensionale interattivo:
+
+```{r, echo=FALSE, eval=FALSE}
+library(plotly)
+p <- plot_ly(measure, x = ~waist, y = ~hips, z = ~chest, color = ~gender, colors = c("pink","blue")) %>%
+  add_markers() %>%
+  layout(scene = list(xaxis = list(title = 'x = waist (vita)'),
+                     yaxis = list(title = 'y = hips (fianchi)'),
+                     zaxis = list(title = 'z= chest (petto)')))
+p
+```
+
 
 3. Costruire la matrice dei diagrammi di dispersione colorando le unità statistiche con colori diversi a seconda del sesso,  e commentare. 
 
@@ -42,13 +62,14 @@ plot(measure[,-column.gender], col=(measure$gender=="male")+1)
 
 ```{r, message=FALSE}
 library("TeachingDemos")
-faces(measure[,-column.gender], scale=TRUE)
+faces(measure[,-column.gender], scale=TRUE) #scale=TRUE standardizza i dati
 ```
 
 5. Rappresentare gli individui con le stelle utilizzando il comando `stars()`, aggiungendo la legenda con l’argomento `key.loc = c(12,10)`. 
 
-```{r, message=FALSE}
-stars(measure[,-column.gender], scale=TRUE, key.loc = c(12, 10))
+```{r}
+stars(measure[,-column.gender], scale=TRUE, 
+      key.loc = c(12, 10)) # per posizionare la legenda alle coordinate (x,y)
 ```
 
 ## Dati Quakes
@@ -74,6 +95,7 @@ plot(lat ~ long, quakes, pch=".")
 
 ```{r}
 intervalli <- co.intervals(quakes$depth, number=4, overlap=0)
+intervalli
 coplot(lat ~ long | depth, data = quakes, given.v = intervalli, rows = 1)
 ```
 
