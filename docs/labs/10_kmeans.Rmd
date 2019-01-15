@@ -22,8 +22,7 @@ Applicare l'algoritmo delle  K-medie (argomento `algorithm = Lloyd`) sui dati $X
 
 ```{r}
 rm(list=ls())
-library(repmis)
-paesi <- source_data("https://github.com/aldosolari/AE/blob/master/dati/paesi.Rda?raw=True")
+paesi <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/dati/paesi.txt", header=TRUE)
 
 X = paesi[,-c(1,11)]
 n = nrow(X)

@@ -117,10 +117,10 @@ pesi $\underset{p\times p}{V}$.
 
 
 ```{r}
-library(repmis)
-wine <- source_data("https://github.com/aldosolari/AE/blob/master/dati/face.Rda?raw=True")
+rm(list=ls())
+face <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/dati/face.txt", header=FALSE)
 
-X = face
+X = as.matrix(face)
 n = nrow(face)
 p = ncol(face)
 
