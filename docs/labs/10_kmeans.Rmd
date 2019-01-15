@@ -1,23 +1,29 @@
 ---
-title: "Metodo delle $K$-medie"
+title: '**Metodo delle K medie**'
 output:
-  pdf_document: default
-  html_document: default
+  html_document:
+    theme: cosmo
+    toc: yes
+    toc_float: yes
+  pdf_document:
+    toc: yes
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-rm(list=ls())
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = T, eval= T, message=F, warning=F, error=F, comment=NA, cache=F, R.options=list(width=220))
 ```
 
 
-### Dati Forza Lavoro
+
+# Dati Forza Lavoro
 
 1. Importare i dati ed ottenere la matrice $X$ che contiene tutte le variabili ad esclusione di `Country` e `blocco`. 
 Applicare l'algoritmo delle  K-medie (argomento `algorithm = Lloyd`) sui dati $X$ specificando $K=3$ gruppi, inizializzando i centroidi con le osservazioni di riga 1, 25 e 26. Riportare le numerosità dei gruppi ottenuti e la tabella a doppia entrata che incrocia i gruppi ottenuti con la variabile `blocco`. 
 
 ```{r}
-load("/Users/aldosolari/Dropbox/Oldbox/TSC/esercitazioni tsc/slides/paesi.Rdata")
+rm(list=ls())
+library(repmis)
+paesi <- source_data("https://github.com/aldosolari/AE/blob/master/dati/paesi.Rda?raw=True")
 
 X = paesi[,-c(1,11)]
 n = nrow(X)
