@@ -67,3 +67,38 @@ sil <- silhouette(x=km$cluster, dist=D)
 row.names(sil) <- paesi$Country
 plot(sil)
 ```
+
+
+# Dati Face
+
+1. Importare i dati
+
+```{r}
+rm(list=ls())
+face <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/dati/face.txt", header=FALSE)
+
+X = as.matrix(face)
+n = nrow(face)
+p = ncol(face)
+```
+
+2. Creare un vettore di lunghezza $n\times p$
+
+```{r}
+X1 = matrix(c(X),ncol=1,nrow=n*p)
+```
+
+3. Applicare l'algoritmo delle  K-medie sul nuovo vettore specificando $K$ gruppi, e poi sostituire ogni elemento del vettore con il corrispondente centroide. Infine, trasformare il vettore ottenuto in una matrice $n\times p$.
+
+```{r}
+K = 3
+set.seed(123)
+km = kmeans(X1, centers = K)
+for (k in 1:K){
+X1[km$cluster==k] = km$centers[k]
+}
+X2 = matrix(X1, ncol=p,nrow=n)
+image(X2, col=gray(0:255/255), asp=p/n)
+```
+
+

@@ -16,7 +16,7 @@ Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) de
 
 # **Ultimi avvisi**
 
-* La lezione del 8/1/2019 h. 15:30 si svolgerà nei laboratori 719 e 718 e sarà trasmessa su WebEx (*room number*: 840 705 128)
+* Le lezioni di laboratorio si svolgeranno nei laboratori 719 e 718 e saranno trasmesse su WebEx (*room number*: 840 705 128)
 
 # **Calendario delle lezioni**
 
@@ -49,8 +49,9 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 | 8 | 11/1/2019 | U9-01 | 13:30-16:30 (3h) |  [*Cluster analysis*: metodo delle K-medie](docs/slides/10_kmeans.pdf)  |
 ||||||
-| 9 | 15/1/2019 | Lab719 | 15:30-18:30 (3h) |  R: PCA |
-| |  |  |  | R: k-means |
+| 9 | 15/1/2019 | Lab719 | 15:30-18:30 (3h) |  [R: PCA](docs/labs/8_pca.html) |
+| |  |  |  | [R: PCA applicazioni](docs/labs/9_pca2.html) |
+| |  |  |  | [R: k-means](docs/labs/10_kmeans.html) |
 ||||||
 | 10 | 16/1/2019 | U9-01 | 12:30-15:30 (3h) |  [Distanze](docs/slides/11_dist.pdf)  |
 ||||||
@@ -101,7 +102,7 @@ La prova consiste in:
 
 1. __Questionario__: 5 domande a risposta chiusa (4 possibilità, una sola corretta) con 8 minuti di tempo a disposizione
 
-2. Solo se 1. viene superato con esito positivo (almeno 3 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
+2. Solo se 1. viene superato con esito positivo (almeno 2 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
 
 Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il seguente file contenente esempi di comandi in R che potrebbero essere d'aiuto per la risoluzione degli esercizi
 
@@ -136,7 +137,8 @@ I testi delle domande del Questionario non verranno messi a disposizione, ma ver
 
 * [measures.csv](https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv)
 * [whisky.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/whisky.txt)
-* [face.Rda](https://github.com/aldosolari/AE/blob/master/dati/face.Rda)
+* [face.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/face.txt)
+* [paesi.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/paesi.txt)
 
 # **Ricevimento**
 

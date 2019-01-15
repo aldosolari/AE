@@ -118,3 +118,65 @@ pca$rotation[,] # coincide con V
 # punteggi
 head( pca$x ) # coincide con head(Y)
 ```
+
+5. Costruire il *biplot* e commentare. 
+
+```{r}
+# biplot
+biplot(pca)
+```
+
+6. Calcolare la correlazione tra il voto centrato sullo 0 dell'esame in `Statistics` e i punteggi della prima componente principale
+
+```{r}
+V[5,1]*pca$sdev[1]/sqrt(diag(S)[5])
+cor(Xtilde[,"Statistics"],Y[,1])
+```
+
+7. Scegliere il numero $q$ di componenti principali utilizzando i 
+criteri (i) proporzione di varianza spiegata dalle prime $q$ componenti superiore all'80\%; (ii) varianza spiegata da ciascuna componente maggiore di $c=\frac{1}{p}\sum_{j=1}^{p}\lambda_j$ (iii) utilizzando lo *scree plot*.
+
+```{r}
+# scelta di q: proporzione di varianza spiegata > 80%
+summary(pca)
+
+# scelta di q: varianza spiegata > c
+c = mean(pca$sdev^2)
+pca$sdev^2 > c
+
+# scelta di q: scree plot
+plot(pca, type="line")
+```
+
+# Dati PES
+
+1. Importare i dati `EURO4PlayerSkillsSep11` dalla libreria `SportsAnalytics`
+
+```{r}
+rm(list=ls())
+# carico la libreria SportsAnalytics (da installare)
+library(SportsAnalytics)
+data("EURO4PlayerSkillsSep11")
+PES = EURO4PlayerSkillsSep11
+```
+
+2. Selezionare solo i giocatori del campionato italiano e le variabili corrispondenti alle colonne da 15 a 40
+
+```{r}
+gita = PES$Nationality=="Italian"
+X = as.matrix(PES[gita,15:40])
+Position = as.factor(PES$Position[gita])
+Name = PES$Name[gita]
+```
+
+3. Applicare l'analisi delle componenti principali. Costruire il biplot con la funzione `autoplot` della libreria `ggfortify`, 
+colorando ogni punto in corrispondenza della posizione del giocatore in campo.
+
+```{r}
+pca = prcomp(X, center=TRUE)
+library(ggfortify)
+XPos = data.frame(X,Position)
+autoplot(pca, data = XPos, colour = "Position", 
+         loadings=TRUE, loadings.label = TRUE) + theme_bw()
+```
+
