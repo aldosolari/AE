@@ -78,9 +78,13 @@ pesi $\underset{p\times p}{V}$. Calcolare la percentuale di varianza spiegata da
 
 ```{r}
 rm(list=ls())
-library(repmis)
-wine <- source_data("https://github.com/aldosolari/AE/blob/master/dati/wine.Rdata?raw=True")
-
+wine <- read.csv("https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data", header  = FALSE)
+colnames(wine)<-c("Type","Alcohol",
+                  "Malic","Ash",
+                  "Alcalinity","Magnesium",
+                  "Phenols","Flavanoids",
+                  "Nonflavanoids","Proanthocyanins",
+                  "Color_int","Hue","Dilution","Proline")
 X = as.matrix(wine[,-1])
 n = nrow(X)
 p = ncol(X)
