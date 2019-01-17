@@ -1,24 +1,31 @@
 ---
-title: "**Analisi Esplorativa**"
+title: "Analisi Esplorativa"
+description: |
+  CdL in Scienze Statistiche ed Economiche, Università Milano-Bicocca 
+author:
+  - name: Aldo Solari
+    url: https://aldosolari.github.io/
+    affiliation: DEMS
+    affiliation_url: https://www.unimib.it/ateneo/dipartimenti-e-scuole/alla-scoperta-%E2%80%A6/dipartimento-economia-metodi-quantitativi-e-strategie-impresa
+date: "`r Sys.Date()`"
 output:
-  html_document:
-    theme: cosmo
-    toc: yes
-    toc_float: yes
+  radix::radix_article:
+    toc: true
+    toc_depth: 1
 ---
 
-Docente: [Aldo Solari](https://aldosolari.github.io/)
+
 
 __Analisi Esplorativa__ è il secondo modulo dell'insegnamento __Analisi Statistica Multivariata__. 
 Il modulo si propone di fornire un'introduzione ai principali metodi statistici per l'analisi di dati multidimensionali al fine di identificare strutture che consentano di ridurne la complessità preservando l'informazione originariamente presente nelle misurazioni.
 Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) del corso per ulteriori dettagli. 
 
 
-# **Ultimi avvisi**
+# Ultimi avvisi
 
 * Le lezioni di laboratorio si svolgeranno nei laboratori 719 e 718 e saranno trasmesse su WebEx (*room number*: 840 705 128)
 
-# **Calendario delle lezioni**
+# Calendario delle lezioni
 
 Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
 
@@ -68,7 +75,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 
 
-# **Esami**
+# Esami
 
 L'esame di Analisi Statistica Multivariata (15 CFU) può essere sostenuto superando le tre __prove parziali__ relative a ciascuna modulo: 
 
@@ -117,11 +124,11 @@ I testi delle domande del Questionario non verranno messi a disposizione, ma ver
 
 * [25 Gennaio 2018](docs/esami/scritto_AE250118.pdf)
 * [12 Febbraio 2018](docs/esami/scritto_AE120218.pdf)
-* 19 Aprile 2018
-* 3 Luglio 2018
-* 12 Settembre 2018
+* [19 Aprile 2018](docs/esami/scritto_AE190418.pdf)
+* [3 Luglio 2018](docs/esami/scritto_AE190618.pdf)
+* [12 Settembre 2018](docs/esami/scritto_AE120918.pdf)
 
-# **Programma esteso**
+## Programma esteso
 
 * __La matrice dei dati__: tipologie di variabili; valori mancanti; valori anomali; la matrice dei dati
 * __Rappresentazioni grafiche__: matrice di diagrammi di dispersione; diagramma tridimensionale; diagramma di dispersione condizionato; facce di Chernoff; stelle
@@ -133,18 +140,25 @@ I testi delle domande del Questionario non verranno messi a disposizione, ma ver
 * __Analisi dei gruppi__: metodi gerarchici e non-gerarchici; metodo delle K-medie; distanza di Minkowski; distanza di Mahalanobis; *outliers* multivariati; invarianza delle distanze rispetto a trasformazioni lineari; indici di similarità; algoritmi agglomerativi
 * __Analisi fattoriale__: il modello fattoriale; metodi di stima; applicazioni
 
-# **Dati**
+## Dati
 
 * [measures.csv](https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv)
 * [whisky.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/whisky.txt)
 * [face.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/face.txt)
 * [paesi.txt](https://raw.githubusercontent.com/aldosolari/AE/master/dati/paesi.txt)
 
-# **Ricevimento**
+## Ricevimento {.appendix}
 
 Il Giovedì dalle 17:30 alle 18:30, stanza 2030, II piano, edificio U7. Per fissare un appuntamento, si prega di contattare il docente in anticipo via posta elettronica all'indirizzo aldo.solari@unimib.it. 
 
 
+## Ringraziamenti {.appendix}
 
-Questa pagina è stata aggiornata il `r Sys.time()`.
+Il materiale di questo corso è largamente inspirato da:
+
+* Analisi dei Dati Multidimensionali. Appunti delle lezioni a cura di L. Finos
+* Tecniche Statistiche di Classificazione. Appunti delle lezioni a cura di a cura di F. Pauli e M. Chiogna
+
+
+
 
