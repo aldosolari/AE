@@ -154,10 +154,10 @@ Il Giovedì dalle 17:30 alle 18:30, stanza 2030, II piano, edificio U7. Per fiss
 
 ## Ringraziamenti {.appendix}
 
-Il materiale di questo corso è largamente inspirato da:
+Il materiale di questo corso è largamente ispirato da:
 
 * Analisi dei Dati Multidimensionali. Appunti delle lezioni a cura di L. Finos
-* Tecniche Statistiche di Classificazione. Appunti delle lezioni a cura di a cura di F. Pauli e M. Chiogna
+* Tecniche Statistiche di Classificazione. Appunti delle lezioni a cura di F. Pauli e M. Chiogna
 
 
 
