@@ -64,8 +64,8 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 | 11 | 18/1/2019 | U9-01 | 13:30-16:30 (3h) |  [*Cluster Analysis*: metodi gerarchici ](docs/slides/12_hclust.pdf)  |
 ||||||
-| 12 | 22/1/2019 | Lab719 | 15:30-18:30 (2h) |  R: Distanze |
-| |  |  |  | R: Metodi gerarchici  |
+| 12 | 22/1/2019 | Lab719 | 15:30-18:30 (2h) |  [R: Distanze](docs/labs/11_dist.html) |
+| |  |  |  | [R: Metodi gerarchici](docs/labs/12_hclust.html)  |
 ||||||
 | 13 | 23/1/2019 | U9-01 | 12:30-15:30 (3h) |  [Analisi fattoriale](docs/slides/13_fact.pdf)  |
 ||||||
