@@ -1565,8 +1565,20 @@ plot(hc.average, hang=-1)</code></pre>
 <div id="data-set-flower" class="section level1">
 <h1>Data set Flower</h1>
 <ol style="list-style-type: decimal">
-<li>Caricare il dataset <code>flower</code> presente nella libreria <code>cluster</code>. Costruire la matrice di dissimilarità con l’indice di Gower, specificando che le variabili <code>V1</code> e <code>V2</code> sono binarie simmetriche, mentre la variabile <code>V3</code> è binaria assimetrica.</li>
+<li>Caricare il dataset <code>flower</code> presente nella libreria <code>cluster</code>.</li>
 </ol>
+<p>Le variabili sono</p>
+<ul>
+<li>V1: winters, is binary and indicates whether the plant may be left in the garden when it freezes.</li>
+<li>V2: shadow, is binary and shows whether the plant needs to stand in the shadow.</li>
+<li>V3: tubers, is asymmetric binary and distinguishes between plants with tubers and plants that grow in any other way.</li>
+<li>V4: color, is nominal and specifies the flower’s color (1 = white, 2 = yellow, 3 = pink, 4 = red, 5 = blue).</li>
+<li>V5: soil, is ordinal and indicates whether the plant grows in dry (1), normal (2), or wet (3) soil.</li>
+<li>V6: preference, is ordinal and gives someone’s preference ranking going from 1 to 18.</li>
+<li>V7: height, is interval scaled, the plant’s height in centimeters.</li>
+<li>V8: distance, is interval scaled, the distance in centimeters that should be left between the plants.</li>
+</ul>
+<p>Costruire la matrice di dissimilarità con l’indice di Gower, specificando che le variabili <code>V1</code> e <code>V2</code> sono binarie simmetriche, mentre la variabile <code>V3</code> è binaria assimetrica.</p>
 <pre class="r"><code>require(cluster)
 data(flower)
 str(flower)</code></pre>
