@@ -1,0 +1,233 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots$ 
+
+Tipologia d'esame: $\Box$ 12 CFU $\qquad$ $\Box$ 15 CFU 
+
+## Prova scritta di ASM 12CFU e 15CFU - Modulo Analisi Esplorativa del 11.07.2017
+
+*La durata della prova è di 60 minuti*.\
+*Si svolgano gli esercizi 1, 2 e 3 riportando il risultato dove indicato.*
+
+### Esercizio 1 (Punti: 8)
+
+**1.a)** Siano date due unità statistiche $u_1' = (1, 1)$ e $u_2' = (2, 3)$. Calcolare 
+
+Distanza Euclidea $d_2(u_1,u_2) = \ldots\ldots$
+
+Distanza di Manhattan $d_1(u_1,u_2) = \ldots\ldots$
+
+Distanza di Lagrange $d_\infty(u_1,u_2) = \ldots\ldots$
+
+Distanza di Canberra $d_C(u_1,u_2) = \ldots\ldots$
+
+**1.b)** Si consideri la seguente matrice di distanze relativa a tre unità statistiche $u_1$, $u_2$ e $u_3$: 
+
+$\underset{3 \times 3}{D} =$\begin{tabular}{c|ccc}
+ & $u_1$ & $u_2$ & $u_3$  \\
+ \hline
+$u_1$    & 0 \\
+$u_2$     & 7 & 0 \\
+$u_3$   & 6 & 5 & 0 \\
+\end{tabular}
+
+Se utilizziamo un algoritmo gerarchico agglomerativo, le unità $u_1$ e $u_2$ vengono messe assieme nel gruppo $(u_1,u_2)$. Aggiornare la matrice delle distanze utilizzando il metodo del legame singolo:
+
+\begin{tabular}{c|cc}
+ & $(u_1,u_2)$ & $(u_3)$   \\
+ \hline
+$(u_1,u_2)$     & 0 \\
+$(u_3)$     & $\ldots$ & 0 \\
+\end{tabular}
+
+
+Aggiornare la matrice delle distanze utilizzando il metodo del legame medio:
+
+\begin{tabular}{c|cc}
+ & $(u_1,u_2)$ & $(u_3)$   \\
+ \hline
+$(u_1,u_2)$     & 0 \\
+$(u_3)$     & $\ldots$ & 0 \\
+\end{tabular}
+
+
+**1.c)** Si consideri la seguente decomposizione della distanza totale $T$ in distanza entro i gruppi $W$ e tra i gruppi $B$ per tre unità statistiche $u_1$, $u_2$ e $u_3$ raggruppate in due gruppi $G_1$ e $G_2$:
+
+\begin{tabular}{| l | rrr |}
+\hline
+ $G_1,G_2$ &  $W$  & $B$ & $T$ \\
+ \hline
+($u_1$), ($u_2,u_3$) & 2 & $\ldots$ & 12\\  
+($u_1,u_2$), ($u_3$)  & $\ldots$ & 10.5 & 12\\
+($u_1,u_3$), ($u_2$) & $\ldots$ & 8.5 & $\ldots$\\
+\hline
+\end{tabular}
+
+Completare la tabella con le informazioni mancanti.
+
+Qual è il raggruppamento ottimale? $G_1 = \ldots\ldots\ldots$, $G_2 = \ldots\ldots\ldots$ 
+
+### Esercizio 2 (Punti: 8)
+
+Data la matrice di varianze/covarianze $\underset{3\times 3}{S} = 
+\left[
+\begin{array}{ccc}
+4 & 3 & 1 \\
+3 & 9 & 2 \\
+1 & 2 & 1 \\
+\end{array}\right]$
+
+**2.a)** Riportare
+
+Varianza totale = $\ldots\ldots\ldots\ldots$ e generalizzata  = $\ldots\ldots\ldots\ldots$ 
+    
+L'indice di variabilità relativo (\underline{arrotondare al secondo decimale})  = $\ldots\ldots\ldots\ldots$. 
+    
+**2.b)** Determinare la matrice di correlazione $\underset{3\times 3}{R} = 
+\left[
+\begin{array}{ccc}
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots \\
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots\\
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots\\
+\end{array}\right].$
+
+
+**2.c)** Determinare, \underline{arrotondando al secondo decimale}, $\underset{p\times p}{S^{1/2}} = 
+\left[
+\begin{array}{cc}
+\\
+\ldots\ldots &  \ldots\ldots \\
+\\
+\ldots\ldots &  \ldots\ldots \\
+\end{array}\right]$
+
+**2.d)** Calcolare la correlazione tra la seconda colonna $\underset{n\times 1}{\tilde{x}_2}$ di $\underset{n\times p}{\tilde{X}}$ e i punteggi $\underset{n\times 1}{y_2}$ della seconda componente principale, \underline{arrotondando al secondo decimale}. 
+$$= \ldots\ldots\ldots$$
+
+```{r, echo=F, include=T}
+rm(list=ls())
+S = matrix(c(4,3,1,3,9,2,1,2,1), ncol=3)
+# 1.a
+sum(diag(S))
+det(S)
+round( det(S) / prod( diag(S) ), 2)
+# 2.b
+R = diag(diag(S)^(-1/2)) %*% S  %*% diag(diag(S)^(-1/2))
+R
+# 1.c 
+V = eigen(S)$vectors
+Lambda = diag(eigen(S)$values)
+sqrtS = V %*% Lambda^(1/2) %*% t(V)
+round(sqrtS,2)
+# 1.d 
+round( V[2,2]*sqrt(Lambda[2,2])/sqrt(S[2,2]) , 2)
+```
+
+
+### Esercizio 3 (Punti: 9)
+
+Importare il logo di R nella matrice $\underset{n\times p}{\tilde{X}}$ con $n=100$ e $p=76$ tramite i comandi
+
+```{r}
+rm(list=ls())
+library(png)
+logo <- readPNG(system.file("img", "Rlogo.png", package="png"))
+X <- t(logo[,,1])
+n = nrow(X)
+p = ncol(X)
+# visualizza immagine
+image(X, col=gray(0:255/255), asp=p/n)
+```
+
+
+**3.a)** Effettuare l'analisi delle componenti 
+principali dei dati centrati $\underset{n\times p}{\tilde{X}}$ (utilizzare il comando `princomp`),  riportando il numero delle componenti necessarie per spiegare almeno 85\% della variabilità:
+
+\bigskip
+
+NUMERO DI COMPONENTI = $\ldots\ldots$ PROPORZIONE DI VARIABILITA' SPIEGATA = $\ldots\ldots$ 
+
+
+```{r, echo=F, include=T}
+# PCA
+pca = princomp(X, cor=F)
+q = which( cumsum( pca$sdev^2/sum(pca$sdev^2) ) > .85 )[1]
+q
+cumsum( pca$sdev^2/sum(pca$sdev^2))[q]
+```
+
+**3.b)** Dopo aver calcolato la matrice dei 
+punteggi $\underset{n\times p}{Y} = \underset{n\times p}{\tilde{X}}\underset{p\times p}{V}$ e la matrice dei 
+pesi $\underset{p\times p}{V}$, ottenere la migliore approssimazione per $\underset{n\times p}{\tilde{X}}$ di rango $q$, 
+$\underset{n\times p}{A_q} = \underset{n\times q}{Y_q} \underset{q\times p}{V_q'}$, con $q$ determinato al punto precedente ( $q$ = numero delle componenti necessarie per spiegare almeno 85\% della variabilità). 
+Costruire l'immagine compressa $\underset{n\times p}{C} = \underset{n\times p}{A_q} + \underset{n\times 1}{1}\underset{1\times p}{\bar{x}}$, assicurandosi che tutti gli elementi di $\underset{n\times p}{C}$ siano compresi tra 0 e 1. Riportare infine i 5 numeri di sintesi per l'immagine compressa:
+
+MEDIA = $\ldots$
+
+MEDIANA = $\ldots$
+
+1 QUARTILE = $\ldots$
+
+3 QUARTILE = $\ldots$
+
+Min = $\ldots$
+
+Max = $\ldots$
+
+
+```{r, echo=F, include=T}
+V = pca$loadings
+Y = pca$scores
+xbar = matrix(pca$center, ncol=1)
+
+Yq = Y[,1:q]
+Vq = V[,1:q]
+
+# migliore approssimazione di rango q
+Aq = Yq %*% t(Vq)
+
+# compressione immagine
+one.n = matrix(rep(1,n), ncol=1)
+X2 = Aq + one.n %*% t(xbar)
+
+# forzo i valori tra 0 e 1
+X2 <- pmax(pmin(X2, 1), 0)
+
+# valori di sintesi
+summary(c(X2))
+```
+
+**3.c)** Confrontare l'immagine compressa con l'immagine originale calcolando il fattore di riduzione in termini di pixels e bytes (utilizzando il comando  `object.size`) 
+
+FATTORE DI RIDUZIONE (PIXELS) = $\ldots$
+
+FATTORE DI RIDUZIONE (BYTES) = $\ldots$
+
+```{r, echo=F, include=T}
+
+# confronta pixels utilizzati
+pixels = prod(dim(X))
+pixels2 = prod(dim(Yq)) + prod(dim(Vq)) + prod(dim(xbar))
+round(pixels/pixels2, 2) # fattore di riduzione
+
+# confronta memoria utilizzata
+size = object.size(X)
+size2 = object.size(Yq) + object.size(Vq) + object.size(xbar)
+round( size/size2, 2) # fattore di riduzione
+```
+
+
+
+
+

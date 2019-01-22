@@ -120,13 +120,28 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 
 ## Prove parziali passate
 
-I testi delle domande del Questionario non verranno messi a disposizione, ma verranno discussi a lezione. Per quanto riguarda la Prova Scritta e di Laboratorio, vengono riportati i testi dell'anno passato (con i risultati ma senza il codice R per produrli):
+I testi delle domande del Questionario non verranno messi a disposizione, ma verranno discussi a lezione. Per quanto riguarda la Prova Scritta e di Laboratorio, vengono riportati i testi (con i risultati ma senza il codice R per produrli). 
+
+A.A. 2017/18
 
 * [25 Gennaio 2018](docs/esami/scritto_AE250118.pdf)
 * [12 Febbraio 2018](docs/esami/scritto_AE120218.pdf)
 * [19 Aprile 2018](docs/esami/scritto_AE190418.pdf)
 * [3 Luglio 2018](docs/esami/scritto_AE190618.pdf)
 * [12 Settembre 2018](docs/esami/scritto_AE120918.pdf)
+
+A.A. 2016/17
+
+* [10 Febbraio 2017](docs/esami/testo_AE100217.pdf)
+* [14 Febbraio 2017](docs/esami/testo_AE140217.pdf)
+* [23 Febbraio 2017](docs/esami/testo_AE230217.pdf)
+* [21 Aprile 2017](docs/esami/testo_AE210417.pdf)
+* [27 Giugno 2017](docs/esami/testo_AE270617.pdf)
+* [11 Luglio 2017](docs/esami/testo_AE110717.pdf)
+* [11 Settembre 2017](docs/esami/testo_AE110917.pdf)
+
+I *file* originali contentenente il codice R sono disponibili in questo [archivio]( https://github.com/aldosolari/AE/tree/master/docs/esami).
+
 
 ## Programma esteso
 
