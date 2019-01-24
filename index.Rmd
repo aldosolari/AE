@@ -71,7 +71,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 | 14 | 25/1/2019 | U9-01 | 13:30-16:30 (3h) |  [Analisi fattoriale: applicazioni ](docs/slides/14_fact2.pdf)  |
 ||||||
-| 15 | 29/1/2019 | Lab719 | 15:30-18:30 (3h) |  R: Analisi fattoriale |
+| 15 | 29/1/2019 | Lab719 | 15:30-18:30 (3h) |  [R: Analisi fattoriale](docs/labs/14_fact.html) |
 ||||||
 
 
@@ -109,7 +109,7 @@ La prova consiste in:
 
 1. __Questionario__: 5 domande a risposta chiusa (4 possibilità, una sola corretta) con 8 minuti di tempo a disposizione
 
-2. Solo se 1. viene superato con esito positivo (almeno 2 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
+2. Solo se 1. viene superato con esito positivo (almeno 3 risposte corrette), si accede alla __Prova Scritta e di Laboratorio__. 
 
 Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il seguente file contenente esempi di comandi in R che potrebbero essere d'aiuto per la risoluzione degli esercizi
 
