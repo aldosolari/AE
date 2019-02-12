@@ -23,7 +23,7 @@ Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) de
 
 # Ultimi avvisi
 
-* Le lezioni di laboratorio si svolgeranno nei laboratori 719 e 718 e saranno trasmesse su WebEx (*room number*: 840 705 128)
+* Sono disponibili i risultati della prova d'esame del 6 Febbraio 2019: [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) - [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)
 
 # Calendario delle lezioni
 
@@ -118,7 +118,12 @@ Durante la Prova Scritta e di Laboratorio, lo studente avrà a disposizione il s
 Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4 anni. 
 
 
-## Prove parziali passate
+## Appelli A.A. 2018/19
+
+* 06/02/2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)  - [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) 
+
+
+## Prove passate
 
 I testi delle domande del Questionario non verranno messi a disposizione, ma verranno discussi a lezione. Per quanto riguarda la Prova Scritta e di Laboratorio, vengono riportati i testi (con i risultati ma senza il codice R per produrli). 
 

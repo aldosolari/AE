@@ -1,12 +1,12 @@
 ---
 title: '**Analisi Fattoriale**'
 output:
+  pdf_document:
+    toc: yes
   html_document:
     theme: cosmo
     toc: yes
     toc_float: yes
-  pdf_document:
-    toc: yes
 ---
 
 
