@@ -3,7 +3,6 @@ title: "Analisi Esplorativa"
 author: "Esiti prova d'esame - 22 Febbraio 2019"
 output:
   pdf_document: default
-  html_document: default
 ---
 
 ```{r, echo=FALSE, message=FALSE}

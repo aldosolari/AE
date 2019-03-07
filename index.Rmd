@@ -120,9 +120,9 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 
 ## Appelli A.A. 2018/19
 
-* 06/02/2019: [Testo](esami/AE060219/testo_AE060219.pdf) - [Soluzione](esami/AE060219/soluzione_AE060219.pdf)  - [Esiti](esami/AE060219/esiti_AE060219.pdf) 
+* 06/02/2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)  - [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) 
 
-* 22/02/2019: [Testo](esami/AE220219/testo_AE220219.pdf) - [Soluzione](esami/AE220219/soluzione_AE220219.pdf) - [Esiti](esami/AE220219/esiti_AE220219.pdf) 
+* 22/02/2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf) - [Esiti](docs/esami/AE220219/esiti_AE220219.pdf) 
 
 
 ## Prove passate
