@@ -23,7 +23,7 @@ Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) de
 
 # Ultimi avvisi
 
-* Sono disponibili i risultati della prova d'esame del 6 Febbraio 2019: [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) - [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)
+* Nessun avviso
 
 # Calendario delle lezioni
 
@@ -121,6 +121,8 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 ## Appelli A.A. 2018/19
 
 * 06/02/2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)  - [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) 
+
+* 22/02/2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf)  
 
 
 ## Prove passate
