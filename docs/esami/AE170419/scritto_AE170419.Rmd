@@ -1,0 +1,247 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = F, eval=F, message=F, warning=F, error=F,comment=NA, cache=F)
+```
+
+**17 Aprile 2019 - Analisi Esplorativa**
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Tipologia d'esame: $\qquad \Box$ 12 CFU $\qquad$ $\Box$ 15 CFU 
+
+\bigskip
+
+\hrule
+
+**Prova scritta - fila A**
+
+*Si svolgano gli esercizi riportando il risultato dove indicato. Durata: 70 minuti*
+
+\bigskip
+
+\hrule
+
+\bigskip
+
+### Esercizio 1 (10 punti)
+
+Il dataset `Boston` presente nella libreria `MASS` è composto da 506 osservazioni e 14 variabili: $crim$, $zn$, $indus$, $chas$, $nox$, $rm$, $age$, $dis$, $rad$, $tax$, $ptratio$, $black$, $lstat$, $medv$.  
+
+
+Le variabili di interesse per l'analisi sono trasformazioni delle variabili originali come elencato nel seguito:
+
+* $x_1=log(crim)$
+* $x_2 = zn/10$
+* $x_3 = log(indus)$
+* $x_4 = log(nox)$
+* $x_5 = log(rm)$
+* $x_6 = (age)^{2.5}/10000$
+* $x_7 = log(dis)$
+* $x_8 = log(rad)$
+* $x_9 = log(tax)$
+* $x_{10} = exp(0.4\cdot ptratio)/1000$
+* $x_{11} = black/100$
+* $x_{12} = \sqrt{lstat}$
+* $x_{13} = log(medv)$
+
+dove $\log$ indica il logaritmo naturale. 
+
+Si costruisca la matrice dei dati $\underset{506 \times 13}{X}$ che contiene le variabili $x_1,x_2,\ldots,x_{13}$.
+
+a. Si calcoli $d^2_M(x_i,\bar{x})$, il quadrato della distanza di Mahalanobis di ciascuna osservazione (ciascuna riga della matrice $X$) dal baricentro. Si riportino i valori di $d^2_M(x_i,\bar{x})$ solo se superano il valore 38, specificando anche l'indice della riga di $X$ a cui si fa riferimento.
+
+\fbox{\parbox[b][6em][t]{1\textwidth}{
+$\quad$
+}}
+
+```{r}
+library(MASS)
+Y = Boston
+X = cbind(
+  log(Y[,"crim"]),
+  Y[,"zn"]/10,
+  log(Y[,c("indus","nox","rm")]),
+  (Y[,"age"]^(2.5))/10000,
+  log(Y[,c("dis","rad","tax")]),
+  exp(0.4*Y[,"ptratio"])/1000,
+  Y[,"black"]/100,
+  sqrt(Y[,"lstat"]),
+  log(Y[,"medv"])
+)
+n = nrow(X)
+p = ncol(X)
+xbar = matrix(colMeans(X), nrow=p, ncol=1)
+S = var(X) * ((n-1)/n)
+InvS = solve(S)
+dM2 = apply(X,MARGIN=1, function(u) t(u-xbar) %*% InvS %*% (u - xbar) )
+round(dM2[dM2 >  38],2)
+```
+
+
+b. Sulla base della matrice dei dati standardizzati $\underset{506 \times 13}{Z}$, applicare l'algoritmo delle $K$ medie 
+(`algorithm = "Hartigan-Wong"`) inizializzando i $K$ centrodi utilizzando le prime $K$ osservazioni (righe $1,\ldots,K$ della matrice $Z$). Arrotondando il risultato alla seconda cifra decimale, riportare per  $K=5,6,\ldots,10$
+    - il valore dell'indice  $\mathrm{CH}(K) = \frac{B/(K-1)}{W/(n-K)}$ di Calinski and Harabasz 
+    - il valore medio della *silhouette* considerando come matrice delle distanze quella ottenuta con la metrica Euclidea basata su $Z$
+    
+\fbox{\parbox[b][6em][t]{1\textwidth}{
+$K \qquad\qquad\qquad\qquad\qquad\qquad 5 \qquad\qquad 6 \qquad\qquad 7 \qquad\qquad 8 \qquad\qquad 9 \qquad\qquad 10 $\\
+\\
+$CH(K)$\\
+\\
+$\mathrm{silhouette}(K)$
+}}
+
+```{r}
+Z = scale(X, center=T, scale=diag(S)^(1/2))
+D = dist(Z, method = "euclidean")
+K = 5:10
+CH <- vector()
+sil <- vector()
+library(cluster)
+for (k in 1:length(K)){
+km = kmeans(Z, centers=Z[1:K[k],], algorithm ="Hartigan-Wong")
+CH[k] = (km$betweenss/(K[k]-1))/(km$tot.withinss/(n-K[k]))
+sil[k] = summary(silhouette(x=km$cluster,dist=D))$avg.width
+}
+round(rbind(K,CH,sil),2)
+```
+
+c. Si consideri la stima di massima verosimiglianza per il  modello fattoriale con $k$ fattori basato sui dati standardizzati $Z$. Riportare il $p$-value del primo test non significativo al livello $5\%$ (e il corrispondente valore di $k$) per la sequenza di ipotesi nulle $H_0(k=1),H_{0}(k=2),H_{0}(k=3),\ldots$ dove $H_0(k)$="il modello fattoriale con $k$ fattori è corretto". 
+
+\fbox{\parbox[b][3em][t]{1\textwidth}{
+$\quad$
+}}
+
+```{r}
+k = which.max(sapply(1:8, function(k) factanal(Z,factors=k)$PVAL > 0.05 ))
+k
+round(factanal(Z,factors=k)$PVAL,4)
+```
+
+d. Stimare il modello fattoriale con $k=5$ fattori con il metodo della massima verosimiglianza utilizzando i dati standardizzati $Z$ e senza effettuare alcuna rotazione. Riportare il valore della statistica test  rapporto di verosimiglianza 
+$\displaystyle T= n \log \left(\frac{det(\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi})}{det(R)}\right)$ (arrotondando al terzo decimale)
+
+\fbox{\parbox[b][3em][t]{1\textwidth}{
+$\quad$
+}}
+
+```{r}
+R = cor(X)
+af5 = factanal(Z,factors=5, rotation="none", method="mle")
+Lambda = af5$loadings[,]
+Psi = diag(af5$uniqueness)
+fit = Lambda %*% t(Lambda) + Psi
+lrt = n*log(det(fit)/det(R))
+round(lrt,3)
+```
+
+e. Stimare il modello fattoriale con $k=7$ fattori con il metodo della massima verosimiglianza utilizzando i dati standardizzati $Z$ e senza effettuare alcuna rotazione. Riportare i punteggi fattoriali $\hat{f}_i$ con il metodo di Thompson (arrotondando alla seconda cifra decimale)
+per l'unità statistica corrispondente alla riga $i=100$ della matrice $Z$. 
+
+```{r}
+af7 = factanal(Z, factors=7, rotation="none", method="mle", scores = "regression")
+round(af7$scores[100,],2)
+```
+
+\fbox{\parbox[b][4em][t]{1\textwidth}{
+$\quad$
+}}
+
+### Esercizio 2 (6 punti)
+
+Sia 
+$$R = \left[\begin{array}{cc} 1 &   r   \\
+               r & 1 \\
+              \end{array}\right]$$ con $0< r < 1$.
+              
+a. Determinare gli autovalori di $R$:
+$$\lambda_1 = \ldots\ldots\ldots\ldots \qquad\qquad \lambda_2 = \ldots\ldots\ldots\ldots$$
+
+b. Determinare gli autovettori normalizzati di $R$:
+$$v_1 = \left[\begin{array}{c}\\
+\ldots\ldots\ldots \\
+\\
+\ldots\ldots\ldots\\
+              \end{array}\right], \qquad v_2 = \left[\begin{array}{c}\\
+\ldots\ldots\ldots \\
+\\
+\ldots\ldots\ldots\\
+              \end{array}\right]$$
+
+c. Determinare i punteggi delle componenti principali
+
+\bigskip
+
+$$y_{i1} = \ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots, \qquad y_{i2} = \ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots, \qquad i = 1,\ldots,n$$
+
+\newpage
+
+### Esercizio 3 (4 punti)
+
+Dimostrare, esplicitando tutti i passaggi e le quantità coinvolte, che il vettore $\underset{p\times 1}{u}$ di lunghezza unitaria che risolve il problema di massimo
+$$\max_{u:\|u\|=1}u'S u$$
+è l'autovettore $\underset{p\times 1}{v_1}$ (con segno positivo o negativo) della matrice di varianze/covarianze $\underset{p\times p}{S}$.
+
+\fbox{\parbox[b][50em][t]{1\textwidth}{
+
+$\quad$
+
+}}
+
+
+### Esercizio 4 (3 punti)
+
+Si consideri la seguente matrice di varianze/covarianze $\underset{3\times 3}{S} = 
+\left[
+\begin{array}{ccc}
+a & 0 & 0 \\
+0 & b & 0 \\
+0 & 0 & c \\
+\end{array}\right]$
+
+dove $a>0$, $b>0$ e $c>0$ sono costanti non note. 
+
+a. Calcolare la varianza totale
+
+$$=\ldots\ldots\ldots\ldots.$$
+
+b. Calcolare la varianza generalizzata 
+
+$$=\ldots\ldots\ldots\ldots.$$
+
+c. Calcolare l'indice di variabilità relativo 
+
+$$=\ldots\ldots\ldots\ldots.$$
+
+d. Determinare l'inversa della matrice di correlazione
+
+$\underset{3\times 3}{R}^{-1} = 
+\left[
+\begin{array}{ccc}
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots \\
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots\\
+\\
+\ldots\ldots &  \ldots\ldots  &  \ldots\ldots\\
+\end{array}\right].$
+
+
+### Esercizio 5 (3 punti)
+
+Enunciare il teorema di Eckart-Young.
+
+\fbox{\parbox[b][25em][t]{1\textwidth}{
+
+$\quad$
+
+}}

@@ -96,7 +96,7 @@ Calendario delle prove parziali di Analisi Esplorativa:
 |----|----|----|
 | 6 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 10:00 |
 | 22 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 14:30 |
-| 17 Aprile 2019 (non ufficiale) |  TBD | 14:00 |
+| 17 Aprile 2019 |  LAB718 | 14:00 |
 | Giugno | TBD | TBD |
 | Luglio | TBD | TBD |
 | Settembre | TBD | TBD |
@@ -122,7 +122,9 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 
 * 06/02/2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)  - [Esiti](docs/esami/AE060219/esiti_AE060219.pdf) 
 
-* 22/02/2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf) - [Esiti](docs/esami/AE220219/esiti_AE0220219.pdf) 
+* 22/02/2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf) - [Esiti](docs/esami/AE220219/esiti_AE0220219.pdf)
+
+* 17/04/2019: [Testo](docs/esami/AE170419/scritto_AE170419.pdf) - [Soluzione](docs/esami/AE170419/soluzione_AE170419.pdf) - [Esiti](docs/esami/AE170419/esiti_AE170419.pdf)
 
 
 ## Prove passate
