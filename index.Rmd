@@ -23,7 +23,7 @@ Si veda il [syllabus](https://aldosolari.github.io/AE/syllabus/syllabus.html) de
 
 # Ultimi avvisi
 
-* Nessun avviso
+* Calendario esami: 3 Luglio 2019 LAB719 ore 14:00, 16 Luglio LAB719 ore 8:00, 19 Settembre LAB905 ore 14:00 
 
 # Calendario delle lezioni
 
@@ -97,9 +97,9 @@ Calendario delle prove parziali di Analisi Esplorativa:
 | 6 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 10:00 |
 | 22 Febbraio 2019 | U14, LAB14A1 \& LAB1401 | 14:30 |
 | 17 Aprile 2019 |  LAB718 | 14:00 |
-| Giugno | TBD | TBD |
-| Luglio | TBD | TBD |
-| Settembre | TBD | TBD |
+| 3 Luglio | LAB719 | 14:00 |
+| 16 Luglio | LAB719 | 8:00 |
+| 19 Settembre | LAB905 | 14:00 |
 
 
 ## Modalità d'esame
