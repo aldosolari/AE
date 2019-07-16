@@ -128,6 +128,8 @@ Il risultato della prova parziale di Analisi Esplorativa __rimane valido__ per 4
 
 * 03/07/2019: [Testo](docs/esami/AE030719/testo_AE030719.pdf) - [Soluzione](docs/esami/AE030719/soluzione_AE030719.pdf) - [Esiti](docs/esami/AE030719/esiti_AE030719.pdf)
 
+* 16/07/2019: [Esiti](docs/esami/AE160719/esiti_AE160719.pdf)
+
 
 ## Prove passate
 
