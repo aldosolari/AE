@@ -31,7 +31,9 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 | 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf) |
 | |  |  |  | [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf) |
 ||||||
-| 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | [R]() |
+| 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | [R: la matrice dei dati ](docs/labs/2_dati.html) |
+| |  |  |  | [R: rappresentazioni grafiche](docs/labs/3_rapgraf.html) |
+| |  |  |  | [R: spazio delle variabili e delle osservazioni](docs/labs/4_spazi.html) |
 ||||||
 | 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata]() |
 ||||||

@@ -1,0 +1,156 @@
+---
+title: '**Spazio delle variabili e delle osservazioni**'
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    theme: cosmo
+    toc: yes
+    toc_float: yes
+---
+
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = T, eval= T, message=F, warning=F, error=F, comment=NA, cache=F, R.options=list(width=220))
+```
+
+# Tizio e Caio
+
+Tizio è alto 180 cm e pesa 70 Kg, Caio è alto 160 cm e pesa 50 Kg.
+
+```{r}
+rm(list=ls())
+Tizio = c(180,70)
+Caio = c(160,50)
+X = rbind(Tizio,Caio)
+colnames(X) = c("Altezza","Peso")
+X
+```
+
+### Spazio delle variabili
+
+```{r}
+plot(X, xlim=c(0,200), ylim=c(0,200))
+text(x=X[,"Altezza"], y=X[,"Peso"], labels = row.names(X), pos=3)
+# vettore delle medie
+barx = matrix(colMeans(X), ncol=1)
+barx
+# baricentro (vettore delle medie trasposto)
+baricentro = t(barx)
+baricentro
+points(baricentro, pch=19)
+```
+
+### Spazio delle osservazioni
+
+
+```{r}
+tX = t(X)
+plot(tX, xlim=c(0,200), ylim=c(0,200), pch=".")
+text(x=tX[,"Tizio"], y=tX[,"Caio"], labels = row.names(tX), pos=4)
+arrows(x0=0,y0=0,x1=tX[,"Tizio"], y1=tX[,"Caio"])
+```
+
+# Una matrice $3\times 2$
+
+Matrice $X$
+
+```{r}
+n = 3
+p = 2
+X = matrix(c(4,1,-1,3,3,5) ,byrow=TRUE, ncol=p, nrow=n)
+X
+```
+
+
+Spazio delle osservazioni: vettori scarto dalla media
+
+```{r}
+tildex1 = matrix(X[,1] - mean(X[,1]), ncol=1)
+tildex1
+tildex2 = matrix(X[,2] - mean(X[,2]), ncol=1)
+tildex2
+```
+
+Per una rappresentazione dei due vettori scarto dalla media, si veda Figura 1. 
+
+
+```{r, fig.width = 5, fig.height = 5, fig.cap = "Vettori scarto dalla media in $n=3$ dimensioni", echo=FALSE, message=FALSE}
+# 3-D
+require(plot3D)
+segments3D(lwd=0.5, x0 = 0, y0 =  0, z0 =  0,
+x1 = 0, y1 = 0, z1 =2.5,
+colkey = FALSE, labels=rownames(X), box=T, phi=0, theta=80,  xlim=c(-1,5), ylim=c(-6,2), zlim=c(0.5,3), xlab="1", ylab="2", zlab="3")
+
+segments3D(lwd=0.5, x0 = -2, y0 =  0, z0 =  0,
+x1 = 4, y1 = 0, z1 =0, add=T)
+segments3D(lwd=0.5, x0 = 0, y0 =  -4, z0 =  0,
+x1 = 0, y1 = 2, z1 =0, add=T)
+
+arrows3D(x0 = rep(0,2), y0 =  rep(0,2), z0 =  rep(0,2),
+x1 = c(2,-2), y1 = c(-3,0), z1 =  c(1,2), code = 2, add=T)
+
+text3D(x=c(2,-2),y=c(-3,0),z=c(1,2), labels=c(expression(tilde(x)[1]),expression(tilde(x)[2])), add=T, cex=1.5)
+
+points3D(x=2,y=-3,z=0, add=T, pch=".")
+points3D(x=-2,y=0,z=0, add=T, pch=".")
+ segments3D(x0 = 2, y0 =  -3, z0 =  1, x1 = 2, y1 = -3, z1 = 0, add=T, lwd=.5, lty=2)
+ segments3D(x0 = 2, y0 =  -3, z0 =  0, x1 = 0, y1 = -3, z1 = 0, add=T, lwd=.5, lty=2)
+ segments3D(x0 = 2, y0 =  -3, z0 =  0, x1 = 2, y1 = 0, z1 = 0, add=T, lwd=.5, lty=2)
+ segments3D(x0 = 2, y0 =  -3, z0 =  1, x1 = 0, y1 = 0, z1 = 1, add=T, lwd=.5, lty=2)
+text3D(x=c(0,2,0,0),y=c(0,0,-3,0),z=c(0,0,0,1), labels=c(0,2,-3,1), add=T, cex=.7)
+```
+
+Devianze, codevianze e correlazione:
+
+```{r}
+# devianze 
+ns11 = t(tildex1) %*% tildex1
+ns11
+# uguale a 
+(n-1)*var(X[,1])
+
+ns22 = t(tildex2) %*% tildex2
+ns22
+# uguale a 
+(n-1)*var(X[,2])
+
+# codevianza
+ns12 = t(tildex1) %*% tildex2
+ns12
+# uguale a
+(n-1)*var(X)[1,2]
+
+
+# correlazione
+r12 = ns12/sqrt(ns11*ns22)
+r12
+# uguale a
+cor(X)[1,2]
+
+# angolo in radianti tra tildex1 e tildex2
+acos(r12)
+# angolo in gradi tra tildex1 e tildex2
+acos(r12)*(180/pi)
+```
+
+Si provi a risolvere il seguente esercizio. Data una matrice $X$ di dimensioni $10\times 2$, sapendo che:
+
+* la lunghezza dei due vettori scarto dalla media $\tilde{x}_1$ e $\tilde{x}_2$ è pari a 4 e 9 rispettivamente
+* l'angolo (in gradi) tra $\tilde{x}_1$ e $\tilde{x}_2$ è pari a $70$
+
+calcolare la matrice di varianze e covarianze $S$. 
+
+```{r, echo=F}
+n = 10
+p = 2
+s11 = (4^2)/n
+s22 = (9^2)/n
+a_grad = 70
+a_rad = (a_grad * pi)/180
+r12 = cos(a_grad)
+s12 = r12 * sqrt(s11)*sqrt(s22)
+s21 = s12
+S = matrix(c(s11,s12,s21,s22), ncol=p, byrow=T)
+S
+```
+
