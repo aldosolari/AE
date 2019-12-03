@@ -1,0 +1,23 @@
+#
+
+url <- "https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv"
+measure <- read.csv(url)
+library(lattice)
+cloud(chest ~ waist + hips, group=gender, data=measure)
+column.gender <- which(names(measure)=="gender")
+plot(measure[,-column.gender], col=(measure$gender=="male")+1)
+
+#
+
+library("TeachingDemos")
+faces(measure[,-column.gender], scale=TRUE) 
+stars(measure[,-column.gender], scale=TRUE, 
+      key.loc = c(12, 10)) 
+
+#
+
+data("quakes")
+plot(lat ~ long, quakes, pch=".")
+intervalli <- co.intervals(quakes$depth, number=5, overlap=0)
+coplot(lat ~ long | depth, data = quakes, given.v = intervalli, rows = 1)
+

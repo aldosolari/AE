@@ -1,0 +1,56 @@
+#
+
+rm(list=ls()) 
+X <- matrix(
+  c(3,4,2,6,8,2,5,
+    5,5.5,4,7,10,5,7.5),
+  nrow=7,ncol=2,
+  byrow=FALSE)
+n <- nrow(X)
+p <- ncol(X)
+colnames(X)<-c("x1","x2")
+rownames(X)<-paste("u",1:n, sep="")
+barx = colMeans(X)
+S = ((n-1)/n) * var(X) 
+R = cor(X)
+plot(X)
+
+#
+
+n <- 20
+x1 <- -1 + 2* ((1:n) -1 )/(n-1)
+x2 <- x1^2 
+X <- cbind(x1,x2)
+plot(x1,x2)
+cor(X)
+round(cor(X),1) 
+
+#
+
+rm(list=ls())
+library("MASS")
+data(Animals)
+with(Animals,
+boxplot(brain, horizontal=TRUE)     
+)
+outs <- boxplot.stats(Animals$brain)$out 
+outsTRUE <- Animals$brain %in% outs 
+which.outs <- which(outsTRUE)
+rownames(Animals)[which.outs]
+
+#
+
+plot(brain~body, Animals)
+cor(Animals)
+plot(log(brain)~log(body), Animals)
+with(Animals, 
+     text(log(brain)~log(body), labels = row.names(Animals), pos=4)
+     )
+cor(log(Animals))
+library(aplpack) 
+bag <- bagplot(log(Animals))
+bag$pxy.outlier
+which.out<-which( rownames(Animals) %in% c("Brachiosaurus", "Triceratops", "Dipliodocus")) 
+plot(log(brain)~log(body), Animals[-which.out,])
+cor(log(Animals[-which.out,]))
+
