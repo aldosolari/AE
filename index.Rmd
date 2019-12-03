@@ -28,14 +28,40 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 | 1 | 28/11/2019 | U6-30 | 9:30-12:30 (3h) | [Analisi multivariata](docs/slides/1_multi.pdf) |
 | |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) |
 ||||||
-| 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | TBD |
+| 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf) |
+| |  |  |  | [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf) |
 ||||||
-| 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | TBD |
+| 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | [R]() |
 ||||||
-| 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | TBD  |
+| 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata]() |
 ||||||
-| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | TBD |
+| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale]() |
 ||||||
+| 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali]() |
+||||||
+| 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+||||||
+| 8 | 9/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
+||||||
+| 9 | 14/1/2020 | U7-13 | 9:30-12:30 (3h) | TBD |
+||||||
+| 10 | 15/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+||||||
+| 11 | 16/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
+||||||
+| 12 | 21/1/2020 | U7-13 | 9:30-12:30 (3h) | TBD |
+||||||
+| 13 | 22/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+||||||
+| 14 | 23/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
+||||||
+| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | TBD |
+||||||
+| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+||||||
+
+
+
 
 Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
 
