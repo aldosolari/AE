@@ -39,7 +39,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf) |
 ||||||
-| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale]() |
+| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale](docs/slides/7_spectral.pdf) |
 ||||||
 | 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali]() |
 ||||||
