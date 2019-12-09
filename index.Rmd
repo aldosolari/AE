@@ -19,7 +19,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 # Ultimi avvisi
 
-* Nessun avviso 
+* Pubbblicate le date dei primi due appelli 
 
 # Calendario delle lezioni
 
@@ -89,8 +89,8 @@ Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscr
 
 | Data | Aula | Orario |
 |----|----|----|
-| Gennaio | TBD | TBD |
-| Febbraio | TBD | TBD |
+| 7.2.2020 | Lab907-908 | 14:00-16:30 |
+| 21.2.2020 | Lab906-908 | 9:30-12:00 |
 | Aprile | TBD | TBD |
 | Giugno | TBD | TBD |
 | Luglio | TBD | TBD |
