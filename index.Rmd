@@ -21,6 +21,8 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 * Pubbblicate le date dei primi due appelli 
 
+* Prima esercitazione della dott. Belloni il 18.12.2019 dalle 9.30 alle 11.30 in aula U9-04 
+
 # Calendario delle lezioni
 
 | N | Data | Aula | Orario | Argomenti | 
@@ -66,6 +68,20 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 
 Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
+
+### Calendario delle esercitazioni (Dott.ssa Laura Belloni)
+
+| N | Data | Aula | Orario | Argomenti | 
+|-|-|---|----|------|
+| 1 | 18/12/2019 | U9-04 | 9:30-11:30 (2h) | TBD |
+||||||
+| 2 |  | |  | |
+||||||
+| 3 |  | |  | |
+||||||
+
+
+
 
 #### Testi di riferimento
 
