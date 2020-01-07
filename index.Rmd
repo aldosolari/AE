@@ -19,27 +19,25 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 # Ultimi avvisi
 
-* Pubbblicate le date dei primi due appelli 
-
-* Prima esercitazione della dott. Belloni il 18.12.2019 dalle 9.30 alle 11.30 in aula U9-04 
+* Nessun avviso 
 
 # Calendario delle lezioni
 
 | N | Data | Aula | Orario | Argomenti | 
 |-|-|---|----|------|
 | 1 | 28/11/2019 | U6-30 | 9:30-12:30 (3h) | [Analisi multivariata](docs/slides/1_multi.pdf) |
-| |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) |
+| |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) [[BB]](docs/blackboard/2_datiBB.pdf) |
 ||||||
-| 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf) |
-| |  |  |  | [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf) |
+| 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf) [[BB]](docs/blackboard/4_spaziBB.pdf) |
+| |  |  |  | [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf) [[BB]](docs/blackboard/5_fmatrBB.pdf) |
 ||||||
 | 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | [R: la matrice dei dati ](docs/labs/2_dati.html) |
 | |  |  |  | [R: rappresentazioni grafiche](docs/labs/3_rapgraf.html) |
 | |  |  |  | [R: spazio delle variabili e delle osservazioni](docs/labs/4_spazi.html) |
 ||||||
-| 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf) |
+| 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf) [[BB]](docs/blackboard/6_varianzeBB.pdf) |
 ||||||
-| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale](docs/slides/7_spectral.pdf) |
+| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale](docs/slides/7_spectral.pdf) [[BB]](docs/blackboard/7_spectralBB.pdf) |
 ||||||
 | 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali]() |
 ||||||
@@ -65,15 +63,13 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 
 
-
-
 Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
 
 ### Calendario delle esercitazioni (Dott.ssa Laura Belloni)
 
 | N | Data | Aula | Orario | Argomenti | 
 |-|-|---|----|------|
-| 1 | 18/12/2019 | U9-04 | 9:30-11:30 (2h) | TBD |
+| 1 | 18/12/2019 | U9-04 | 9:30-11:30 (2h) | [Esercitazione 1](docs/exe/1_exe.pdf) |
 ||||||
 | 2 |  | |  | |
 ||||||
@@ -92,7 +88,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 
 La prova parziale di Analisi Esplorativa si svolgerà in Laboratorio, e consiste in:
 
-1. 10 domande a risposta multipla: si accede alla prova successiva solo se si risponde correttamente ad almeno 6 domande
+1. Dieci domande a risposta multipla: si accede alla prova successiva solo se si risponde correttamente ad almeno 6 domande
 2. Prova scritta e di laboratorio con R 
 
 Il risultato della prova parziale di Analisi Esplorativa _rimane valido_ per 4 anni. 
