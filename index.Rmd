@@ -39,9 +39,9 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale](docs/slides/7_spectral.pdf) [[BB]](docs/blackboard/7_spectralBB.pdf) |
 ||||||
-| 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali]() |
+| 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali](docs/slides/8_pca.pdf) [[BB]](docs/blackboard/8_pcaBB.pdf) |
 ||||||
-| 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+| 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | [PCA: applicazioni](docs/slides/9_pca2.pdf)  |
 ||||||
 | 8 | 9/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
 ||||||
