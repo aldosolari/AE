@@ -43,7 +43,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | [Applicazioni della PCA](docs/slides/9_pca2.pdf)  |
 ||||||
-| 8 | 9/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R: matrice dei dati centrati e standardizzati](docs/labs/6_varianze.html) |
+| 8 | 9/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R: matrice dei dati centrati e standardizzati](docs/labs/5_fmatr.html) |
 ||||| [R: varianza totale e generalizzata](docs/labs/5_fmatr.html) |
 ||||| [R: teorema di decomposizione spettrale](docs/labs/7_spectral.html) |
 ||||| [R: analisi delle componenti principali](docs/labs/8_pca.html) |
