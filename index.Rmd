@@ -43,7 +43,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | [Applicazioni della PCA](docs/slides/9_pca2.pdf)  |
 ||||||
-| 8 | 9/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R: matrice dei dati centrati e standardizzati](docs/labs/5_fmatr.html) |
+| 8 | 9/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R: matrice dei dati centrati e standardizzati](docs/labs/5_fmatr.html) |
 ||||| [R: varianza totale e generalizzata](docs/labs/6_varianze.html) |
 ||||| [R: teorema di decomposizione spettrale](docs/labs/7_spectral.html) |
 ||||| [R: analisi delle componenti principali](docs/labs/8_pca.html) |
@@ -52,13 +52,13 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 10 | 15/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
 ||||||
-| 11 | 16/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
+| 11 | 16/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R]() |
 ||||||
 | 12 | 21/1/2020 | U7-13 | 9:30-12:30 (3h) | TBD |
 ||||||
 | 13 | 22/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
 ||||||
-| 14 | 23/1/2020 | Lab906/907 | 9:30-11:30 (3h) | [R]() |
+| 14 | 23/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R]() |
 ||||||
 | 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | TBD |
 ||||||
@@ -114,6 +114,11 @@ Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscr
 #### Propedeuticità
 
 Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l'Analisi Statistica Multivariata
+
+
+#### Appelli A.A. 2018/19
+
+* 6.2.2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf) 
 
 ## Ricevimento {.appendix}
 
