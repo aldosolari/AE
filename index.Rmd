@@ -48,9 +48,10 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||| [R: teorema di decomposizione spettrale](docs/labs/7_spectral.html) |
 ||||| [R: analisi delle componenti principali](docs/labs/8_pca.html) |
 ||||||
-| 9 | 14/1/2020 | U7-13 | 9:30-12:30 (3h) | TBD |
+| 9 | 14/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi dei gruppi: K-medie](docs/slides/10_kmeans.pdf) [[BB]](docs/blackboard/10_kmeansBB.pdf) |
+|  |  |  |  | [Analisi dei gruppi: distanze](docs/slides/11_dist.pdf) [[BB]](docs/blackboard/11_dist.pdf) |
 ||||||
-| 10 | 15/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+| 10 | 15/1/2020 | U9-11 | 9:30-11:30 (2h) | [Analisi dei gruppi: metodi gerarchici](docs/slides/12_hclust.pdf) [[BB]](docs/blackboard/12_hclustBB.pdf) |
 ||||||
 | 11 | 16/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R]() |
 ||||||
@@ -118,7 +119,11 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 #### Appelli A.A. 2018/19
 
-* 6.2.2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf) 
+* 6.2.2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)
+
+* 22.2.2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf)
+
+* 17.4.2019: [Testo](docs/esami/AE170419/testo_AE170419.pdf) - [Soluzione](docs/esami/AE170419/soluzione_AE170419.pdf)
 
 ## Ricevimento {.appendix}
 
