@@ -61,7 +61,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 13 | 22/1/2020 | U9-11 | 9:30-11:30 (2h) | [Analisi fattoriale: applicazioni](docs/slides/14_fact2.pdf) |
 ||||||
-| 14 | 23/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R: analisi fattoriale](14_fact.html) |
+| 14 | 23/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R: analisi fattoriale](docs/labs/14_fact.html) |
 ||||||
 | 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | TBD |
 ||||||
