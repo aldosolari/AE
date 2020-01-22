@@ -14,11 +14,104 @@ output:
 knitr::opts_chunk$set(echo = T, eval= T, message=F, warning=F, error=F, comment=NA, cache=F, R.options=list(width=220))
 ```
 
+# Il modello fattoriale
+
+Si consideri il modello fattoriale con $k=1$ fattore e $p=3$ variabili:
+$$\underset{p\times 1}{x} = \underset{p\times k}{\Lambda}\underset{k\times 1}{f} + \underset{p\times 1}{u}$$
+
+Si generino $n=20$ osservazioni indipendenti e identicamente distribuite da questo modello, salvando ciascuna osservazione $x$ nella riga $i$-sima della matrice $\underset{n\times p}{X}$. Per generare i dati, impostare il seme generatore dei numeri casuali `set.seed(123)` e specificare:
+
+* pesi fattoriali $\Lambda = (\lambda_1,\lambda_2,\lambda_3)'=(0.5,0.2,-0.1)$
+* varianze specifiche $diag(\Psi) = (\psi_1,\psi_2,\psi_3) = (0.0225, 0.0025, 0.008)$;
+* $f \sim N(0,1)$
+* $u \sim N_3(\underset{3\times 1}{0},\Psi)$ 
+
+```{r}
+n <- 20
+p <- 3
+Lambda <- matrix(c(0.5,0.2,-0.1), ncol=1)
+Psi <- diag(c(0.0225, 0.0025, 0.008))
+X <- matrix(NA,nrow=n,ncol=p)
+set.seed(123)
+for (i in 1:n){
+f <- rnorm(1)
+u <- rnorm(p, mean=0, sd=sqrt(diag(Psi)) )
+X[i,] <- Lambda %*% f + u 
+}
+```
+
+La geometria del modello fattoriale può essere rappresentata graficamente come segue: i punti neri sono le osservazioni $x$ generate come $\Lambda f$ (punti rossi) e aggiungendo l'errore $u$ (linee grigie).
+La retta rossa rappresenta il sottospazio dimensionale lungo il quale devono cadere tutti i valori di $f$ mostrato in rosso. 
+
+```{r, echo=F}
+X <- matrix(NA,nrow=n,ncol=p)
+f <- vector()
+u <- X
+set.seed(123)
+for (i in 1:n){
+f[i] <- rnorm(1)
+u[i,] <- rnorm(p, mean=0, sd=sqrt(diag(Psi)) )
+X[i,] <- Lambda %*% f[i] + u[i,]
+}
+library(scatterplot3d)
+s3d <- scatterplot3d(X,xlab=expression(x[1]),ylab=expression(x[2]),
+zlab=expression(x[3]),pch=16)
+s3d$points3d(matrix(seq(from=min(f)-1,to=max(f)+1,length.out=2),ncol=1)%*%t(Lambda), col="red",type="l")
+fw = f%*%t(Lambda)
+s3d$points3d(fw,col="red",pch=16)
+for (i in 1:n) {
+s3d$points3d(x=c(X[i,1],fw[i,1]),y=c(X[i,2],fw[i,2]),z=c(X[i,3],fw[i,3]),
+col="grey",type="l") 
+}
+```
+
+
+1. Calcolare la matrice di varianze/covarianze $\Sigma = \Lambda \Lambda' + \Psi$ e confrontarla con la sua stima $S$ ottenuta dalla matrice dei dati $X$
+
+```{r}
+Sigma = Lambda %*% t(Lambda) + Psi
+Sigma
+S = var(X) * ((n-1)/n)
+round(S,2)
+```
+
+2. Calcolare la matrice di correlazione $\mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}$ dove $D = diag(\Sigma)$ e confrontarla con la sua stima $R$ ottenuta dalla matrice dei dati $X$
+
+```{r}
+Corrx = diag(diag(Sigma)^(-1/2)) %*% Sigma %*% diag(diag(Sigma)^(-1/2))
+round(Corrx,2)
+R = cor(X)
+round(R,2)
+```
+
+3. Stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=1$ fattore (funzione `factanal()`, argomenti `factors=1` e  `rotation="none"`), ed ottenere
+* la stima della matrice dei pesi fattoriali $\hat{\Lambda}$;
+* la stima delle comunalità $\hat{h}^2_i$;
+* la stima delle varianze specifiche $\hat{\psi}_i$;
+
+```{r}
+af <- factanal(x=X, factors=1, rotation="none") 
+af
+# stima dei pesi fattoriali
+hatLambda <- af$loadings[,]
+round(hatLambda,3)
+# stima delle comunalità
+hatH2 <- apply(af$loadings^2,1,sum)
+round(hatH2,3)
+# stima delle varianze specifiche
+hatPsi <- diag(af$uniquenesses)
+round(diag(hatPsi),3)
+# differenza
+R - ( hatLambda%*%t(hatLambda) + hatPsi )
+```
+
+
 # Dati Esami
 
-1. Si consideri la seguente matrice di correlazione
+Si consideri la seguente matrice di correlazione
 
-```{r, echo=FALSE}
+```{r, echo=T}
+rm(list=ls())
 R = matrix(c(
  1.000, 0.439, 0.410, 0.288, 0.329, 0.248,
  0.439, 1.000, 0.351, 0.354, 0.320, 0.329,
@@ -36,56 +129,35 @@ relativa ai voti di $n=220$ studenti maschi nelle materie *Gaelic*, *English*, *
 I voti tra le materie sono correlati positivamente, ovvero gli studenti che vanno bene in una specifica materia vanno bene anche nelle altre. Le correlazioni più forti si trovano nel gruppo delle materie matematiche, e in misura leggermente inferiore, nel gruppo delle
 materie umanistiche, mentre c'è meno correlazione tra i due gruppi di materie.  
 
-2. Stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=2$ fattori (funzione `factanal()`, argomenti `factors=2` e  `rotation="none"`), ottenendo
-*  la stima della matrice dei pesi fattoriali, interpretando i due fattori ottenuti;
-*  la stima delle comunalità e delle varianze specifiche, interpretando la bontà del modello;
-* la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$.
+1. Stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=2$ fattori (funzione `factanal()`, argomenti `factors=2` e  `rotation="none"`), ottenendo la stima della matrice dei pesi fattoriali, interpretando i due fattori ottenuti;
 
 
 ```{r}
 n = 220
 # modello fattoriale con 2 fattori senza rotazione
-af <- factanal(covmat=R, factors=2, rotation="none", n.obs=n)   
+af <- factanal(covmat=R, factors=2, rotation="none", n.obs=n) 
 af
-
 # stima dei pesi fattoriali
 Lambda <- af$loadings[,]
 round(Lambda,3)
-
 # primo fattore "andare bene a scuola"
 # secondo fattore "math vs non-math"
-
-# stima delle comunalità
-h2 <- apply(af$loadings^2,1,sum)
-round(h2,3)
-
-# stima delle varianze specifiche
-Psi <- diag(af$uniquenesses)
-round(diag(Psi),3)
-
-# differenza
-fit = Lambda%*%t(Lambda) + Psi
-round( R - fit, 4)
 ```
 
-3. Stimare il modello fattoriale con $k=2$ fattori eseguendo la rotazione `varimax` della matrice dei pesi fattoriali (argomento `rotation="varimax"`).
+2. Stimare il modello fattoriale con $k=2$ fattori eseguendo la rotazione `varimax` della matrice dei pesi fattoriali (argomento `rotation="varimax"`).
 Confrontare le stime delle varianze specifiche e della matrice dei pesi fattoriali con la soluzione senza rotazione. 
 
 
 ```{r}
 # rotazione varimax
-af2 <- factanal(covmat = R, factors=2, rotation="varimax", n.obs=n) # default
-
-# le varianze specifiche non cambiano
-round(af2$uniquenesses,3)
+af2 <- factanal(covmat = R, factors=2, rotation="varimax", n.obs=n)
+af2
 
 # matrice di rotazione
 af2$rotmat
 
-
 # la matrice dei pesi fattoriali cambia
 af2$loadings
-
 # primo fattore "math"
 # secondo fattore "non-math"
 
@@ -99,71 +171,26 @@ abline(0, af2$rotmat[2,1]/af2$rotmat[1,1], lty=2)
 abline(0, af2$rotmat[2,2]/af2$rotmat[1,2], lty=2)
 ```
 
-
-3. Stimare il modello fattoriale con $k=2$ con il metodo dei fattori principali:
-
-* Calcolare la stima iniziale delle comunalità $\hat{h}^2_i$ come 
-$$\hat{h}^2_i = 1 - 1/r^{ii}$$, dove $r^{ii}$ è l'elemento di posizione $(i,i)$ della matrice $R^{-1}$
-* Ottenere la matrice di correlazione ridotta $$R^*= R - \hat{\Psi}$$ dove $\hat{\Psi} = diag(\hat{\psi}_1,\ldots,\hat{\psi}_p)$ con $\hat{\psi}_i = 1 - \hat{h}^2_i$
-* Calcolare la stima della matrice dei pesi fattoriali $$\hat{\Lambda} = V_k L^{1/2}_k$$ 
-dopo aver ottenuto la decomposizione spettrale di $R^* = V L V'$ e dove
-$\underset{p \times k}{V_k}$ contiene le prime $k$ colonne di $V$ e $\underset{k \times k}{L_k} = diag(l_1,\ldots,l_k)$ le prime $k$ colonne di $L$. 
-* calcolare la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$ e confrontarla con quanto ottenuto dalla stima di massima verosimiglianza.
-
-
-```{r}
-# calcolare R^-1
-invR =  solve(R)
-
-# stima iniziale delle comunalità 
-h2<-1-1/(diag(solve(R)))
-round(h2,3)
-# stima di Psi
-Psi = diag(1-h2)
-
-# matrice di correlazione ridotta
-Rstar = R - Psi
-
-# stima della matrice dei pesi fattoriali
-eigen = eigen(Rstar)
-k = 2
-Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
-Lambda
-
-# aggiorno stima delle comunalità 
-h2 = apply(Lambda^2,1,sum)
-Psi = diag(1-h2)
-
-# differenza
-fit = Lambda%*%t(Lambda) + Psi
-round( R - fit, 4)
-```
-
-
-4. Si riporti il $p$-value del test rapporto di verosimiglianza per verificare l'ipotesi nulla $H_0:$ `$k=1$ fattore è sufficiente', e si concluda ad un livello di significatività del $5\%$ se è opportuno utilizzare il modello fattoriale ad 1 fattore. 
+3. Si riporti il $p$-value del test rapporto di verosimiglianza per verificare l'ipotesi nulla $H_0:$ `$k=1$ fattore è sufficiente', e si concluda ad un livello di significatività del $5\%$ se è opportuno utilizzare il modello fattoriale ad 1 fattore. 
 
 ```{r, echo=T}
 factanal(covmat=R, factors=1, n.obs = n)$PVAL
 ```
 
-5. Si calcolino le statistiche test rapporto di verosimiglianza 
-$$T= n \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)$$ e $$T_{Bartlett}= ((n-1) - (2p+4k+5)/6) \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)$$ e il corrispondente $p$-value. Infine, determinare $c$ per la regione critica $[c,+\infty)$ al livello $\alpha=5\%$.
+4. Si calcoli la statistica test rapporto di verosimiglianza 
+$$T= n \log (|\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}|/|R|)$$ e il corrispondente $p$-value. 
 
 ```{r, echo=T}
 k=1
 p=6
 af = factanal(covmat=R, factors=k, n.obs = n)
-Lambda = af$loadings[,]
-Psi = diag(af$uniqueness)
-fit = Lambda %*% t(Lambda) + Psi
+hatLambda = af$loadings[,]
+hatPsi = diag(af$uniqueness)
+fit = hatLambda %*% t(hatLambda) + hatPsi
 t = n*log(det(fit)/det(R))
 t
 gdl = ((p-k)^2 - p - k)/2
 pchisq(t, lower.tail=FALSE, df=gdl)
-# regione critica livello 5%
-alpha=0.05
-c= qchisq(1-alpha, df=gdl)
-c
 ```
 
 
@@ -171,7 +198,7 @@ c
 
 # Dati Open/Closed Book Examination Data
 
-1. Caricare il dati `scor` presenti nella libreria `bootstrap` e calcolare la matrice di correlazione $\underset{p\times p}{R}$. 
+Caricare il dati `scor` presenti nella libreria `bootstrap` e calcolare la matrice di correlazione $\underset{p\times p}{R}$. 
 
 ```{r}
 library(bootstrap)
@@ -187,28 +214,41 @@ R <- cor(X)
 round(R, 2)
 ```
 
-## Metodo dei fattori principali
+
+1. Utilizzando la funzione `factanal()`, stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=2$ fattori (argomento `factors=2`) eseguendo la rotazione `varimax` della matrice dei pesi fattoriali (argomento `rotation="varimax"`).  
+Stimare i punteggi fattoriali con il metodo di Thompson e rappresentarli graficamente.
+
+```{r}
+af <- factanal(X, factors=2, rotation = "varimax", scores="regression")
+af$loadings
+# primo fattore "open book"
+# secondo fattore "closed book"
+puntfat <- af$scores
+# punteggi fattoriali con il metodo di thompson
+plot(puntfat,pch="")
+text(puntfat, labels=c(1:88))
+abline(h=0)
+abline(v=0)
+# studente 66
+X[66,]
+```
+
 
 2. Calcolare la stima iniziale delle comunalità $\hat{h}^2_i$ come 
 $$\hat{h}^2_i = \max_{j\neq i}|r_{ij}|$$  per $i=1,\ldots,p$, dove $r_{ij}$ è l'elemento di posizione $(i,j)$ della matrice $R$. Ottenere la matrice di correlazione ridotta $$R^*= R - \hat{\Psi}$$ dove $\hat{\Psi} = diag(\hat{\psi}_1,\ldots,\hat{\psi}_p)$ con $\hat{\psi}_i = 1 - \hat{h}^2_i$.
 
 ```{r}
-
 # sostituisco 1 sulla diagonale di R con 0
 R0 <- R - diag(rep(1,p))
-
 # calcolo la stima iniziale della comunalità
 h2 <- apply(abs(R0), 2, max)
 h2 
-
 # calcolo la stima di Psi
 Psi = diag(1-h2)
 Psi
-
 # calcolo la matrice di correlazione ridotta R* 
 Rstar <- R - Psi 
 round(Rstar,2)
-
 ```
 
 3. Considerando il modello fattoriale con $k=2$ fattori
@@ -244,7 +284,6 @@ Psi.new
 # nuova stima di R*
 Rstar.new = R - Psi.new
 Rstar.new
-
 ```
 
 4. Iterare per 100 volte la procedura descritta al punto 3, ottenendo le stime finali per $\hat{\Lambda}$ e $\hat{\Psi}$. Calcolare la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$ e commentare. 
@@ -268,79 +307,8 @@ Psi = diag(1-h2)
 # differenza
 fit = Lambda%*%t(Lambda) + Psi
 round( R - fit, 4)
-
 ```
 
-## Stima di Massima Verosimiglianza
-
-5. Utilizzando la funzione `factanal()`, stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=2$ fattori (argomento `factors=2`) senza eseguire la rotazione della matrice dei pesi fattoriali (argomento `rotation="none"`). Visualizzare la stima della matrice dei pesi fattoriali, delle comunalità e delle varianze specifiche, e calcolare la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$.
-
-```{r}
-# modello fattoriale con 2 fattori senza rotazione
-af <- factanal(X, factors=2, rotation="none")   
-
-af
-
-# stima dei pesi fattoriali
-Lambda <- af$loadings[,]
-Lambda
-
-# stima delle comunalità
-h2 <- apply(af$loadings^2,1,sum)
-h2
-
-# stima delle varianze specifiche
-Psi <- diag(af$uniquenesses)
-Psi
-
-# differenza
-fit = Lambda%*%t(Lambda) + Psi
-round( R - fit, 4)
-```
-
-6. Stimare il modello fattoriale con $k=2$ fattori eseguendo la rotazione `varimax` della matrice dei pesi fattoriali (argomento `rotation="varimax"`).
-Confrontare le stime delle varianze specifiche e della matrice dei pesi fattoriali con la soluzione senza rotazione. 
-
-```{r}
-
-# rotazione varimax
-af2 <- factanal(X, factors=2, rotation="varimax") # default
-
-# le varianze specifiche non cambiano
-af2$uniquenesses
-
-# la matrice dei pesi fattoriali cambia
-af2$loadings
-
-# primo fattore "being good at school"
-# secondo fattore "ability in closed book vs open book exams"
-
-# rappresentazione grafica della rotazione
-plot(af$loadings,xlim=c(-1,1), ylim=c(-1,1), pch="", asp=1)
-text(af$loadings, names(X))
-abline(h=0)
-abline(v=0)
-
-af2 <- varimax(af$loadings,normalize=FALSE)
-abline(0, af2$rotmat[2,1]/af2$rotmat[1,1], lty=2)
-abline(0, af2$rotmat[2,2]/af2$rotmat[1,2], lty=2)
-```
-
-7. Stimare i punteggi fattoriali con il metodo di Thompson e rappresentarli graficamente. 
-
-```{r}
-# thompson
-punt.t <- factanal(X, factors=2, rotation="none", scores="regression") 
-
-# plot dei punteggi fattoriali
-plot(punt.t$scores,pch="")
-text(punt.t$scores, labels=c(1:88))
-
-scor[66,]
-scor[81,] 
-scor[2,]
-scor[87,]
-```
 
 # Speranza di vita
 

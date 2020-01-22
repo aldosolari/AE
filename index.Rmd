@@ -79,8 +79,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 ||||||
 | 2 |  | |  | |
 ||||||
-| 3 |  | |  | |
-||||||
+
 
 
 
@@ -126,6 +125,8 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 * 22.2.2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf)
 
 * 17.4.2019: [Testo](docs/esami/AE170419/testo_AE170419.pdf) - [Soluzione](docs/esami/AE170419/soluzione_AE170419.pdf)
+
+* 3.7.2019: [Testo](docs/esami/AE030719/testo_AE030719.pdf) - [Soluzione](docs/esami/AE030719/soluzione_AE030719.pdf)
 
 ## Ricevimento {.appendix}
 
