@@ -1530,7 +1530,7 @@ div.tocify {
 <p>Si consideri il modello fattoriale con <span class="math inline">\(k=1\)</span> fattore e <span class="math inline">\(p=3\)</span> variabili: <span class="math display">\[\underset{p\times 1}{x} = \underset{p\times k}{\Lambda}\underset{k\times 1}{f} + \underset{p\times 1}{u}\]</span></p>
 <p>Si generino <span class="math inline">\(n=20\)</span> osservazioni indipendenti e identicamente distribuite da questo modello, salvando ciascuna osservazione <span class="math inline">\(x\)</span> nella riga <span class="math inline">\(i\)</span>-sima della matrice <span class="math inline">\(\underset{n\times p}{X}\)</span>. Per generare i dati, impostare il seme generatore dei numeri casuali <code>set.seed(123)</code> e specificare:</p>
 <ul>
-<li>pesi fattoriali <span class="math inline">\(\Lambda = (\lambda_1,\lambda_2,\lambda_3)'=(0.5,0.2,-0.1)\)</span></li>
+<li>pesi fattoriali <span class="math inline">\(\Lambda = (\lambda_1,\lambda_2,\lambda_3)'=(0.5,0.2,-0.1)'\)</span></li>
 <li>varianze specifiche <span class="math inline">\(diag(\Psi) = (\psi_1,\psi_2,\psi_3) = (0.0225, 0.0025, 0.008)\)</span>;</li>
 <li><span class="math inline">\(f \sim N(0,1)\)</span></li>
 <li><span class="math inline">\(u \sim N_3(\underset{3\times 1}{0},\Psi)\)</span></li>
@@ -1564,14 +1564,31 @@ round(S,2)</code></pre>
 [2,]  0.06  0.03 -0.02
 [3,] -0.04 -0.02  0.02</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Calcolare la matrice di correlazione <span class="math inline">\(\mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}\)</span> dove <span class="math inline">\(D = diag(\Sigma)\)</span> e confrontarla con la sua stima <span class="math inline">\(R\)</span> ottenuta dalla matrice dei dati <span class="math inline">\(X\)</span></li>
+<li>Per ciascuna osservazione <span class="math inline">\(x\)</span>, si considerari la trasformazione di scala <span class="math inline">\(z = A x\)</span> per <span class="math inline">\(A=D^{-1/2}\)</span> dove <span class="math inline">\(D = diag(\Sigma)\)</span>, ottenendo la matrice dei dati trasformati <span class="math inline">\(Y = XA\)</span>.</li>
 </ol>
-<pre class="r"><code>Corrx = diag(diag(Sigma)^(-1/2)) %*% Sigma %*% diag(diag(Sigma)^(-1/2))
+<ul>
+<li>Calcolare i pesi fattoriali <span class="math inline">\(\Lambda_y = A \Lambda\)</span> e le varianze specifiche <span class="math inline">\(\Psi_y = A \Psi A'\)</span></li>
+<li>Calcolare la matrice di correlazione <span class="math inline">\(\mathbb{C}\mathrm{ov}(z) = \mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}\)</span> e confrontarla con la sua stima <span class="math inline">\(R\)</span> ottenuta dalla matrice dei dati <span class="math inline">\(X\)</span></li>
+</ul>
+<pre class="r"><code>A = diag(diag(Sigma)^(-1/2))
+Y = X %*% A
+Lambday = A %*% Lambda
+Psiy = A %*% Psi %*% t(A)
+# varianze specifiche di y
+diag(Psiy)</code></pre>
+<pre><code>[1] 0.08256881 0.05882353 0.44444444</code></pre>
+<pre class="r"><code>Corrx = A %*% Sigma %*% t(A)
 round(Corrx,2)</code></pre>
 <pre><code>      [,1]  [,2]  [,3]
 [1,]  1.00  0.93 -0.71
 [2,]  0.93  1.00 -0.72
 [3,] -0.71 -0.72  1.00</code></pre>
+<pre class="r"><code>Sy = var(Y) *((n-1)/n)
+round(Sy,2)</code></pre>
+<pre><code>      [,1]  [,2]  [,3]
+[1,]  0.68  0.57 -0.58
+[2,]  0.57  0.60 -0.56
+[3,] -0.58 -0.56  0.96</code></pre>
 <pre class="r"><code>R = cor(X)
 round(R,2)</code></pre>
 <pre><code>      [,1]  [,2]  [,3]

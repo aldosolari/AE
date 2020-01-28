@@ -63,9 +63,9 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 14 | 23/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R: analisi fattoriale](docs/labs/14_fact.html) |
 ||||||
-| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | TBD |
+| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | Approfondimenti ed esercizi |
 ||||||
-| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | TBD |
+| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | Esercizi |
 ||||||
 
 
@@ -127,6 +127,17 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 * 17.4.2019: [Testo](docs/esami/AE170419/testo_AE170419.pdf) - [Soluzione](docs/esami/AE170419/soluzione_AE170419.pdf)
 
 * 3.7.2019: [Testo](docs/esami/AE030719/testo_AE030719.pdf) - [Soluzione](docs/esami/AE030719/soluzione_AE030719.pdf)
+
+* 25.1.2018: [Testo](docs/esami/AE250118/testo_AE250118.pdf)
+
+* 12.2.2018: [Testo](docs/esami/AE120218/testo_AE120218.pdf) 
+
+* 17.4.2018: [Testo](docs/esami/AE170418/testo_AE170418.pdf)
+
+* 19.6.2018: [Testo](docs/esami/AE170418/testo_AE190618.pdf)
+
+* 12.9.2018: [Testo](docs/esami/AE120918/testo_AE120918.pdf)
+
 
 ## Ricevimento {.appendix}
 

@@ -1,0 +1,309 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+
+**19 Aprile 2018 - Analisi Esplorativa**
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Tipologia d'esame: $\qquad \Box$ 12 CFU $\qquad$ $\Box$ 15 CFU 
+
+\bigskip
+
+\hrule
+
+**Prova scritta - fila A**
+
+*Si svolgano gli esercizi riportando il risultato dove indicato. Durata: 60 minuti*
+
+\bigskip
+
+\hrule
+
+
+
+**Esercizio 1 (13 punti)**
+
+Si consideri la seguente matrice dei dati $\underset{n\times p}{X}$ relativi alle 10 aziende più importanti nel mondo (fonte: Forbes Global 2000):
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrr}
+  \hline
+ & Vendite (in miliardi di \$) & Profitto (in miliardi di \$) \\ 
+  \hline
+Citigroup & 108.28 & 17.05 \\ 
+  General Electric & 152.36 & 16.59 \\ 
+  American Intl Group & 95.04 & 10.91 \\ 
+  Bank of America & 65.45 & 14.14 \\ 
+  HSBC Group & 62.97 & 9.52 \\ 
+  ExxxonMobil & 263.99 & 25.33 \\ 
+  Royal Dutch/Shell & 265.19 & 18.54 \\ 
+  BP & 285.06 & 15.73 \\ 
+  ING Group & 92.01 & 8.10 \\ 
+  Toyota Motor & 165.68 & 11.13 \\ 
+   \hline
+\end{tabular}
+\end{table}
+
+```{r, echo=F, include=T}
+rm(list=ls())
+X <- matrix(
+  c(108.28,152.36,95.04,65.45,62.97,263.99,265.19,285.06,92.01,165.68,
+    17.05,16.59,10.91,14.14,9.52,25.33,18.54,15.73,8.1,11.13),byrow=F,
+  nrow=10,ncol=2)
+colnames(X)<-c("Vendite","Profitto")
+rownames(X)<-c("Citigroup","General Electric","American Intl Group","Bank of America","HSBC Group","ExxxonMobil","Royal Dutch/Shell","BP","ING Group","Toyota Motor")
+n <- nrow(X)
+p <- ncol(X)
+```
+
+
+Si risponda alle seguenti domande:
+
+a. Riportare il vettore delle medie $\underset{p\times 1}{\bar{x}}$ e la matrice di varianze/covarianze $\underset{p\times p}{S}$, arrotondando al **secondo decimale**:
+
+$$\underset{p\times 1}{\bar{x}}=\left[
+\begin{array}{rr}
+  \\ 
+ \\ 
+\end{array}
+\right. \qquad\qquad\qquad \qquad\qquad  \underset{p\times p}{S}=\left[
+\begin{array}{rr}
+  \\ 
+ \\ 
+\end{array}
+\right. \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
+
+```{r, echo=F, include=T}
+xbar = matrix(apply(X,2,mean),nrow=2)
+round(xbar,2)
+S = var(X)*((n-1)/n)
+round(S,2)
+```
+
+
+b. Si riporti la proporzione di varianza spiegata dalla prima componente principale calcolata sulla base di $\underset{p\times p}{S}$: $$\frac{\lambda_1}{\lambda_1+\lambda_2}=\ldots\ldots$$ dove $\lambda_1$ e $\lambda_2$ sono gli autovalori di $S$, arrotondando **alla terza cifra decimale**.
+
+```{r, echo=F, include=T}
+lambdas = eigen(S)$values
+round(lambdas[1]/sum(lambdas),3)
+```
+
+c. Si calcoli il coefficiente di correlazione tra la $j$-sima colonna $\underset{n\times 1}{\tilde{x}_{j}}$ della matrice dei dati centrati $\underset{n\times p}{\tilde{X}}$ e
+i punteggi $\underset{n\times 1}{y_{1}}$ della prima componente principale, arrotondando il calcolo al **sesto decimale**: 
+$$\mathbb{C}\mathrm{orr}(\tilde{x}_{1}, y_{1})=\ldots\ldots, \qquad\qquad\qquad \mathbb{C}\mathrm{orr}(\tilde{x}_{2}, y_{1})=\ldots\ldots$$
+
+```{r, echo=F, include=T}
+V = eigen(S)$vectors
+round(V[1,1]*sqrt(lambdas[1])/sqrt(diag(S)[1]),6)
+round(V[2,1]*sqrt(lambdas[1])/sqrt(diag(S)[2]),6)
+```
+
+
+d. Si riporti nel grafico seguente, la lunghezza del semiasse maggiore e quella del semiasse minore dell'ellisse $$\underset{1\times p}{(x - \bar{x})'} \underset{p\times p}{S^{-1}}\underset{p\times 1}{(x - \bar{x})} = 1$$
+arrotondando **al secondo decimale**.
+
+```{r, echo=F, include=T}
+bc = t(xbar)
+V = eigen(S)$vector
+plot(X, asp=1)
+ library(ellipse)
+ lines(ellipse(x=S,centre = bc, t = 1))
+  arrows(x0 = bc[1], y0 = bc[2], x1 = sqrt(lambdas[1])*V[1,1] + bc[1], y1=sqrt(lambdas[1])*V[2,1] + bc[2], length = 0.01, col=1)
+  arrows(x0 = bc[1], y0 = bc[2], x1 = sqrt(lambdas[2])*V[1,2] + bc[1], y1=sqrt(lambdas[2])*V[2,2] + bc[2], length = 0.01, col=1)
+#round(sqrt(lambdas),2)
+```
+
+e. Sulla base dei risultati ottenuti nei punti a. - d., ritenete preferibile calcolare le componenti principali sulla base della matrice di correlazione $\underset{p\times p}{R}$? Motivare la risposta.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+f. Si ottengano tre gruppi di aziende utilizzando il metodo gerarchico basato sulla matrice delle distanze di Lagrange e il legame completo. Riportare i nomi delle aziende presenti nei tre gruppi:
+
+```{r, echo=F, include=T}
+D = dist(X, method = "maximum")
+hc = hclust(D, method="complete")
+cutree(hc, k=3)
+```
+
+\bigskip
+
+Gruppo 1: ..
+
+\bigskip
+
+Gruppo 2: ..
+
+\bigskip
+
+Gruppo 3: ..
+
+
+g. Si calcoli la distanza di Mahalanobis di ciascuna unità statistica dal baricentro e si riportino i nomi delle aziende che superano il valore 1.4. 
+
+```{r, echo=F, include=T}
+InvS = solve(S)
+dM2 = apply(X,1, function(u) t(u-xbar) %*% InvS %*% (u - xbar) )
+rownames(X)[sqrt(dM2)>1.4]
+```
+
+Aziende con $d_M(u_i,\bar{x}) > 1.4$: ..
+
+\bigskip
+
+h. Dimostrare, esplicitando tutti i passaggi e le quantità coinvolte, che $\mathrm{det}(S) = \prod_{j=1}^{p} \lambda_j$, dove $\lambda_j$ sono gli autovalori di una generica matrice di varianze/covarianze $\underset{p\times p}{S}$
+
+\newpage
+
+**19 Aprile 2018 - Analisi Esplorativa**
+
+Cognome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Nome: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Matricola: $\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots\ldots$
+
+Tipologia d'esame: $\qquad \Box$ 12 CFU $\qquad$ $\Box$ 15 CFU 
+
+\bigskip
+
+\hrule
+
+**Prova scritta - fila B**
+
+*Si svolgano gli esercizi riportando il risultato dove indicato. Durata: 60 minuti*
+
+\bigskip
+
+\hrule
+
+
+
+**Esercizio 2 (13 punti)**
+
+Si consideri il seguente il modello fattoriale ad 1 fattore:
+\begin{eqnarray*}
+x_1 = 0.9 f + u_1\\
+x_2 = 0.7 f + u_2\\
+x_3 = 0.5 f + u_3\\
+\end{eqnarray*}
+con le varianze specifiche pari a $\psi_1=0.19$, $\psi_2=0.51$ e $\psi_3 = 0.75$. 
+ 
+ 
+a. Riportare la matrice di correlazione prevista dal modello fattoriale ad 1 fattore:
+$$\mathbb{C}\mathrm{orr}(\underset{p\times 1}{x}) = \Lambda \Lambda' + \Psi = \left[
+\begin{array}{ccc}
+ \\
+\\
+\\
+\end{array}\right. \qquad\qquad\qquad\qquad\qquad\qquad\qquad\qquad$$
+
+```{r, echo=F, include=T}
+rm(list=ls())
+Lambda = matrix(c(.9,.7,.5),ncol=1)
+Psi = diag(c(0.19,0.51,0.75))
+corx = Lambda%*%t(Lambda) + Psi
+corx
+```
+
+b. Il numero di parametri corrispondenti al modello fattoriale ad un fattore (senza vincoli) è pari a $\ldots\ldots\ldots$
+
+c. Riportare i valori delle comunalità:
+$$h_1^2 = .. \qquad\qquad h_2^2 = .. \qquad\qquad  h_3^2 = .. \qquad\qquad $$
+
+```{r, echo=F, include=T}
+Lambda^2
+```
+
+d. Si supponga di aver osservato $n=20$ unità statistiche, e di aver calcolato la seguente matrice di correlazione $$\underset{3\times 3}{R} = 
+\left[
+\begin{array}{ccc}
+1 & 0.5 & 0.4 \\
+ & 1 & 0.3 \\
+ &  & 1 \\
+\end{array}\right].$$
+Sulla base dalla matrice di correlazione $R$, si stimi il modello fattoriale con $k=1$ fattori utilizzando il metodo della massima verosimiglianza senza effettuare **nessuna rotazione**. Riportare, arrotondando al **secondo decimale**, i seguenti valori
+$$ \underset{p\times k}{\hat{\Lambda}} = 
+\left[ \begin{array}{cc}
+          \\
+          \\
+          \\
+         \end{array} 
+\right. \qquad\qquad\qquad\qquad \qquad\qquad  \underset{p\times p}{\hat{\Psi}} = 
+\left[ \begin{array}{cc}
+          \\
+          \\
+          \\
+         \end{array} 
+\right. \qquad\qquad \qquad\qquad\qquad\qquad\qquad\qquad$$
+
+
+```{r, echo=F, include=T}
+rm(list=ls())
+R=matrix(c(1,.5,.4, .5, 1,.3, .4, .3,1), byrow=T,ncol=3)
+R
+n =20
+# a
+af <- factanal(covmat=R, factors=1, n.obs = n, rotation = "none")
+Lambda = af$loadings[,]
+round(Lambda,2)
+Psi = diag(af$uniquenesses)
+round(diag(Psi),2)
+```
+
+
+\newpage
+
+f. Dimostrare, esplicitando tutti i passaggi e le quantità coinvolte, che 
+nel modello fattoriale a $k$ fattori, $\mathbb{E}(\underset{p\times 1}{x} \underset{1\times k}{f'}) = \underset{p\times k}{\Lambda}$.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+
+
+g. Dimostrare che la matrice di centramento $\underset{n\times n}{H}$ è idempotente, giustificano tutti i passaggi.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+h. Dimostrare, esplicitando tutti i passaggi, e specificando tutte le quantità coinvolte,
+che la matrice di varianze/covarianze $S$ è semi-definita positiva, esplicitando tutti i passaggi.
+
+\bigskip
+

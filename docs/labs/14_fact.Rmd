@@ -21,7 +21,7 @@ $$\underset{p\times 1}{x} = \underset{p\times k}{\Lambda}\underset{k\times 1}{f}
 
 Si generino $n=20$ osservazioni indipendenti e identicamente distribuite da questo modello, salvando ciascuna osservazione $x$ nella riga $i$-sima della matrice $\underset{n\times p}{X}$. Per generare i dati, impostare il seme generatore dei numeri casuali `set.seed(123)` e specificare:
 
-* pesi fattoriali $\Lambda = (\lambda_1,\lambda_2,\lambda_3)'=(0.5,0.2,-0.1)$
+* pesi fattoriali $\Lambda = (\lambda_1,\lambda_2,\lambda_3)'=(0.5,0.2,-0.1)'$
 * varianze specifiche $diag(\Psi) = (\psi_1,\psi_2,\psi_3) = (0.0225, 0.0025, 0.008)$;
 * $f \sim N(0,1)$
 * $u \sim N_3(\underset{3\times 1}{0},\Psi)$ 
@@ -75,11 +75,21 @@ S = var(X) * ((n-1)/n)
 round(S,2)
 ```
 
-2. Calcolare la matrice di correlazione $\mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}$ dove $D = diag(\Sigma)$ e confrontarla con la sua stima $R$ ottenuta dalla matrice dei dati $X$
+2. Per ciascuna osservazione $x$, si considerari la trasformazione di scala $z = A x$ per $A=D^{-1/2}$ dove $D = diag(\Sigma)$, ottenendo la matrice dei dati trasformati $Y = XA$.
+* Calcolare i pesi fattoriali $\Lambda_y = A \Lambda$ e le varianze specifiche $\Psi_y = A \Psi A'$
+* Calcolare la matrice di correlazione $\mathbb{C}\mathrm{ov}(z) = \mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}$ e confrontarla con la sua stima $R$ ottenuta dalla matrice dei dati $X$
 
 ```{r}
-Corrx = diag(diag(Sigma)^(-1/2)) %*% Sigma %*% diag(diag(Sigma)^(-1/2))
+A = diag(diag(Sigma)^(-1/2))
+Y = X %*% A
+Lambday = A %*% Lambda
+Psiy = A %*% Psi %*% t(A)
+# varianze specifiche di y
+diag(Psiy)
+Corrx = A %*% Sigma %*% t(A)
 round(Corrx,2)
+Sy = var(Y) *((n-1)/n)
+round(Sy,2)
 R = cor(X)
 round(R,2)
 ```
