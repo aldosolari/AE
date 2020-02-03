@@ -19,7 +19,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 # Ultimi avvisi
 
-* Laboratorio *meeting number* 840 705 128
+* Sono disponibili gli esercizi delle ultime due lezioni
 
 # Calendario delle lezioni
 
@@ -63,9 +63,9 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 ||||||
 | 14 | 23/1/2020 | Lab907/908 | 9:30-11:30 (3h) | [R: analisi fattoriale](docs/labs/14_fact.html) |
 ||||||
-| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | Approfondimenti ed esercizi |
+| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | Approfondimenti ed esercizi [[BB]](docs/blackboard/15_appBB.pdf) |
 ||||||
-| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | Esercizi |
+| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | Esercizi [[BB]](docs/blackboard/16_exeBB.pdf) |
 ||||||
 
 
@@ -77,7 +77,7 @@ Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collega
 |-|-|---|----|------|
 | 1 | 18/12/2019 | U9-04 | 9:30-11:30 (2h) | [Esercitazione 1](docs/exe/1_exe.pdf) |
 ||||||
-| 2 |  | |  | |
+| 2 | 28/1/2020 | U7-13 | 11:30-12:30 (1h) | Esercitazione 2 |
 ||||||
 
 
