@@ -132,9 +132,9 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 * 12.2.2018: [Testo](docs/esami/AE120218/testo_AE120218.pdf) 
 
-* 17.4.2018: [Testo](docs/esami/AE170418/testo_AE170418.pdf)
+* 19.4.2018: [Testo](docs/esami/AE190418/testo_AE190418.pdf)
 
-* 19.6.2018: [Testo](docs/esami/AE170418/testo_AE190618.pdf)
+* 19.6.2018: [Testo](docs/esami/AE190618/scritto_AE190618.pdf)
 
 * 12.9.2018: [Testo](docs/esami/AE120918/testo_AE120918.pdf)
 
