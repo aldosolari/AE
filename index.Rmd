@@ -113,6 +113,12 @@ Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscr
 | Luglio | TBD | TBD |
 | Settembre | TBD | TBD |
 
+#### Risultati degli appelli
+
+* 7.2.2020 [soluzione](esami/AE070220/soluzione_AE070220.pdf) -  [esiti](esami/AE070220/esiti_AE070220.pdf)
+
+
+
 #### Propedeuticità
 
 Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l'Analisi Statistica Multivariata

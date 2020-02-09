@@ -100,9 +100,9 @@ $\quad$
 
 ```{r}
 R = cor(X)
-c = mean(eigen(R)$values/p)
+c = mean(eigen(R)$values)
 c
-sum(eigen(R)$values/p > c)
+sum(eigen(R)$values > c)
 ```
 
 d. Si consideri la matrice dei dati $Y$ di dimensioni $50\times 11$ dove le prime 8 colonne sono uguali a quelle di $X$ mentre le restanti 3 colonne sono le nuove variabili
