@@ -19,7 +19,7 @@ Il modulo si propone di fornire un'introduzione ai principali metodi statistici 
 
 # Ultimi avvisi
 
-* Sono disponibili gli esercizi delle ultime due lezioni
+* [Esiti](esami/AE070220/esiti_AE070220.pdf) appello 7.2.2020   
 
 # Calendario delle lezioni
 
