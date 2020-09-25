@@ -110,8 +110,8 @@ Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscr
 | 21.2.2020 | Lab906-908 | 9:30-12:00 |
 | 29.4.2020 | Online | svolto il 12.5.20 ore 10:00 |
 | 26.6.2020 | Online | 10:00 |
-| 8.7.2020 | TBD | TBD |
-| 23.9.2020 | TBD | TBD |
+| 8.7.2020 | Online | 10:00 |
+| 23.9.2020 | Online | 10:00 |
 
 #### Risultati degli appelli
 
@@ -122,6 +122,10 @@ Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscr
 * 12.5.2020 [esiti](esami/AE120520/esiti_AE120520.pdf)
 
 * 26.6.2020 [esiti](esami/AE260620/esiti_AE260620.pdf)
+
+* 8.7.2020 [esiti](esami/AE080720/esiti_AE080720.pdf)
+
+* 23.9.2020 [esiti](esami/AE230920/esiti_AE230920.pdf)
 
 
 
