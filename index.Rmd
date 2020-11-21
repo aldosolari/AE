@@ -1,172 +1,73 @@
 ---
 title: "Analisi Esplorativa"
-description: |
-  CdL in Scienze Statistiche ed Economiche, Università Milano-Bicocca 
-author:
-  - name: Aldo Solari
-    url: https://aldosolari.github.io/
-    affiliation: DEMS
-    affiliation_url: https://dems.unimib.it/it
-date: "`r Sys.Date()`"
-output:
-  radix::radix_article:
-    toc: true
-    toc_depth: 1
+output: markdowntemplates::minimal
 ---
 
-_Analisi Esplorativa_ è il secondo modulo dell'insegnamento _Analisi Statistica Multivariata_. 
-Il modulo si propone di fornire un'introduzione ai principali metodi statistici per l'analisi di dati multidimensionali al fine di identificare strutture che consentano di ridurne la complessità preservando l'informazione originariamente presente nelle misurazioni.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
 
-# Ultimi avvisi
+Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2020/21.
 
-* 
+## Calendario delle lezioni e materiale didattico.
 
-# Calendario delle lezioni
+* L01 (26 Novembre 9:30 - 12:30)
 
-| N | Data | Aula | Orario | Argomenti | 
-|-|-|---|----|------|
-| 1 | 28/11/2019 | U6-30 | 9:30-12:30 (3h) | [Analisi multivariata](docs/slides/1_multi.pdf) |
-| |  |  |  | [La matrice dei dati](docs/slides/2_dati.pdf) [[BB]](docs/blackboard/2_datiBB.pdf) |
-||||||
-| 2 | 3/12/2019 | U7-13 | 9:30-12:30 (3h) | [Spazio delle variabili e delle osservazioni](docs/slides/4_spazi.pdf) [[BB]](docs/blackboard/4_spaziBB.pdf) |
-| |  |  |  | [Dati centrati e standardizzati](docs/slides/5_fmatr.pdf) [[BB]](docs/blackboard/5_fmatrBB.pdf) |
-||||||
-| 3 | 4/12/2019 | Lab906/907 | 9:30-11:30 (2h) | [R: la matrice dei dati ](docs/labs/2_dati.html) |
-| |  |  |  | [R: rappresentazioni grafiche](docs/labs/3_rapgraf.html) |
-| |  |  |  | [R: spazio delle variabili e delle osservazioni](docs/labs/4_spazi.html) |
-||||||
-| 4 | 5/12/2019 | U7-13 | 9:30-12:30 (3h) | [Varianza totale e generalizzata](docs/slides/6_varianze.pdf) [[BB]](docs/blackboard/6_varianzeBB.pdf) |
-||||||
-| 5 | 10/12/2019 | U7-13 | 9:30-12:30 (3h) | [Teorema di decomposizione spettrale](docs/slides/7_spectral.pdf) [[BB]](docs/blackboard/7_spectralBB.pdf) |
-||||||
-| 6 | 7/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi delle componenti principali](docs/slides/8_pca.pdf) [[BB]](docs/blackboard/8_pcaBB.pdf) |
-||||||
-| 7 | 8/1/2020 | U9-11 | 9:30-11:30 (2h) | [Applicazioni della PCA](docs/slides/9_pca2.pdf)  |
-||||||
-| 8 | 9/1/2020 | Lab907/908 | 9:30-12:30 (3h) | [R: matrice dei dati centrati e standardizzati](docs/labs/5_fmatr.html) |
-||||| [R: varianza totale e generalizzata](docs/labs/6_varianze.html) |
-||||| [R: teorema di decomposizione spettrale](docs/labs/7_spectral.html) |
-||||| [R: analisi delle componenti principali](docs/labs/8_pca.html) |
-||||||
-| 9 | 14/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi dei gruppi: K-medie](docs/slides/10_kmeans.pdf) [[BB]](docs/blackboard/10_kmeansBB.pdf) |
-|  |  |  |  | [Analisi dei gruppi: distanze](docs/slides/11_dist.pdf) [[BB]](docs/blackboard/11_distBB.pdf) |
-||||||
-| 10 | 15/1/2020 | U9-11 | 9:30-11:30 (2h) | [Analisi dei gruppi: metodi gerarchici](docs/slides/12_hclust.pdf) [[BB]](docs/blackboard/12_hclustBB.pdf) |
-||||||
-| 11 | 16/1/2020 | Lab907/908 | 9:30-12:30 (3h) | [R: K-medie](docs/labs/10_kmeans.html) |
-||||| [R: distanze](docs/labs/11_dist.html) |
-||||| [R: metodi gerarchici](docs/labs/12_hclust.html) |
-||||||
-| 12 | 21/1/2020 | U7-13 | 9:30-12:30 (3h) | [Analisi fattoriale](docs/slides/13_fact.pdf) [[BB]](docs/blackboard/13_factBB.pdf) |
-||||||
-| 13 | 22/1/2020 | U9-11 | 9:30-11:30 (2h) | [Analisi fattoriale: applicazioni](docs/slides/14_fact2.pdf) |
-||||||
-| 14 | 23/1/2020 | Lab907/908 | 9:30-12:30 (3h) | [R: analisi fattoriale](docs/labs/14_fact.html) |
-||||||
-| 15 | 28/1/2020 | U7-13 | 9:30-11:30 (2h) | Approfondimenti ed esercizi [[BB]](docs/blackboard/15_appBB.pdf) |
-||||||
-| 16 | 29/1/2020 | U9-11 | 9:30-11:30 (2h) | Esercizi [[BB]](docs/blackboard/16_exeBB.pdf) |
-||||||
+<!-- settimana 1 -->
+
+* L02 (1 Dicembre 9:30 - 11:30)
+  
+* L03 (2 Dicembre 9:30 - 11:30)
+
+* L04 (3 Dicembre 9:30 - 12:30)
+
+<!-- settimana 2 -->
+
+* L05 (9 Dicembre 9:30 - 11:30)
+
+* L06 (10 Dicembre 9:30 - 12:30)
+
+<!-- settimana 3 -->
+
+* L07 (15 Dicembre 10:30 - 12:30)
+
+* L08 (16 Dicembre 9:30 - 11:30)
+
+* L09 (17 Dicembre 9:30 - 12:30)
+
+<!-- settimana 4 -->
+
+* L10 (22 Dicembre 10:30 - 12:30)
 
 
-Il materiale didattico di ciascuna lezione è scaricabile utilizzando i [collegamenti ipertestuali](). Si precisa che questa pagina web è soggetta a modifiche, quindi si prega di controllare l'ultima versione aggiornata.
-
-### Calendario delle esercitazioni (Dott.ssa Laura Belloni)
-
-| N | Data | Aula | Orario | Argomenti | 
-|-|-|---|----|------|
-| 1 | 18/12/2019 | U9-04 | 9:30-11:30 (2h) | [Esercitazione 1](docs/exe/1_exe.pdf) |
-||||||
-| 2 | 28/1/2020 | U7-13 | 11:30-12:30 (1h) | [Esercitazione 2](docs/exe/2_exe.pdf) |
-||||||
+Se non specificato, la modalità di lezione è SINCRONA.
 
 
 
+# Propedeuticità.
+
+Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l'Analisi Statistica Multivariata.
 
 
-#### Testi di riferimento
-
-* Johnson, Wichern (2007) Applied Multivariate Statistical Analysis (6th Edition), Pearson Prentice Hall
-* Everitt, Hothorn (2011) An Introduction to Applied Multivariate Analysis with R, Springer
 
 # Esame
 
-La prova parziale di Analisi Esplorativa si svolgerà in Laboratorio, e consiste in:
+**Calendario degli esami**.
 
-1. Dieci domande a risposta multipla: si accede alla prova successiva solo se si risponde correttamente ad almeno 6 domande
-2. Prova scritta e di laboratorio con R 
+|| Sessione || Data || Luogo || Orario ||
+|-|-|-|-|-|-|-|-|-|-|
+||  || ||  ||  || ||
+|| Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
+|| Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
 
-Il risultato della prova parziale di Analisi Esplorativa _rimane valido_ per 4 anni. 
+ 
 
-#### Iscrizione all'appello
-
-Per sostenere la prova parziale di Analisi Esplorativa è necessario essere iscritti all'appello (tramite piattaforma Esse3) ed avere con sè un documento di riconoscimento valido. 
-
-#### Calendario delle prove parziali di Analisi Esplorativa:
-
-| Data | Aula | Orario |
-|----|----|----|
-| 7.2.2020 | Lab907-908 | 14:00-16:30 |
-| 21.2.2020 | Lab906-908 | 9:30-12:00 |
-| 29.4.2020 | Online | svolto il 12.5.20 ore 10:00 |
-| 26.6.2020 | Online | 10:00 |
-| 8.7.2020 | Online | 10:00 |
-| 23.9.2020 | Online | 10:00 |
-
-#### Risultati degli appelli
-
-* 7.2.2020 [soluzione](esami/AE070220/soluzione_AE070220.pdf) -  [esiti](esami/AE070220/esiti_AE070220.pdf)
-
-* 21.2.2020 [soluzione](esami/AE210220/soluzione_AE210220.pdf) -  [esiti](esami/AE210220/esiti_AE210220.pdf)
-
-* 12.5.2020 [esiti](esami/AE120520/esiti_AE120520.pdf)
-
-* 26.6.2020 [esiti](esami/AE260620/esiti_AE260620.pdf)
-
-* 8.7.2020 [esiti](esami/AE080720/esiti_AE080720.pdf)
-
-* 23.9.2020 [esiti](esami/AE230920/esiti_AE230920.pdf)
+## Libri di testo.
 
 
+* [JW] Johnson, Wichern (2007) Applied Multivariate Statistical Analysis (6th Edition), Pearson Prentice Hall
 
-#### Propedeuticità
+* [EH] Everitt, Hothorn (2011) An Introduction to Applied Multivariate Analysis with R, Springer
 
-Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l'Analisi Statistica Multivariata
-
-
-#### Appelli A.A. 2018/19
-
-* 6.2.2019: [Testo](docs/esami/AE060219/testo_AE060219.pdf) - [Soluzione](docs/esami/AE060219/soluzione_AE060219.pdf)
-
-* 22.2.2019: [Testo](docs/esami/AE220219/testo_AE220219.pdf) - [Soluzione](docs/esami/AE220219/soluzione_AE220219.pdf)
-
-* 17.4.2019: [Testo](docs/esami/AE170419/testo_AE170419.pdf) - [Soluzione](docs/esami/AE170419/soluzione_AE170419.pdf)
-
-* 3.7.2019: [Testo](docs/esami/AE030719/testo_AE030719.pdf) - [Soluzione](docs/esami/AE030719/soluzione_AE030719.pdf)
-
-* 25.1.2018: [Testo](docs/esami/AE250118/testo_AE250118.pdf)
-
-* 12.2.2018: [Testo](docs/esami/AE120218/testo_AE120218.pdf) 
-
-* 19.4.2018: [Testo](docs/esami/AE190418/testo_AE190418.pdf)
-
-* 19.6.2018: [Testo](docs/esami/AE190618/scritto_AE190618.pdf)
-
-* 12.9.2018: [Testo](docs/esami/AE120918/testo_AE120918.pdf)
-
-
-## Ricevimento {.appendix}
-
-Per fissare un appuntamento, si prega di contattare il docente in anticipo via posta elettronica all'indirizzo aldo.solari AT unimib.it. 
-
-
-## Ringraziamenti {.appendix}
-
-Il materiale di questo corso è largamente ispirato da:
-
-* Analisi dei Dati Multidimensionali. Appunti delle lezioni a cura di L. Finos
-* Tecniche Statistiche di Classificazione. Appunti delle lezioni a cura di F. Pauli e M. Chiogna
-
-
-
+Tutti i libri di testo sono disponibili in formato elettronico presso la [biblioteca](https://www.biblio.unimib.it/it/risorse/accesso-alle-risorse-remoto).
 
