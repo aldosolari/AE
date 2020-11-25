@@ -16,12 +16,11 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 * [Analisi Statistica Multivariata](https://aldosolari.github.io/ASM/) (15 CFU)
 
 
-## Calendario delle lezioni.
+## Calendario delle lezioni e materiale didattico.
 
 * L01 (26 Novembre 9:30 - 12:30)
-  * Introduzione al corso. 
-  * L'analisi statistica multivariata. 
-  * La matrice dei dati.
+  * [L'analisi statistica multivariata](docs/slides/1_multi.pdf). 
+  * [La matrice dei dati](docs/slides/2_dati.pdf).
 
 <!-- settimana 1 -->
 
@@ -51,10 +50,6 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 
 
 Se non specificato, la modalità di lezione è SINCRONA.
-
-## Materiale didattico.
-
-* [Dispensa del corso](docs/main.pdf).  
 
 ## Forum del corso. 
 
