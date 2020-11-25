@@ -11,9 +11,7 @@ Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degl
 
 ## Analisi Statistica Multivariata
 
-Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Multivariata (15 CFU). 
-
-Si prega di leggere con attenzione tutte le informazioni presenti nel sito
+Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Multivariata (15 CFU). Si prega di leggere con attenzione tutte le informazioni presenti nel sito
 
 * [Analisi Statistica Multivariata](https://aldosolari.github.io/ASM/) (15 CFU)
 
@@ -58,7 +56,6 @@ Se non specificato, la modalità di lezione è SINCRONA.
 
 * [Dispensa del corso](docs/main.pdf).  
 
-
 ## Forum del corso. 
 
 Seppure l'email sia il modo di mettersi in contatto con un
@@ -82,6 +79,10 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 ||  || ||  ||  || ||
 || Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
 || Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
+|| Primaverile || Aprile || Remoto  || tbd ||
+|| Estiva || Giugno || Remoto  || tbd ||
+|| Estiva || Luglio || Remoto  || tbd ||
+|| Estiva || Settembre || Remoto  || tbd ||
 
 
 ## Modalità d'esame. 
@@ -92,8 +93,9 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 * L'esame si svolgerà interamente al computer e potrebbe essere richiesto di utilizzare R o RStudio. Non sarà richiesto (né sarà consentito) caricare foto di quanto scritto con carta e penna, verrà valutato solamente quanto scritto negli appositi spazi messi a disposizione alla fine di ogni domanda.
 
-* I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. Nello stesso giorno si svolgerà l'orale se richiesto dallo studente o dal docente.
+* I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. 
 
+* Per l'accettazione del voto vale la regola del silenzio-assenso. Lo studente può rifiutare il voto o richiedere l'orale non oltre alla data prevista per la visione dei compiti. L'orale può essere richiesto anche dal docente. La data della prova orale non potrà essere inferiore a tre giorni naturali successivi continui dalla data di pubblicazione del voto. L'orale si basa sul tutto il programma del corso di AE. 
 
 
 ## Libri di testo.
