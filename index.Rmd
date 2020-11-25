@@ -9,9 +9,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2020/21.
 
-## Calendario delle lezioni e materiale didattico.
+## Calendario delle lezioni.
 
 * L01 (26 Novembre 9:30 - 12:30)
+  * Introduzione al corso. 
+  * L'analisi statistica multivariata. 
+  * La matrice dei dati.
 
 <!-- settimana 1 -->
 
@@ -42,15 +45,17 @@ Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degl
 
 Se non specificato, la modalità di lezione è SINCRONA.
 
+## Materiale didattico.
 
+* [Dispensa del corso](docs/main.pdf).  
 
-# Propedeuticità.
+## Propedeuticità.
 
 Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l'Analisi Statistica Multivariata.
 
 
 
-# Esame
+## Esame
 
 **Calendario degli esami**.
 
@@ -65,9 +70,9 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 ## Libri di testo.
 
 
-* [JW] Johnson, Wichern (2007) Applied Multivariate Statistical Analysis (6th Edition), Pearson Prentice Hall
+* Johnson, Wichern (2007) Applied Multivariate Statistical Analysis (6th Edition), Pearson Prentice Hall
 
-* [EH] Everitt, Hothorn (2011) An Introduction to Applied Multivariate Analysis with R, Springer
+* Everitt, Hothorn (2011) An Introduction to Applied Multivariate Analysis with R, Springer
 
 Tutti i libri di testo sono disponibili in formato elettronico presso la [biblioteca](https://www.biblio.unimib.it/it/risorse/accesso-alle-risorse-remoto).
 
