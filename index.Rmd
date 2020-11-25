@@ -75,9 +75,7 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 
 
-## Esami.
-
-**Calendario degli esami**.
+## Calendario degli esami.
 
 || Sessione || Data || Luogo || Orario ||
 |-|-|-|-|-|-|-|-|-|-|
@@ -85,7 +83,18 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 || Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
 || Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
 
- 
+
+## Modalità d'esame. 
+
+* La prova di AE si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO. 
+
+* La prova include domande di tipologie diverse, tra cui, domande aperte, a risposta multipla e a risposta numerica.  Ulteriori informazioni riguardanti la prova verranno fornite a tempo debito.
+
+* L'esame si svolgerà interamente al computer e potrebbe essere richiesto di utilizzare R o RStudio. Non sarà richiesto (né sarà consentito) caricare foto di quanto scritto con carta e penna, verrà valutato solamente quanto scritto negli appositi spazi messi a disposizione alla fine di ogni domanda.
+
+* I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. Nello stesso giorno si svolgerà l'orale se richiesto dallo studente o dal docente.
+
+
 
 ## Libri di testo.
 
