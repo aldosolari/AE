@@ -9,7 +9,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2020/21.
 
-## Analisi Statistica Multivariata
+## Pagina WEB del corso.
 
 Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Multivariata (15 CFU). Si prega di leggere con attenzione tutte le informazioni presenti nel sito
 
@@ -57,7 +57,7 @@ Seppure l'email sia il modo di mettersi in contatto con un
 docente, gli studenti sono invitati a non porre domande
 relative all’insegnamento (chiarimenti, soluzione di esercizi,
 ecc..) tramite l‘utilizzo della posta elettronica, ma ad
-utilizzare il forum presente nella pagina [e-learning](https://elearning.unimib.it/) del corso
+utilizzare il forum presente nella pagina [MOODLE](https://elearning.unimib.it/) del corso
 oppure richiedere un ricevimento.
 
 
