@@ -18,36 +18,58 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 
 ## Calendario delle lezioni e materiale didattico.
 
-* L01 (26 Novembre 9:30 - 12:30)
-  * [L'analisi statistica multivariata](docs/slides/1_multi.pdf). 
-  * [La matrice dei dati](docs/slides/2_dati.pdf).
+* L01 (26 Novembre 9:30 - 12:30) 
 
-<!-- settimana 1 -->
-
-* L02 (1 Dicembre 9:30 - 11:30)
+  - [L'analisi statistica multivariata](docs/slides/1_multi.pdf).
   
-* L03 (2 Dicembre 9:30 - 11:30)
+<!-- settimana 1 -->
+* L02 (1 Dicembre 9:30 - 11:30) 
 
-* L04 (3 Dicembre 9:30 - 12:30)
+  - [La matrice dei dati](docs/slides/2_dati.pdf). 
+
+* L03 (2 Dicembre 9:30 - 11:30) 
+
+* L04 (3 Dicembre 9:30 - 12:30) 
 
 <!-- settimana 2 -->
 
-* L05 (9 Dicembre 9:30 - 11:30)
+* L05 (9 Dicembre 9:30 - 11:30) 
 
-* L06 (10 Dicembre 9:30 - 12:30)
+* L06 (10 Dicembre 9:30 - 12:30) 
 
 <!-- settimana 3 -->
 
 * L07 (15 Dicembre 10:30 - 12:30)
 
-* L08 (16 Dicembre 9:30 - 11:30)
+* L08 (16 Dicembre 9:30 - 11:30) 
 
-* L09 (17 Dicembre 9:30 - 12:30)
+* L09 (17 Dicembre 9:30 - 12:30) 
 
 <!-- settimana 4 -->
 
-* L10 (22 Dicembre 10:30 - 12:30)
+* L10 (22 Dicembre 10:30 - 12:30) 
 
+* L11 (23 Dicembre 9:30 - 11:30) 
+
+<!-- settimana 5 -->
+
+* L12 (7 Gennaio 9:30 - 12:30) 
+
+<!-- settimana 6 -->
+
+* L13 (12 Gennnaio 10:30 - 12:30) 
+
+* L14 (13 Gennaio 9:30 - 11:30) 
+
+* L15 (14 Gennaio 9:30 - 12:30) 
+
+<!-- settimana 7 -->
+
+* L16 (19 Gennnaio 10:30 - 12:30) 
+
+* L17 (20 Gennaio 9:30 - 11:30) 
+
+* L18 (21 Gennaio 9:30 - 11:30) 
 
 Se non specificato, la modalità di lezione è SINCRONA.
 
