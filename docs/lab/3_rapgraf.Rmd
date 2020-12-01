@@ -31,7 +31,7 @@ rm(list=ls())
 # i dati si trovano sezione "dati" della pagina web del corso:
 # potete scaricarli cliccando il tasto destro "Save as"
 # oppure usare il loro URL (Uniform Resource Locator)
-url <- "https://raw.githubusercontent.com/aldosolari/AE/master/dati/measure.csv"
+url <- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/measure.csv"
 measure <- read.csv(url)
 ```
 
