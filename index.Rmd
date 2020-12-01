@@ -25,11 +25,17 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 <!-- settimana 1 -->
 * L02 (1 Dicembre 9:30 - 11:30) 
 
-  - [La matrice dei dati](docs/slides/2_dati.pdf). 
+  - [La matrice dei dati](docs/slides/2_dati.pdf).
 
 * L03 (2 Dicembre 9:30 - 11:30) 
 
+  - [R - la matrice dei dati](docs/lab/2_dati.html).
+  - [R - rappresentazioni grafiche](docs/lab/3_rapgraf.html).
+
 * L04 (3 Dicembre 9:30 - 12:30) 
+
+  - [Spazio delle variabili e delle osservazioni](docs/appunti/4_spaziBB.pdf).
+  - [Dati centrati e standardizzati](docs/appunti/5_fmatrBB.pdf).
 
 <!-- settimana 2 -->
 
