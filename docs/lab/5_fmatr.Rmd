@@ -1,0 +1,137 @@
+---
+title: '**Matrice dei dati centrati e standardizzati**'
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    theme: cosmo
+    toc: yes
+    toc_float: yes
+---
+
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = T, eval= T, message=F, warning=F, error=F, comment=NA, cache=F, R.options=list(width=220))
+```
+
+# Una matrice $10 \times 2$ 
+
+Si consideri la seguente matrice `X` di dimensioni $10 \times 2$ 
+
+```{r}
+n = 10
+p = 2
+X <- matrix(c(2,3,3,4,4,5,6,6,7,8,7,8,10,6,8,10,12,13,11,12),nrow=n,ncol=p)
+X
+```
+
+1. Costruire il diagramma di dispersione per $X$
+* limitare valori sull'asse delle $x$ e delle $y$ all'intervallo [-4,13], mantenendo le proporzioni dei due assi (argomento `asp=1`)
+* colorare le unità statistiche e ingrandirle (`bg=heat.colors(n), pch=21, cex=2`)
+* aggiungere gli assi $x=0$ e $y=0$
+
+```{r}
+# diagramma di dispersione per X
+plot(X,xlim=c(-4,13),ylim=c(-4,13),asp=1, bg=heat.colors(n),pch=21,cex=2)
+abline(h=0)
+abline(v=0)
+```
+
+2. Ottenere il vettore delle medie $\bar{x}=\frac{1}{n} X' 1$:
+
+```{r}
+# vettore di 1
+one.n <- matrix(rep(1,n),ncol=1)
+one.n
+# vettore delle medie
+xbar <- (1/n) * t(X) %*% one.n
+xbar
+```
+
+3. Ottenere la matrice di centramento $H=I - \frac{1}{n} 11'$, verificandone la simmetria e la proprietà di idempotenza
+
+```{r}
+# matrice identità
+I.n <- diag(rep(1,n))
+I.n
+# matrice di centramento
+H <- I.n - (1/n) * one.n %*% t(one.n)
+H
+# simmetria t(H) = H
+sum( t(H) - H )
+# idempotenza HH = H
+sum( H %*% H - H )
+```
+
+# Matrice dei dati centrati
+
+4. Ottenere la matrice dei dati centrati $\tilde{X} = HX$, e costruire il diagramma di dispersione specificando gli argomenti richiesti al punto 1. 
+
+```{r}
+# matrice dei dati centrati 
+Xtilde <- H %*% X
+# diagramma di dispersione per dati centrati
+plot(Xtilde, xlim=c(-4,13),ylim=c(-4,13),
+     bg=heat.colors(n),pch=21,cex=2,asp=1)
+abline(h=0)
+abline(v=0)
+```
+
+5. Verificare che centrare una matrice già centrata, non produce alcun effetto: 
+```{r}
+sum( H%*%Xtilde - Xtilde )
+```
+
+
+6. Costruire la matrice di varianze/covarianze di $X$:  $S = \frac{1}{n} (HX)'(HX)$ 
+
+```{r}
+# matrice di varianze/covarianze S
+S <- (1/n) * t(H%*%X) %*% (H%*%X)
+S
+```
+
+7. Costruire la matrice di correlazione di $X$: $R = D^{-1/2} S D^{-1/2}$ dove $D^{1/2} = \mathrm{diag}(\sqrt{s_{11}},\ldots,\sqrt{s_{pp}})$
+
+```{r}
+# matrice diagonale
+D <- diag(diag(S)^(-.5)) 
+D
+# matrice di correlazione
+R <- D %*% S %*% D
+R
+```
+
+8. Costruire la matrice di varianze covarianze di $X$ come $S = D^{1/2} R D^{1/2}$ 
+
+```{r}
+# matrice diagonale
+D2 <- diag(diag(S)^(.5)) 
+D2
+# matrice di varianze/covarianze S
+S = D2 %*% R %*% D2 
+S
+```
+
+# Matrice dei dati standardizzati
+
+9. Ottenere la matrice di dati standardizzati $Z = \tilde{X} D^{-1/2}$, e costruire il diagramma di dispersione specificando gli argomenti richiesti al punto 1. 
+
+```{r}
+# matrice dati standardizzati
+Z = Xtilde %*% D
+# diagramma dispersione dati standardizzati
+plot(Z,xlim=c(-4,13),ylim=c(-4,13), bg=heat.colors(n),pch=21,cex=2,asp=1)
+abline(h=0)
+abline(v=0)
+```
+
+10. Ottenere la matrice di varianze/covarianze e di correlazione per i dati centrati $\tilde{X}$ e i dati standardizzati $Z$:
+
+```{r}
+( S_Xtilde <- (1/n) * t(H%*%Xtilde) %*% (H%*%Xtilde) )
+( S_Z <- (1/n) * t(H%*%Z) %*% (H%*%Z) )
+( R_Xtilde <-  diag(diag(S_Xtilde)^(-.5)) %*% S_Xtilde %*% diag(diag(S_Xtilde)^(-.5)) )
+( S_Z <- diag(diag(S_Z)^(-.5)) %*% S_Z %*% diag(diag(S_Z)^(-.5)) )
+```
+
+
