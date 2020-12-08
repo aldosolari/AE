@@ -41,11 +41,15 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 
 * L05 (9 Dicembre 9:30 - 11:30) 
 
+  - [R - Spazio delle variabili e delle osservazioni](docs/lab/4_spazi.html).
+  - [R - Dati centrati e standardizzati](docs/lab/5_fmatr.html).
   - [Varianza totale e generalizzata](docs/appunti/5_varianzeBB.pdf). [[slides](docs/slides/5_varianze.pdf)]
   
 
 * L06 (10 Dicembre 9:30 - 12:30) 
-
+  - [R - Varianza totale e generalizzata](docs/lab/6_varianze.html)
+  - [Teorema di decomposizione spettrale](docs/appunti/7_spectralBB.pdf). [[slides](docs/slides/7_spectral.pdf)]
+    
 <!-- settimana 3 -->
 
 * L07 (15 Dicembre 10:30 - 12:30)

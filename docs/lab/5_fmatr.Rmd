@@ -1,12 +1,12 @@
 ---
 title: '**Matrice dei dati centrati e standardizzati**'
 output:
-  pdf_document:
-    toc: yes
   html_document:
     theme: cosmo
     toc: yes
     toc_float: yes
+  pdf_document:
+    toc: yes
 ---
 
 ```{r startup, include = FALSE, message = FALSE, warning = FALSE}
