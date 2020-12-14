@@ -47,16 +47,27 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
   
 
 * L06 (10 Dicembre 9:30 - 12:30) 
-  - [R - Varianza totale e generalizzata](docs/lab/6_varianze.html)
-  - [Teorema di decomposizione spettrale](docs/appunti/7_spectralBB.pdf). [[slides](docs/slides/7_spectral.pdf)]
+  - [R - Varianza totale e generalizzata](docs/lab/6_varianze.html).
+
     
 <!-- settimana 3 -->
 
 * L07 (15 Dicembre 10:30 - 12:30)
 
+  - [Teorema di decomposizione spettrale](docs/appunti/7_spectralBB.pdf). [[slides](docs/slides/7_spectral.pdf)]
+  - [R - Teorema di decomposizione spettrale](docs/lab/7_spectral.html).
+
+
 * L08 (16 Dicembre 9:30 - 11:30) 
 
+  - [Analisi delle componenti principali](docs/appunti/8_pcaBB.pdf). [[slides](docs/slides/8_pca.pdf)]
+
 * L09 (17 Dicembre 9:30 - 12:30) 
+
+  - [R - Analisi delle componenti principali](docs/lab/8_pca.html).
+  - [PCA: applicazioni [slides]](docs/slides/9_pca2.pdf).
+  - [R - PCA: applicazioni](docs/lab/9_pca2.html).
+
 
 <!-- settimana 4 -->
 
