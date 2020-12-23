@@ -147,13 +147,13 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 # Appelli passati.
 
-* [7.2.20](docs/appelli/AE070220)
-* [21.2.20](docs/appelli/AE210220)
-* [6.2.19](docs/appelli/AE060219)
-* [22.2.19](docs/appelli/AE220219)
-* [17.4.19](docs/appelli/AE170419)
-* [3.7.19](docs/appelli/AE030719)
-* [12.2.18](docs/appelli/AE120218)
+* [7 Febbraio 2020](docs/appelli/AE070220.pdf)
+* [21 Febbraio 2020](docs/appelli/AE210220.pdf)
+* [6 Febbraio 2019](docs/appelli/AE060219.pdf)
+* [22 Febbraio 2019](docs/appelli/AE220219.pdf)
+* [17 Aprile 2019](docs/appelli/AE170419.pdf)
+* [3 Luglio 2019](docs/appelli/AE030719.pdf)
+* [12 Febbraio 2018](docs/appelli/AE120218.pdf)
 
 
 
