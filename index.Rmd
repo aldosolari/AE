@@ -71,19 +71,19 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 * L10 (22 Dicembre 10:30 - 12:30)
 
   - [R - Analisi delle componenti principali](docs/lab/8_pca.html).
-  - [Alcuni esercizi PCA](docs/appunti/15_appBB.pdf).
-  
 
 * L11 (23 Dicembre 9:30 - 11:30) 
 
-  - [Metodo delle K-medie](docs/appunti/10_kmeansBB.pdf). [[slides](docs/slides/10_kmeans.pdf)]
-  - [R - Metodo delle K-medie](docs/lab/10_kmeans.html).
+  - [Esercizi PCA](docs/appunti/15_appBB.pdf).
   - [Esecizi I](docs/esercizi/1_exe.pdf).
   - [Esecizi II](docs/esercizi/2_exe.pdf).
 
 <!-- settimana 5 -->
 
 * L12 (7 Gennaio 9:30 - 12:30) 
+
+  - [Metodo delle K-medie](docs/appunti/10_kmeansBB.pdf). [[slides](docs/slides/10_kmeans.pdf)]
+  - [R - Metodo delle K-medie](docs/lab/10_kmeans.html).
 
 <!-- settimana 6 -->
 
