@@ -13,7 +13,7 @@ output:
 knitr::opts_chunk$set(echo = T, eval= T, message=F, warning=F, error=F, comment=NA, cache=F, R.options=list(width=220))
 ```
 
-# Dati marks
+# Dati Marks
 
 1. Caricare i dati `marks` 
 
@@ -109,14 +109,14 @@ pca$loadings[,] # coincide con V
 head( pca$scores ) # coincide con head(Y)
 
 
-pca = prcomp(X, center = TRUE)
-summary(pca)  # Standard deviation coincide con sqrt(diag(Lambda)*(n/n-1))
+pca2 = prcomp(X, center = TRUE)
+summary(pca2)  # Standard deviation coincide con sqrt(diag(Lambda)*(n/n-1))
 
 # pesi
-pca$rotation[,] # coincide con V
+pca2$rotation[,] # coincide con V
 
 # punteggi
-head( pca$x ) # coincide con head(Y)
+head( pca2$x ) # coincide con head(Y)
 ```
 
 5. Costruire il *biplot* e commentare. 
@@ -126,10 +126,12 @@ head( pca$x ) # coincide con head(Y)
 biplot(pca)
 ```
 
-6. Calcolare la correlazione tra il voto centrato sullo 0 dell'esame in `Statistics` e i punteggi della prima componente principale
+6. Calcolare la correlazione tra il voto centrato sullo 0 dell'esame in `Statistics` (quinta colonna della matrice $\tilde{X}$) e i punteggi della prima componente principale (prima colonna della matrice $Y$). Si ricordi la formula
+$$\frac{v_{jk}\sqrt{\lambda_k}}{\sqrt{s_{jj}}}$$ per la $j$-sima colonna di $\tilde{X}$ e la $k$-sima colonna di $Y$.
 
 ```{r}
 V[5,1]*pca$sdev[1]/sqrt(diag(S)[5])
+# corrisponde alla correlazione calcolata sulla base dei dati
 cor(Xtilde[,"Statistics"],Y[,1])
 ```
 
