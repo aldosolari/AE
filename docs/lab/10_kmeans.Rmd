@@ -22,7 +22,7 @@ Applicare l'algoritmo delle  K-medie (argomento `algorithm = Lloyd`) sui dati $X
 
 ```{r}
 rm(list=ls())
-paesi <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/dati/paesi.txt", header=TRUE)
+paesi <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/paesi.txt", header=TRUE)
 
 X = paesi[,-c(1,11)]
 n = nrow(X)
@@ -75,7 +75,7 @@ plot(sil)
 
 ```{r}
 rm(list=ls())
-face <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/dati/face.txt", header=FALSE)
+face <- read.table("https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/face.txt", header=FALSE)
 
 X = as.matrix(face)
 n = nrow(face)
