@@ -90,24 +90,28 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 * L13 (12 Gennnaio 10:30 - 12:30) 
 
   - [Distanze](docs/appunti/11_distBB.pdf). [[slides](docs/slides/11_dist.pdf)]
-  - [R - Distanze](docs/lab/11_dist.html).
+
 
 * L14 (13 Gennaio 9:30 - 11:30) 
 
   - [Analisi dei gruppi: metodi gerarchici ](docs/appunti/12_hclustBB.pdf). [[slides](docs/slides/12_hclust.pdf)]
-  - [R - Metodi gerarchici](docs/lab/12_hclust.html).
+
 
 * L15 (14 Gennaio 9:30 - 12:30) 
-  - [Analisi fattoriale](docs/appunti/13_factBB.pdf). [[slides](docs/slides/13_fact.pdf)]
+
+  - [R - Distanze](docs/lab/11_dist.html).
+  - [R - Metodi gerarchici](docs/lab/12_hclust.html).
   
 <!-- settimana 7 -->
 
 * L16 (19 Gennaio 10:30 - 12:30) 
 
-  - [Analisi fattoriale: applicazioni [slides]](docs/slides/14_fact2.pdf)
-  - [R - Analisi fattoriale](docs/lab/14_fact.html).
+  - [Analisi fattoriale](docs/appunti/13_factBB.pdf). [[slides](docs/slides/13_fact.pdf)]
 
 * L17 (20 Gennaio 9:30 - 11:30) 
+
+  - [Analisi fattoriale: applicazioni [slides]](docs/slides/14_fact2.pdf)
+  - [R - Analisi fattoriale](docs/lab/14_fact.html).
 
 * L18 (21 Gennaio 9:30 - 11:30) 
 
