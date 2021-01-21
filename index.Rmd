@@ -115,7 +115,8 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 * L18 (21 Gennaio 9:30 - 11:30) 
 
   - [R - Analisi fattoriale](docs/lab/14_fact.html).
-
+  - [Esercizi III](docs/esercizi/16_exeBB.pdf).
+  
 Se non specificato, la modalità di lezione è SINCRONA.
 
 ## Forum del corso. 
