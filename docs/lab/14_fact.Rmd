@@ -81,15 +81,19 @@ round(S,2)
 
 ```{r}
 A = diag(diag(Sigma)^(-1/2))
+# dati riscalati
 Y = X %*% A
+# stima varianze
+round(diag( var(Y) * ((n-1)/n) ),2)
+# pesi fattoriali y
 Lambday = A %*% Lambda
+round(Lambday,2)
 Psiy = A %*% Psi %*% t(A)
 # varianze specifiche di y
 diag(Psiy)
-Corrx = A %*% Sigma %*% t(A)
+Corrx = Lambday %*% t(Lambday) + Psiy
 round(Corrx,2)
-Sy = var(Y) *((n-1)/n)
-round(Sy,2)
+# R
 R = cor(X)
 round(R,2)
 ```
@@ -105,14 +109,18 @@ af
 # stima dei pesi fattoriali
 hatLambda <- af$loadings[,]
 round(hatLambda,3)
+# veri valori
+round(Lambday,3)
 # stima delle comunalità
 hatH2 <- apply(af$loadings^2,1,sum)
 round(hatH2,3)
 # stima delle varianze specifiche
 hatPsi <- diag(af$uniquenesses)
 round(diag(hatPsi),3)
-# differenza
-R - ( hatLambda%*%t(hatLambda) + hatPsi )
+# veri valori
+round(diag(Psiy),3)
+# differenza vera correlazione e stima
+round(Corrx - ( hatLambda%*%t(hatLambda) + hatPsi ),5)
 ```
 
 
