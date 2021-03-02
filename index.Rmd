@@ -142,7 +142,7 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 ||  || ||  ||  || ||
 || Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
 || Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
-|| Primaverile || Aprile || Remoto  || tbd ||
+|| Primaverile || 21 Aprile 2021 || Remoto  || 14:30 ||
 || Estiva || Giugno || Remoto  || tbd ||
 || Estiva || Luglio || Remoto  || tbd ||
 || Estiva || Settembre || Remoto  || tbd ||
