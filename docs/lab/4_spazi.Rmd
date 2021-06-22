@@ -147,7 +147,7 @@ s11 = (4^2)/n
 s22 = (9^2)/n
 a_grad = 70
 a_rad = (a_grad * pi)/180
-r12 = cos(a_grad)
+r12 = cos(a_rad)
 s12 = r12 * sqrt(s11)*sqrt(s22)
 s21 = s12
 S = matrix(c(s11,s12,s21,s22), ncol=p, byrow=T)
