@@ -143,14 +143,14 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 || Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
 || Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
 || Primaverile || 21 Aprile 2021 || Remoto  || 14:30 ||
-|| Estiva || Giugno || Remoto  || tbd ||
-|| Estiva || Luglio || Remoto  || tbd ||
-|| Estiva || Settembre || Remoto  || tbd ||
+|| Estiva || 22 Giugno 2021 || Remoto  || 14:30 ||
+|| Estiva || 6 Luglio 2021 || Remoto  || 14:30 ||
+|| Estiva || 7 Settembre 2021 || Presenza  || 14:40 ||
 
 
 ## Modalità d'esame. 
 
-* La prova di AE si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO. 
+* La prova di AE da remoto si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO. 
 
 * La prova include domande di tipologie diverse, tra cui, domande aperte, a risposta multipla e a risposta numerica.  Ulteriori informazioni riguardanti la prova verranno fornite a tempo debito.
 
