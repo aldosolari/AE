@@ -7,7 +7,7 @@ output: markdowntemplates::minimal
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2020/21.
+Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2021/22.
 
 ## Pagina WEB del corso.
 
@@ -18,106 +18,133 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 
 ## Calendario delle lezioni e materiale didattico.
 
-* L01 (26 Novembre 9:30 - 12:30) 
+<table>
 
-  - [L'analisi statistica multivariata](docs/slides/1_multi.pdf).
-  
-<!-- settimana 1 -->
-* L02 (1 Dicembre 9:30 - 11:30) 
+<tr>
+<td>**ARGOMENTI**</td>
+<td>**MATERIALE**</td>
+<td>**DIDATTICO**</td>
+<td>**LIBRO DI TESTO**</td>
+<td>**ESERCIZI**</td>
+</tr>
 
-  - [La matrice dei dati](docs/slides/2_dati.pdf).
+<tr>
+<td>Introduzione al corso.</td>
+<td> [SLIDES](docs/slides/1_multi.pdf). </td>
+<td> </td>
+<td>JW §1.1, §1.2</td>
+<td> </td>
+</tr>
 
-* L03 (2 Dicembre 9:30 - 11:30) 
+<tr>
+<td>La matrice dei dati.</td>
+<td>[SLIDES](docs/slides/2_dati.pdf).</td>
+<td>[R](docs/lab/2_dati.html). </td>
+<td>JW §1.3</td>
+<td> </td>
+</tr>
 
-  - [R - la matrice dei dati](docs/lab/2_dati.html).
-  - [R - rappresentazioni grafiche](docs/lab/3_rapgraf.html). [[slides](docs/slides/3_rapgraf.pdf)]
+<tr>
+<td>Rappresentazioni grafiche.</td>
+<td>[SLIDES](docs/slides/3_rapgraf.pdf).</td>
+<td>[R](docs/lab/3_rapgraf.html). </td>
+<td>JW §1.4</td>
+<td> </td>
+</tr>
 
-* L04 (3 Dicembre 9:30 - 12:30) 
+<tr>
+<td>[Spazio delle variabili e delle osservazioni](docs/appunti/4_spaziBB.pdf).</td>
+<td>[SLIDES](docs/slides/4_spazi.pdf).</td>
+<td>[R](docs/lab/4_spazi.html). </td>
+<td>JW §3.1, §3.2</td>
+<td></td>
+</tr>
 
-  - [Spazio delle variabili e delle osservazioni](docs/appunti/4_spaziBB.pdf). [[slides](docs/slides/4_spazi.pdf)]
-  - [Dati centrati e standardizzati](docs/appunti/5_fmatrBB.pdf). [[slides](docs/slides/5_fmatr.pdf)]
-
-<!-- settimana 2 -->
-
-* L05 (9 Dicembre 9:30 - 11:30) 
-
-  - [R - Spazio delle variabili e delle osservazioni](docs/lab/4_spazi.html).
-  - [R - Dati centrati e standardizzati](docs/lab/5_fmatr.html).
-  - [Varianza totale e generalizzata](docs/appunti/6_varianzeBB.pdf). [[slides](docs/slides/6_varianze.pdf)]
-  
-
-* L06 (10 Dicembre 9:30 - 12:30) 
-  - [R - Varianza totale e generalizzata](docs/lab/6_varianze.html).
-
-    
-<!-- settimana 3 -->
-
-* L07 (15 Dicembre 10:30 - 12:30)
-
-  - [Teorema di decomposizione spettrale](docs/appunti/7_spectralBB.pdf). [[slides](docs/slides/7_spectral.pdf)]
-  - [R - Teorema di decomposizione spettrale](docs/lab/7_spectral.html).
-
-
-* L08 (16 Dicembre 9:30 - 11:30) 
-
-  - [Analisi delle componenti principali](docs/appunti/8_pcaBB.pdf). [[slides](docs/slides/8_pca.pdf)]
-
-* L09 (17 Dicembre 9:30 - 12:30) 
-
-  - [PCA: applicazioni [slides]](docs/slides/9_pca2.pdf).
-
-<!-- settimana 4 -->
-
-* L10 (22 Dicembre 10:30 - 12:30)
-
-  - [R - Analisi delle componenti principali](docs/lab/8_pca.html).
-
-* L11 (23 Dicembre 9:30 - 11:30) 
-
-  - [Esercizi PCA](docs/appunti/15_appBB.pdf).
-  - [Esecizi I](docs/esercizi/1_exe.pdf).
-  - [Esecizi II](docs/esercizi/2_exe.pdf).
-
-<!-- settimana 5 -->
-
-* L12 (7 Gennaio 9:30 - 12:30) 
-
-  - [Analisi dei gruppi: metodo delle K-medie](docs/appunti/10_kmeansBB.pdf). [[slides](docs/slides/10_kmeans.pdf)]
-  - [R - Metodo delle K-medie](docs/lab/10_kmeans.html).
-
-<!-- settimana 6 -->
-
-* L13 (12 Gennnaio 10:30 - 12:30) 
-
-  - [Distanze](docs/appunti/11_distBB.pdf). [[slides](docs/slides/11_dist.pdf)]
+<tr>
+<td>[Dati centrati e standardizzati](docs/appunti/5_fmatrBB.pdf).</td>
+<td>[SLIDES](docs/slides/5_fmatr.pdf).</td>
+<td>[R](docs/lab/5_fmatr.html). </td>
+<td>JW §3.5 </td>
+<td>[ESERCIZI](docs/esercizi/5_exeBB.pdf).</td>
+</tr>
 
 
-* L14 (13 Gennaio 9:30 - 11:30) 
+<tr>
+<td>[Varianza totale e generalizzata](docs/appunti/6_varianzeBB.pdf).</td>
+<td>[SLIDES](docs/slides/6_varianze.pdf).</td>
+<td>[R](docs/lab/6_varianze.html). </td>
+<td>JW §3.4 </td>
+<td>[ESERCIZI](docs/esercizi/1_exe.pdf).</td>
+</tr>
 
-  - [Analisi dei gruppi: metodi gerarchici ](docs/appunti/12_hclustBB.pdf). [[slides](docs/slides/12_hclust.pdf)]
+<tr>
+<td>[Teorema di decomposizione spettrale](docs/appunti/7_spectralBB.pdf).</td>
+<td>[SLIDES](docs/slides/7_spectral.pdf).</td>
+<td>[R](docs/lab/7_spectral.html). </td>
+<td>JW §2A.14, §2A.15 </td>
+<td> </td>
+</tr>
+
+<tr>
+<td>[Analisi delle componenti principali](docs/appunti/8_pcaBB.pdf).</td>
+<td>[SLIDES](docs/slides/8_pca.pdf).</td>
+<td>[R](docs/lab/8_pca.html). </td>
+<td>JW §8.1, §8.2, §8A </td>
+<td>[ESERCIZI](docs/esercizi/2_exe.pdf).</td>
+</tr>
+
+<tr>
+<td>PCA: applicazioni </td>
+<td>[SLIDES](docs/slides/9_pca2.pdf).</td>
+<td> </td>
+<td>JW §8.3 </td>
+<td> [ESERCIZI](docs/esercizi/15_appBB.pdf).</td>
+</tr>
+
+<tr>
+<td>[Analisi dei gruppi: metodo delle K-medie](docs/appunti/10_kmeansBB.pdf).</td>
+<td>[SLIDES](docs/slides/10_kmeans.pdf).</td>
+<td>[R](docs/lab/10_kmeans.html). </td>
+<td>JW § </td>
+<td> </td>
+</tr>
 
 
-* L15 (14 Gennaio 9:30 - 12:30) 
+<tr>
+<td>[Distanze](docs/appunti/11_distBB.pdf).</td>
+<td>[SLIDES](docs/slides/11_dist.pdf).</td>
+<td>[R](docs/lab/11_dist.html). </td>
+<td>JW § </td>
+<td> </td>
+</tr>
 
-  - [R - Distanze](docs/lab/11_dist.html).
-  - [R - Metodi gerarchici](docs/lab/12_hclust.html).
-  
-<!-- settimana 7 -->
 
-* L16 (19 Gennaio 10:30 - 12:30) 
+<tr>
+<td>[Analisi dei gruppi: metodi gerarchici ](docs/appunti/12_hclustBB.pdf).</td>
+<td>[SLIDES](docs/slides/12_hclust.pdf).</td>
+<td>[R](docs/lab/12_hclust.html). </td>
+<td>JW § </td>
+<td> </td>
+</tr>
 
-  - [Analisi fattoriale](docs/appunti/13_factBB.pdf). [[slides](docs/slides/13_fact.pdf)]
+<tr>
+<td>[Analisi fattoriale](docs/appunti/13_factBB.pdf).</td>
+<td>[SLIDES](docs/slides/13_fact.pdf).</td>
+<td>[R](docs/lab/14_fact.html). </td>
+<td>JW § </td>
+<td>[ESERCIZI](docs/esercizi/16_exeBB.pdf).</td>
+</tr>
 
-* L17 (20 Gennaio 9:30 - 11:30) 
+<tr>
+<td>Analisi fattoriale: applicazioni.</td>
+<td>[SLIDES](docs/slides/14_fact2.pdf).</td>
+<td> </td>
+<td>JW § </td>
+<td></td>
+</tr>
 
-  - [Analisi fattoriale: applicazioni [slides]](docs/slides/14_fact2.pdf)
+</table>
 
-* L18 (21 Gennaio 9:30 - 11:30) 
-
-  - [R - Analisi fattoriale](docs/lab/14_fact.html).
-  - [Esercizi III](docs/esercizi/16_exeBB.pdf).
-  
-Se non specificato, la modalità di lezione è SINCRONA.
 
 ## Forum del corso. 
 
@@ -140,36 +167,36 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 || Sessione || Data || Luogo || Orario ||
 |-|-|-|-|-|-|-|-|-|-|
 ||  || ||  ||  || ||
-|| Invernale || 8 Febbraio 2021 || Remoto || 14:30  ||
-|| Invernale || 22 Febbraio 2021 || Remoto  || 14:30 ||
-|| Primaverile || 21 Aprile 2021 || Remoto  || 14:30 ||
-|| Estiva || 22 Giugno 2021 || Remoto  || 14:30 ||
-|| Estiva || 6 Luglio 2021 || Remoto  || 14:30 ||
-|| Estiva || 7 Settembre 2021 || Presenza  || 14:40 ||
+|| Invernale || 8 Febbraio 2022 || U7-11 || 14:30  ||
+|| Invernale || 28 Febbraio 2022 || -  || 14:30 ||
+|| Primaverile || - || - || - ||
+|| Estiva || - || -  || - ||
+|| Estiva || - || -  || - ||
+|| Estiva || - || -  || - ||
 
 
 ## Modalità d'esame. 
 
-* La prova di AE da remoto si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO. 
+<!-- * La prova di AE da remoto si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO.  -->
 
-* La prova include domande di tipologie diverse, tra cui, domande aperte, a risposta multipla e a risposta numerica.  Ulteriori informazioni riguardanti la prova verranno fornite a tempo debito.
+<!-- * La prova include domande di tipologie diverse, tra cui, domande aperte, a risposta multipla e a risposta numerica.  Ulteriori informazioni riguardanti la prova verranno fornite a tempo debito. -->
 
-* L'esame si svolgerà interamente al computer e potrebbe essere richiesto di utilizzare R o RStudio. Non sarà richiesto (né sarà consentito) caricare foto di quanto scritto con carta e penna, verrà valutato solamente quanto scritto negli appositi spazi messi a disposizione alla fine di ogni domanda.
+<!-- * L'esame si svolgerà interamente al computer e potrebbe essere richiesto di utilizzare R o RStudio. Non sarà richiesto (né sarà consentito) caricare foto di quanto scritto con carta e penna, verrà valutato solamente quanto scritto negli appositi spazi messi a disposizione alla fine di ogni domanda. -->
 
 * I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. 
 
 * Per l'accettazione del voto vale la regola del silenzio-assenso. Lo studente può rifiutare il voto o richiedere l'orale non oltre alla data prevista per la visione dei compiti. L'orale può essere richiesto anche dal docente. La data della prova orale non potrà essere inferiore a tre giorni naturali successivi continui dalla data di pubblicazione del voto. L'orale si basa sul tutto il programma del corso di AE. 
 
 
-# Appelli passati.
+<!-- # Appelli passati. -->
 
-* [7 Febbraio 2020](docs/appelli/AE070220.pdf)
-* [21 Febbraio 2020](docs/appelli/AE210220.pdf)
-* [6 Febbraio 2019](docs/appelli/AE060219.pdf)
-* [22 Febbraio 2019](docs/appelli/AE220219.pdf)
-* [17 Aprile 2019](docs/appelli/AE170419.pdf)
-* [3 Luglio 2019](docs/appelli/AE030719.pdf)
-* [12 Febbraio 2018](docs/appelli/AE120218.pdf)
+<!-- * [7 Febbraio 2020](docs/appelli/AE070220.pdf) -->
+<!-- * [21 Febbraio 2020](docs/appelli/AE210220.pdf) -->
+<!-- * [6 Febbraio 2019](docs/appelli/AE060219.pdf) -->
+<!-- * [22 Febbraio 2019](docs/appelli/AE220219.pdf) -->
+<!-- * [17 Aprile 2019](docs/appelli/AE170419.pdf) -->
+<!-- * [3 Luglio 2019](docs/appelli/AE030719.pdf) -->
+<!-- * [12 Febbraio 2018](docs/appelli/AE120218.pdf) -->
 
 
 
