@@ -16,7 +16,45 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 * [Analisi Statistica Multivariata](https://aldosolari.github.io/ASM/) (15 CFU)
 
 
-## Calendario delle lezioni e materiale didattico.
+## Calendario delle lezioni.
+
+|| Lezione || Data || Luogo || Orario ||
+|-|-|-|-|-|-|-|-|-|-|
+||  || ||  ||  || ||
+|| 1 || 02-12-2021 || U6-30 || 12:30 - 15:30 (3 ore)  ||
+|| 2 || 03-12-2021 || U9-01 || 13:30 - 16:30 (3 ore)  ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 3 || 09-12-2021 || U6-30 || 12:30 - 15:30 (3 ore)  ||
+|| 4 || 10-12-2021 || LAB905 || 13:30 - 16:30 (3 ore) ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 5 || 14-12-2021 || U6-30 || 08:30 - 10:30 (2 ore) ||
+|| 6 || 16-12-2021 || U6-30 || 12:30 - 15:30 (3 ore) ||
+|| 7 || 17-12-2021 || U9-06 || 13:30 - 16:30 (3 ore) ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 8 || 21-12-2021 || U6-30 || 08:30 - 10:30 (2 ore) ||
+|| 9 || 23-12-2021 || U6-30 || 12:30 - 15:30 (3 ore) ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 10 || 11-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
+|| 11 || 13-01-2022 || U6-30 || 12:30 - 15:30 (3 ore) ||
+|| 12 || 14-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 13 || 18-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
+|| 14 || 20-01-2022 || U6-30 || 12:30 - 14:30 (2 ore) ||
+|| 15 || 21-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) ||
+||  || ||  ||  || ||
+||  || ||  ||  || ||
+|| 16 || 25-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
+<!-- || 17 || 27-01-2022 || U6-30 || 12:30 - 15:30 (3 ore) || -->
+<!-- || 18 || 28-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) || -->
+
+Il calendario didattico potrà subire variazioni, si consiglia di consultare questa pagina regolarmente. 
+
+## Materiale didattico.
 
 <table>
 
@@ -177,11 +215,7 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 ## Modalità d'esame. 
 
-<!-- * La prova di AE da remoto si svolgerà sulla [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e potrebbe essere supportata dal sistema di proctoring PROCTORIO.  -->
-
-<!-- * La prova include domande di tipologie diverse, tra cui, domande aperte, a risposta multipla e a risposta numerica.  Ulteriori informazioni riguardanti la prova verranno fornite a tempo debito. -->
-
-<!-- * L'esame si svolgerà interamente al computer e potrebbe essere richiesto di utilizzare R o RStudio. Non sarà richiesto (né sarà consentito) caricare foto di quanto scritto con carta e penna, verrà valutato solamente quanto scritto negli appositi spazi messi a disposizione alla fine di ogni domanda. -->
+* La prova consiste in una serie di esercizi. L'esame si svolgerà in laboratorio utilizzando la [Piattaforma Esami Informatizzati](https://esamionline.elearning.unimib.it/) e sarà possibile utilizzare R o RStudio.
 
 * I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. 
 
