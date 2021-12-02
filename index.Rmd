@@ -81,8 +81,8 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[SLIDES](docs/slides/2_dati.pdf).</td>
 <td>[R](docs/lab/2_dati.html). </td>
 <td>JW §1.3, EH §1.3, §1.3.1</td>
-<td>[ESERCIZI](docs/esercizi/2_dati_esercizi).</td>
-<td>[SOLUZIONI](docs/esercizi/2_dati_soluzioni).</td>
+<td>[ESERCIZI](docs/esercizi/2_dati_esercizi.pdf).</td>
+<td>[SOLUZIONI](docs/esercizi/2_dati_soluzioni.pdf).</td>
 </tr>
 
 <tr>
