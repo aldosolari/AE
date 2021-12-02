@@ -71,7 +71,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>Introduzione al corso.</td>
 <td> [SLIDES](docs/slides/1_multi.pdf). </td>
 <td> </td>
-<td>JW §1.1, §1.2</td>
+<td>JW §1.1, 1.2 </td>
 <td></td>
 <td></td>
 </tr>
@@ -80,7 +80,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>La matrice dei dati.</td>
 <td>[SLIDES](docs/slides/2_dati.pdf).</td>
 <td>[R](docs/lab/2_dati.html). </td>
-<td>JW §1.3</td>
+<td>JW §1.3, EH §1.3, §1.3.1</td>
 <td></td>
 <td></td>
 </tr>
@@ -89,7 +89,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>Rappresentazioni grafiche.</td>
 <td>[SLIDES](docs/slides/3_rapgraf.pdf).</td>
 <td>[R](docs/lab/3_rapgraf.html). </td>
-<td>JW §1.4</td>
+<td>JW §1.4, EH §2.2, 2.2.1, 2.2, 2.4</td>
 <td></td>
 <td></td>
 </tr>

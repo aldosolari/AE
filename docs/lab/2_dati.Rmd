@@ -227,3 +227,13 @@ cor(log(Animals[-which.out,]))
 ```
 
 Dal diagramma di dispersione senza le osservazioni anomale si vede che le variabili `log(body)` e `log(brain)` presentano una dipendenza lineare positiva (sono correlate positivamente), quantificata come molto forte dal coefficiente di correlazione lineare $r_{12}=0.96$ (Si noti che senza rimuovere le osservazioni anomale, $r_{12}=0.78$). 
+
+8. Costruire l'involucro convesso (*convex hull*) contenenente tutte le osservazioni non anomale e rappresentarlo graficamente
+
+```{r}
+hull <- with(Animals[-which.out,], chull(log(body),log(brain)))
+with(Animals, plot(log(body),log(brain)))
+with(Animals[-which.out,], polygon(log(body)[hull],log(brain)[hull], density = 15, angle=30))
+```
+
+
