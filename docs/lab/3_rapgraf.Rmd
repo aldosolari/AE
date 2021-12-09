@@ -22,7 +22,7 @@ I dati `measures` sono $n=20$ osservazioni su $p=4$ variabili:
 * `chest`: misura petto
 * `waist` : misura vita
 * `hips` : misura fianchi
-* `gender` : genere (`male` o `female`)
+* `gender` : sesso (`male` o `female`)
 
 Importiamo i dati `measures`.
 
@@ -38,7 +38,6 @@ measure <- read.csv(url)
 ```{r, echo=F}
 knitr::kable(head(measure))
 ```
-
 
 1. Costruire il diagramma tridimensionale per le variabili `chest`, `waist` e `hips`,  utilizzando il comando `cloud()` che è disponibile nel pacchetto `lattice`:
 
@@ -56,7 +55,7 @@ cloud(chest ~ waist + hips, group=gender, data=measure)
 
 Funzioni R più avanzate permettono di costruire un diagramma tridimensionale interattivo:
 
-```{r, echo=FALSE, eval=T}
+```{r}
 library(plotly)
 p <- plot_ly(measure, x = ~waist, y = ~hips, z = ~chest, color = ~gender, colors = c("pink","blue")) %>%
   add_markers() %>%
@@ -84,7 +83,6 @@ del volto, per esempio la larghezza della faccia, il livello delle orecchie,
 la lunghezza o la curvatura della bocca, la lunghezza del naso, ecc.
 L'idea che sta dietro all’uso delle facce è che le persone riconoscono i
 volti e notano piccoli cambiamenti senza difficoltà.
-
 
 4. Costruire le facce di Chernoff corrispondenti ai 20 individui escludendo la variabile `gender` utilizzando il comando `faces()` presente nel pacchetto `TeachingDemos`:
 

@@ -87,7 +87,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 
 <tr>
 <td>Rappresentazioni grafiche.</td>
-<td>[SLIDES](docs/slides/3_rapgraf.pdf).</td>
+<td>[SLIDES](docs/lab/3_rapgraf_slide.html).</td>
 <td>[R](docs/lab/3_rapgraf.html). </td>
 <td>JW §1.4, EH §2.2, 2.2.1, 2.2, 2.4</td>
 <td></td>
@@ -127,7 +127,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[SLIDES](docs/slides/7_spectral.pdf).</td>
 <td>[R](docs/lab/7_spectral.html). </td>
 <td>JW §2A.14, §2A.15 </td>
-<td></td>
+<td>[ESERCIZI](docs/esercizi/7_spectral_esercizi.pdf).</td>
 <td></td>
 </tr>
 

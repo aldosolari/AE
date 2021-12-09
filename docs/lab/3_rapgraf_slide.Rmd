@@ -1,0 +1,331 @@
+---
+title: "Analisi Esplorativa"
+subtitle: "Rappresentazioni grafiche di tre o più dimensioni"
+author: Aldo Solari
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      highlightStyle: github
+      highlightLines: TRUE
+      countIncrementalSlides: FALSE   
+---
+
+```{r startup, include = FALSE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = T, 
+                      eval=T, 
+                      message=F, 
+                      warning=F, 
+                      error=F, 
+                      comment=NA)
+```
+
+# Outline
+
+1. Matrice dei diagrammi di dispersione
+
+2. Diagramma tridimensionale
+
+3. Facce di Chernhoff / Stelle
+
+4. Diagramma di dispersione condizionato
+
+---
+
+# Dati Measures
+
+*Argomenti: diagramma tridimensionale; matrice dei diagrammi di dispersione; facce di Chernoff; stelle*
+
+I dati `measures` sono $n=20$ osservazioni su $p=4$ variabili:
+
+* `chest`: misura petto
+* `waist` : misura vita
+* `hips` : misura fianchi
+* `gender` : sesso (`male` o `female`)
+
+---
+
+Importiamo i dati `measures`.
+
+```{r}
+rm(list=ls())
+# i dati si trovano sezione "dati" della pagina web del corso:
+# potete scaricarli cliccando il tasto destro "Save as"
+# oppure usare il loro URL (Uniform Resource Locator)
+url <- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/measure.csv"
+measure <- read.csv(url)
+head(measure)
+```
+
+
+---
+
+Costruire il diagramma tridimensionale per le variabili `chest`, `waist` e `hips`,  utilizzando il comando `cloud()` che è disponibile nel pacchetto `lattice`
+
+---
+
+```{r}
+library(lattice)
+cloud(chest ~ waist + hips, data=measure)
+```
+
+---
+
+Costruire il diagramma tridimensionale colorando le unità statistiche con colori diversi a seconda del sesso.
+
+---
+
+```{r}
+cloud(chest ~ waist + hips, group=gender, data=measure)
+```
+
+---
+
+Funzioni R più avanzate permettono di costruire un diagramma tridimensionale interattivo:
+
+```{r}
+library(plotly)
+p <- plot_ly(measure, x = ~waist, y = ~hips, z = ~chest, color = ~gender, colors = c("pink","blue")) %>%
+  add_markers() %>%
+  layout(scene = list(xaxis = list(title = 'x = waist (vita)'),
+                     yaxis = list(title = 'y = hips (fianchi)'),
+                     zaxis = list(title = 'z= chest (petto)')))
+```
+
+---
+
+```{r}
+p
+```
+
+---
+
+Costruire la matrice dei diagrammi di dispersione colorando le unità statistiche con colori diversi a seconda del sesso. 
+
+---
+
+```{r}
+column.gender <- which(names(measure)=="gender")
+plot(measure[,-column.gender], col=(measure$gender=="male")+1)
+```
+
+---
+
+Funzioni R più avanzate permettono di aggiungere e.g. gli istogrammi sulla diagonale e i valori assoluti delle correlazioni 
+
+```{r}
+panel.hist <- function(x, ...)
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(usr[1:2], 0, 1.5) )
+  h <- hist(x, plot = FALSE)
+  breaks <- h$breaks; nB <- length(breaks)
+  y <- h$counts; y <- y/max(y)
+  rect(breaks[-nB], 0, breaks[-1], y, 
+       col = "cyan", ...)
+}
+
+panel.cor <- function(x, y, digits = 2, 
+                      prefix = "", cex.cor, ...)
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  r <- abs(cor(x, y))
+  txt <- format(c(r, 0.123456789), digits = digits)[1]
+  txt <- paste0(prefix, txt)
+  if(missing(cex.cor)) cex.cor <- 0.8/strwidth(txt)
+  text(0.5, 0.5, txt, cex = cex.cor * r)
+}
+```
+
+---
+
+```{r}
+library(MASS)
+pairs(measure[,-column.gender], panel=panel.smooth, 
+      upper.panel=panel.cor, diag.panel=panel.hist)
+```
+
+---
+
+# Facce di Chernov
+
+Herman Chernoff ha introdotto una tecnica di visualizzazione per
+illustrare le tendenze nei dati multidimensionali.
+
+Questo metodo consiste nel visualizzare i dati multidimensionali a forma
+di volto umano; i diversi valori dei dati sono abbinati alle caratteristiche
+del volto, per esempio la larghezza della faccia, il livello delle orecchie,
+la lunghezza o la curvatura della bocca, la lunghezza del naso, ecc.
+
+L'idea che sta dietro all’uso delle facce è che le persone riconoscono i
+volti e notano piccoli cambiamenti senza difficoltà.
+
+Nella pratica questo metodo viene raramente utilizzato
+
+---
+
+Costruire le facce di Chernoff corrispondenti ai 20 individui escludendo la variabile `gender` utilizzando il comando `faces()` presente nel pacchetto `TeachingDemos`
+
+---
+
+```{r, message=FALSE}
+library("TeachingDemos")
+faces(measure[,-column.gender], scale=TRUE) #scale=TRUE standardizza i dati
+```
+
+---
+
+# Stelle 
+
+Questa rappresentazione grafica consiste di una sequenza di raggi che
+hanno origine da un centro e formano angoli uguali tra loro; ogni raggio
+rappresenta una delle variabili.
+
+La distanza dal centro del punto marcato sul raggio è proporzionale al
+valore della variabile rispetto al valore massimo raggiungibile.
+
+I punti sui raggi vengono congiunti con segmenti, così che il grafico ha
+la forma di una stella o di una ragnatela.
+
+Anche questo metodo viene scarsamente utilizzato
+
+---
+
+Rappresentare gli individui con le stelle utilizzando il comando `stars()`, aggiungendo la legenda con l’argomento `key.loc = c(10,10)`. 
+
+
+---
+
+```{r}
+stars(measure[,-column.gender], scale=TRUE, 
+      key.loc = c(10, 10)) # per posizionare la legenda alle coordinate (x,y)
+```
+
+---
+
+# Dati Quakes
+
+*Argomento: diagramma di dispersione condizionato*
+
+Il data.frame `quakes` è presente nel pacchetto `dataset`. Si tratta di $n=1000$ osservazioni misurate su $p=5$ variabili:
+
+* `lat`		Latitude of event
+*	`long`		Longitude
+*	`depth`		Depth (km)
+*	`mag`		Richter Magnitude
+*	`stations`	Number of stations reporting
+
+---
+
+Il diagramma di dispersione per latitudine e longitudine dei terremoti, utilizzando il simbolo `.` per indicare le osservazioni, si ottiene con:
+
+```{r}
+data("quakes")
+plot(lat ~ long, quakes, pch=".")
+```
+
+---
+
+Funzioni R più avanzate permettono di aggiungere la posizione degli eventi sismici sulla mappa geografica
+
+```{r}
+library(leaflet)
+
+mybins <- seq(4, 6.5, by=0.5)
+mypalette <- colorBin( palette="YlOrBr", domain=quakes$mag, na.color="transparent", bins=mybins)
+
+mytext <- paste(
+   "Depth: ", quakes$depth, "<br/>", 
+   "Stations: ", quakes$stations, "<br/>", 
+   "Magnitude: ", quakes$mag, sep="") %>%
+  lapply(htmltools::HTML)
+
+m <- leaflet(quakes) %>% 
+  addTiles()  %>% 
+  setView( lat=-27, lng=170 , zoom=4) %>%
+  addProviderTiles("Esri.WorldImagery") %>%
+  addCircleMarkers(~long, ~lat, 
+    fillColor = ~mypalette(mag), fillOpacity = 0.7, color="white", radius=4, stroke=FALSE,
+    label = mytext,
+    labelOptions = labelOptions( style = list("font-weight" = "normal", padding = "3px 8px"), textsize = "13px", direction = "auto")
+  ) %>%
+  addLegend( pal=mypalette, values=~mag, opacity=0.9, title = "Magnitude", position = "bottomright" )
+```
+
+---
+
+```{r}
+m 
+```
+
+
+---
+
+oppure per visualizzare i punti con un diagramma tridimensionale (latitudine, logitudine, profondità) colorando i punti per magnitudine del terremoto:
+
+```{r}
+p <- plot_ly(quakes, x = ~lat, y = ~long, z = ~ -depth, color=~mag, colors="YlOrBr") %>%
+  add_markers(size=.01) %>%
+  layout(scene = list(xaxis = list(title = 'Latitudine'),
+                     yaxis = list(title = 'Longitudine'),
+                     zaxis = list(title = 'Profondità')))
+```
+
+---
+
+```{r}
+p
+```
+
+---
+
+La magnitudo del terremoto dipende dalla profondità dello stesso? Si costruisca un grafico appropriato per rispondere a questa domanda. 
+
+---
+
+```{r}
+plot(quakes$depth, jitter(quakes$mag), xlab="profondità del terremoto",
+ylab="magnitudo del terremoto")
+```
+
+---
+
+Il numero di stazioni che riportano l'evento dipende dalla magnitudo? Si costruisca un grafico appropriato per rispondere a questa domanda. 
+
+
+---
+
+```{r}
+plot(jitter(quakes$mag), quakes$stations, xlab="magnitudo del terremoto",
+ylab="numbero di stazioni che rilevano il terremoto")
+```
+
+---
+
+In che modo la profondità dell'evento dipende dalla longitudine e dalla latitudine?
+
+Costruire un diagramma di dispersione colorando ogni punto (posizione geografica) con i colori verde, arancione o rosso a seconda della profondità utilizzando gli intervalli (0-250], (250-450], (450,700].
+
+---
+
+```{r}
+intervalli <- cut(quakes$depth, breaks = c(0, 250, 450, 700),
+labels = c("green", "orange", "red"))
+intervalli_profondita <- as.character(intervalli)
+plot(quakes$long, quakes$lat, pch = 20, col = intervalli, xlab="longitudine",
+ylab="latitudine")
+```
+
+---
+
+Proviamo a costruire il diagramma di dispersione di latitudine e longitudine condizionato a 4 intervalli (non necessariamente disgiunti) utilizzando il comando `co.intervals()`
+
+---
+
+```{r}
+intervalli <- co.intervals(quakes$depth, number=4, overlap=0.1)
+coplot(lat ~ long | depth, data = quakes, given.v = intervalli, rows = 1)
+```
+
+
