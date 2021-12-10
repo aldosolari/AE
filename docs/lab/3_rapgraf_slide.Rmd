@@ -312,7 +312,7 @@ Costruire un diagramma di dispersione colorando ogni punto (posizione geografica
 ```{r}
 intervalli <- cut(quakes$depth, breaks = c(0, 250, 450, 700),
 labels = c("green", "orange", "red"))
-intervalli_profondita <- as.character(intervalli)
+intervalli<- as.character(intervalli)
 plot(quakes$long, quakes$lat, pch = 20, col = intervalli, xlab="longitudine",
 ylab="latitudine")
 ```
