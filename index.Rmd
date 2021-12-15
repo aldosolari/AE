@@ -136,7 +136,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[SLIDES](docs/slides/8_pca.pdf).</td>
 <td>[R](docs/lab/8_pca.html). </td>
 <td>JW §8.1, §8.2, §8A </td>
-<td></td>
+<td>[ESERCIZI](docs/esercizi/8_pca_esercizi.pdf).</td>
 <td></td>
 </tr>
 
