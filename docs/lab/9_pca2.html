@@ -27,6 +27,8 @@ class: center, middle, inverse, title-slide
 
 * `heptathlon` data, discusso in An introduction to Applied Multivariate Analysis with R, Sezione 3.10.2
 
+* Riconoscimento di volti mediante *eigenfaces*
+
 ---
 
 # `USArrests`
@@ -295,12 +297,12 @@ devstd * sqrt(n/(n-1))
    Murder   Assault  UrbanPop      Rape 
  4.355510 83.337661 14.474763  9.366385 
 ```
+Inoltre, l'help della funzione specifica: *Unlike princomp, variances are computed with the usual divisor N - 1*.
 
 ---
 
 
 ```r
-# Standard deviation coincide con sqrt(diag(Lambda) * n/(n-1) )
 summary(ACP2) 
 ```
 
@@ -383,6 +385,197 @@ West Virginia   2.08739306  1.41052627  0.10372163  0.130583080
 Wisconsin       2.05881199 -0.60512507 -0.13746933  0.182253407
 Wyoming         0.62310061  0.31778662 -0.23824049 -0.164976866
 ```
+---
+
+
+```r
+ACP3 &lt;- prcomp(X, scale=devstd)
+# Standard deviation coincide con sqrt(diag(Lambda) * n/(n-1) )
+summary(ACP3) 
+```
+
+```
+Importance of components:
+                          PC1    PC2     PC3     PC4
+Standard deviation     1.5909 1.0050 0.60319 0.42068
+Proportion of Variance 0.6201 0.2474 0.08914 0.04336
+Cumulative Proportion  0.6201 0.8675 0.95664 1.00000
+```
+
+```r
+# pesi
+ACP3$rotation[,]
+```
+
+```
+                PC1        PC2        PC3         PC4
+Murder   -0.5358995  0.4181809 -0.3412327  0.64922780
+Assault  -0.5831836  0.1879856 -0.2681484 -0.74340748
+UrbanPop -0.2781909 -0.8728062 -0.3780158  0.13387773
+Rape     -0.5434321 -0.1673186  0.8177779  0.08902432
+```
+
+```r
+# punteggi
+ACP3$x
+```
+
+```
+                       PC1         PC2         PC3          PC4
+Alabama        -0.98556588  1.13339238 -0.44426879  0.156267145
+Alaska         -1.95013775  1.07321326  2.04000333 -0.438583440
+Arizona        -1.76316354 -0.74595678  0.05478082 -0.834652924
+Arkansas        0.14142029  1.11979678  0.11457369 -0.182810896
+California     -2.52398013 -1.54293399  0.59855680 -0.341996478
+Colorado       -1.51456286 -0.98755509  1.09500699  0.001464887
+Connecticut     1.35864746 -1.08892789 -0.64325757 -0.118469414
+Delaware       -0.04770931 -0.32535892 -0.71863294 -0.881977637
+Florida        -3.01304227  0.03922851 -0.57682949 -0.096284752
+Georgia        -1.63928304  1.27894240 -0.34246008  1.076796812
+Hawaii          0.91265715 -1.57046001  0.05078189  0.902806864
+Idaho           1.63979985  0.21097292  0.25980134 -0.499104101
+Illinois       -1.37891072 -0.68184119 -0.67749564 -0.122021292
+Indiana         0.50546136 -0.15156254  0.22805484  0.424665700
+Iowa            2.25364607 -0.10405407  0.16456432  0.017555916
+Kansas          0.79688112 -0.27016470  0.02555331  0.206496428
+Kentucky        0.75085907  0.95844029 -0.02836942  0.670556671
+Louisiana      -1.56481798  0.87105466 -0.78348036  0.454728038
+Maine           2.39682949  0.37639158 -0.06568239 -0.330459817
+Maryland       -1.76336939  0.42765519 -0.15725013 -0.559069521
+Massachusetts   0.48616629 -1.47449650 -0.60949748 -0.179598963
+Michigan       -2.10844115 -0.15539682  0.38486858  0.102372019
+Minnesota       1.69268181 -0.63226125  0.15307043  0.067316885
+Mississippi    -0.99649446  2.39379599 -0.74080840  0.215508013
+Missouri       -0.69678733 -0.26335479  0.37744383  0.225824461
+Montana         1.18545191  0.53687437  0.24688932  0.123742227
+Nebraska        1.26563654 -0.19395373  0.17557391  0.015892888
+Nevada         -2.87439454 -0.77560020  1.16338049  0.314515476
+New Hampshire   2.38391541 -0.01808229  0.03685539 -0.033137338
+New Jersey     -0.18156611 -1.44950571 -0.76445355  0.243382700
+New Mexico     -1.98002375  0.14284878  0.18369218 -0.339533597
+New York       -1.68257738 -0.82318414 -0.64307509 -0.013484369
+North Carolina -1.12337861  2.22800338 -0.86357179 -0.954381667
+North Dakota    2.99222562  0.59911882  0.30127728 -0.253987327
+Ohio            0.22596542 -0.74223824 -0.03113912  0.473915911
+Oklahoma        0.31178286 -0.28785421 -0.01530979  0.010332321
+Oregon         -0.05912208 -0.54141145  0.93983298 -0.237780688
+Pennsylvania    0.88841582 -0.57110035 -0.40062871  0.359061124
+Rhode Island    0.86377206 -1.49197842 -1.36994570 -0.613569430
+South Carolina -1.32072380  1.93340466 -0.30053779 -0.131466685
+South Dakota    1.98777484  0.82334324  0.38929333 -0.109571764
+Tennessee      -0.99974168  0.86025130  0.18808295  0.652864291
+Texas          -1.35513821 -0.41248082 -0.49206886  0.643195491
+Utah            0.55056526 -1.47150461  0.29372804 -0.082314047
+Vermont         2.80141174  1.40228806  0.84126309 -0.144889914
+Virginia        0.09633491  0.19973529  0.01171254  0.211370813
+Washington      0.21690338 -0.97012418  0.62487094 -0.220847793
+West Virginia   2.10858541  1.42484670  0.10477467  0.131908831
+Wisconsin       2.07971417 -0.61126862 -0.13886500  0.184103743
+Wyoming         0.62942666  0.32101297 -0.24065923 -0.166651801
+```
+
+
+---
+
+# SVD
+
+Si consideri la matrice dati standardizzati `\(Z\)`. Per il teorema di decomposizione spettrale, `\(S^Z = \frac{1}{n}Z'Z = R = V\Lambda V'\)`. 
+
+Sia `\(Z = U\Delta V'\)` la decomposizione in valori singolari (SVD) di `\(Z\)`. 
+
+Possiamo scrivere
+`$$R = \frac{1}{n}Z'Z = \frac{1}{n}(U\Delta V')'(U\Delta V') = \frac{1}{n}V \Delta U'U \Delta V' = V (\frac{1}{n}\Delta^2) V' = V \Lambda V'$$`
+quindi `\(\lambda_i = d^2_i/n\)` e possiamo ottenere la matrice dei pesi `\(V\)` da SVD di `\(Z\)`. 
+
+Infine possiamo ottenere la matrice dei punteggi come
+`$$Y = ZV = U\Delta V' V = U\Delta$$`
+
+---
+
+
+```r
+DVS = svd(Z)
+U = DVS$u
+Delta = diag(DVS$d)
+diag(Delta)/sqrt(n)
+```
+
+```
+[1] 1.5748783 0.9948694 0.5971291 0.4164494
+```
+
+```r
+# pesi
+DVS$v
+```
+
+```
+           [,1]       [,2]       [,3]        [,4]
+[1,] -0.5358995  0.4181809 -0.3412327  0.64922780
+[2,] -0.5831836  0.1879856 -0.2681484 -0.74340748
+[3,] -0.2781909 -0.8728062 -0.3780158  0.13387773
+[4,] -0.5434321 -0.1673186  0.8177779  0.08902432
+```
+
+```r
+# punteggi
+U %*% Delta
+```
+
+```
+             [,1]        [,2]        [,3]         [,4]
+ [1,] -0.98556588  1.13339238 -0.44426879  0.156267145
+ [2,] -1.95013775  1.07321326  2.04000333 -0.438583440
+ [3,] -1.76316354 -0.74595678  0.05478082 -0.834652924
+ [4,]  0.14142029  1.11979678  0.11457369 -0.182810896
+ [5,] -2.52398013 -1.54293399  0.59855680 -0.341996478
+ [6,] -1.51456286 -0.98755509  1.09500699  0.001464887
+ [7,]  1.35864746 -1.08892789 -0.64325757 -0.118469414
+ [8,] -0.04770931 -0.32535892 -0.71863294 -0.881977637
+ [9,] -3.01304227  0.03922851 -0.57682949 -0.096284752
+[10,] -1.63928304  1.27894240 -0.34246008  1.076796812
+[11,]  0.91265715 -1.57046001  0.05078189  0.902806864
+[12,]  1.63979985  0.21097292  0.25980134 -0.499104101
+[13,] -1.37891072 -0.68184119 -0.67749564 -0.122021292
+[14,]  0.50546136 -0.15156254  0.22805484  0.424665700
+[15,]  2.25364607 -0.10405407  0.16456432  0.017555916
+[16,]  0.79688112 -0.27016470  0.02555331  0.206496428
+[17,]  0.75085907  0.95844029 -0.02836942  0.670556671
+[18,] -1.56481798  0.87105466 -0.78348036  0.454728038
+[19,]  2.39682949  0.37639158 -0.06568239 -0.330459817
+[20,] -1.76336939  0.42765519 -0.15725013 -0.559069521
+[21,]  0.48616629 -1.47449650 -0.60949748 -0.179598963
+[22,] -2.10844115 -0.15539682  0.38486858  0.102372019
+[23,]  1.69268181 -0.63226125  0.15307043  0.067316885
+[24,] -0.99649446  2.39379599 -0.74080840  0.215508013
+[25,] -0.69678733 -0.26335479  0.37744383  0.225824461
+[26,]  1.18545191  0.53687437  0.24688932  0.123742227
+[27,]  1.26563654 -0.19395373  0.17557391  0.015892888
+[28,] -2.87439454 -0.77560020  1.16338049  0.314515476
+[29,]  2.38391541 -0.01808229  0.03685539 -0.033137338
+[30,] -0.18156611 -1.44950571 -0.76445355  0.243382700
+[31,] -1.98002375  0.14284878  0.18369218 -0.339533597
+[32,] -1.68257738 -0.82318414 -0.64307509 -0.013484369
+[33,] -1.12337861  2.22800338 -0.86357179 -0.954381667
+[34,]  2.99222562  0.59911882  0.30127728 -0.253987327
+[35,]  0.22596542 -0.74223824 -0.03113912  0.473915911
+[36,]  0.31178286 -0.28785421 -0.01530979  0.010332321
+[37,] -0.05912208 -0.54141145  0.93983298 -0.237780688
+[38,]  0.88841582 -0.57110035 -0.40062871  0.359061124
+[39,]  0.86377206 -1.49197842 -1.36994570 -0.613569430
+[40,] -1.32072380  1.93340466 -0.30053779 -0.131466685
+[41,]  1.98777484  0.82334324  0.38929333 -0.109571764
+[42,] -0.99974168  0.86025130  0.18808295  0.652864291
+[43,] -1.35513821 -0.41248082 -0.49206886  0.643195491
+[44,]  0.55056526 -1.47150461  0.29372804 -0.082314047
+[45,]  2.80141174  1.40228806  0.84126309 -0.144889914
+[46,]  0.09633491  0.19973529  0.01171254  0.211370813
+[47,]  0.21690338 -0.97012418  0.62487094 -0.220847793
+[48,]  2.10858541  1.42484670  0.10477467  0.131908831
+[49,]  2.07971417 -0.61126862 -0.13886500  0.184103743
+[50,]  0.62942666  0.32101297 -0.24065923 -0.166651801
+```
+
 
 ---
 
@@ -391,7 +584,7 @@ Wyoming         0.62310061  0.31778662 -0.23824049 -0.164976866
 biplot(ACP , scale = 0)
 ```
 
-![](8_pca2_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](9_pca2_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -479,7 +672,7 @@ n * sum(diag(Lambda)[(q+1):p])
 plot(UrbanPop ~ Assault, X, asp=1)
 ```
 
-![](8_pca2_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
+![](9_pca2_files/figure-html/unnamed-chunk-14-1.png)&lt;!-- --&gt;
 ]
 
 
@@ -489,7 +682,7 @@ plot(UrbanPop ~ Assault, X, asp=1)
 biplot(princomp(X), scale=0)
 ```
 
-![](8_pca2_files/figure-html/unnamed-chunk-13-1.png)&lt;!-- --&gt;
+![](9_pca2_files/figure-html/unnamed-chunk-15-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -582,7 +775,7 @@ plot(Zhat[ismiss], Z[ismiss], asp=1)
 abline(a=0,b=1)
 ```
 
-![](8_pca2_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](9_pca2_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -629,7 +822,7 @@ plot(Zhat[ismiss], Z[ismiss], asp=1)
 abline(a=0,b=1)
 ```
 
-![](8_pca2_files/figure-html/unnamed-chunk-18-1.png)&lt;!-- --&gt;
+![](9_pca2_files/figure-html/unnamed-chunk-20-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -652,6 +845,101 @@ sono indicativi di una prestazione "migliore"
 5. Calcolare le componenti principali e determinarne il numero utilizzando uno o più criteri appropriati. Costruire il *biplot* e interpretare le prime due componenti principali.
 
 6. Calcolare la correlazione (in valore assoluto) tra il vettore dei punteggi della prima componente principale e la variabile `score`, e  commentare.
+
+---
+
+#  Olivetti `faces` dataset
+
+
+
+Dieci immagini per ciascuno dei 40 soggetti, raccolte tra il 1992 e il 1994. 
+
+Per alcuni soggetti, le immagini sono state scattate in momenti diversi, variando l'illuminazione, le espressioni facciali (occhi aperti/chiusi, sorridenti/non sorridenti) e i dettagli del volto (occhiali/senza occhiali). 
+
+Tutte le immagini sono state scattate su uno sfondo scuro omogeneo con i soggetti in posizione eretta e frontale (con tolleranza per qualche movimento laterale).
+
+Il set di dati originale consisteva di `\(92\times 112\)`, mentre la versione che analizzeremo è composta da immagini `\(64\times 64\)`. Ciascuna immagine corrisponde ad una colonna (di lunghezza `\(64\times 64 = 4096\)`) della matrice `\(X\)`. 
+
+
+
+```r
+rm(list=ls())
+url &lt;- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/faces.csv"
+faces &lt;- read.csv2(url)
+```
+
+---
+
+
+```r
+face &lt;- matrix(faces[,1], ncol=64)
+image(face, col=gray(0:255/255), asp=1)
+```
+
+![](9_pca2_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+library(dplyr)
+showFace &lt;- function(x){
+  x %&gt;%
+    as.numeric() %&gt;%
+    matrix(nrow = 64, byrow = F) %&gt;% 
+    apply(2, rev) %&gt;%  
+    t %&gt;% 
+    image(col=grey(seq(0, 1, length=256)), xaxt="n", yaxt="n")
+}
+
+showFace(t(faces[,1]))
+```
+
+![](9_pca2_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+par(mfrow=c(4, 10))
+par(mar=c(0.05, 0.05, 0.05, 0.05))
+for (i in 1:40) {
+  showFace(t(faces[,i]))
+}
+```
+
+![](9_pca2_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+X &lt;- t(faces[,c(1:2,11:12,21:22,31:32)])
+n = nrow(X)
+p = ncol(X)
+Xtilde = scale(X, center=TRUE, scale=FALSE)
+xbar = colMeans(X)
+
+meanface &lt;- matrix(xbar, ncol=64)
+showFace(meanface)
+```
+
+![](9_pca2_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+
+---
+
+
+```r
+faceSVD &lt;- svd(Xtilde)
+V = faceSVD$v
+par(mfrow=c(2, 4))
+par(mar=c(0.05, 0.05, 0.05, 0.05))
+for (i in 1:8) {
+  showFace(t(V[,i]))
+}
+```
+
+![](9_pca2_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
