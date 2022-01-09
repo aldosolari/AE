@@ -82,7 +82,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/2_dati.html). </td>
 <td>JW §1.3, EH §1.3, §1.3.1</td>
 <td>[ESERCIZI](docs/esercizi/2_dati_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/2_dati_soluzioni.pdf).</td>
 </tr>
 
 <tr>
@@ -100,7 +100,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/4_spazi.html). </td>
 <td>JW §3.1, §3.2</td>
 <td>[ESERCIZI](docs/esercizi/4_spazi_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/4_spazi_soluzioni.pdf).</td>
 </tr>
 
 <tr>
@@ -109,7 +109,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/5_fmatr.html). </td>
 <td>JW §3.5 </td>
 <td>[ESERCIZI](docs/esercizi/5_fmatr_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/5_fmatr_soluzioni.pdf).</td>
 </tr>
 
 
@@ -119,7 +119,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/6_varianze.html). </td>
 <td>JW §3.4 </td>
 <td>[ESERCIZI](docs/esercizi/6_varianze_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/6_varianze_soluzioni.pdf).</td>
 </tr>
 
 <tr>
@@ -128,7 +128,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/7_spectral.html). </td>
 <td>JW §2A.14, §2A.15 </td>
 <td>[ESERCIZI](docs/esercizi/7_spectral_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/7_spectral_soluzioni.pdf).</td>
 </tr>
 
 <tr>
@@ -137,7 +137,7 @@ Il calendario didattico potrà subire variazioni, si consiglia di consultare que
 <td>[R](docs/lab/8_pca.html). </td>
 <td>JW §8.1, §8.2, §8A </td>
 <td>[ESERCIZI](docs/esercizi/8_pca_esercizi.pdf).</td>
-<td></td>
+<td>[SOLUZIONI](docs/esercizi/8_pca_soluzioni.pdf).</td>
 </tr>
 
 <tr>
