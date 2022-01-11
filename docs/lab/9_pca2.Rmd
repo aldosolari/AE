@@ -28,8 +28,6 @@ knitr::opts_chunk$set(echo = T,
 
 * `heptathlon` data, discusso in An introduction to Applied Multivariate Analysis with R, Sezione 3.10.2
 
-* Riconoscimento di volti mediante *eigenfaces*
-
 ---
 
 # `USArrests`
@@ -373,84 +371,84 @@ sono indicativi di una prestazione "migliore"
 
 6. Calcolare la correlazione (in valore assoluto) tra il vettore dei punteggi della prima componente principale e la variabile `score`, e  commentare.
 
----
+<!-- --- -->
 
-#  Olivetti `faces` dataset
-
-
-
-Dieci immagini per ciascuno dei 40 soggetti, raccolte tra il 1992 e il 1994. 
-
-Per alcuni soggetti, le immagini sono state scattate in momenti diversi, variando l'illuminazione, le espressioni facciali (occhi aperti/chiusi, sorridenti/non sorridenti) e i dettagli del volto (occhiali/senza occhiali). 
-
-Tutte le immagini sono state scattate su uno sfondo scuro omogeneo con i soggetti in posizione eretta e frontale (con tolleranza per qualche movimento laterale).
-
-Il set di dati originale consisteva di $92\times 112$, mentre la versione che analizzeremo è composta da immagini $64\times 64$. Ciascuna immagine corrisponde ad una colonna (di lunghezza $64\times 64 = 4096$) della matrice $X$. 
+<!-- #  Olivetti `faces` dataset -->
 
 
-```{r}
-rm(list=ls())
-url <- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/faces.csv"
-faces <- read.csv2(url)
-```
 
----
+<!-- Dieci immagini per ciascuno dei 40 soggetti, raccolte tra il 1992 e il 1994.  -->
 
-```{r}
-face <- matrix(faces[,1], ncol=64)
-image(face, col=gray(0:255/255), asp=1)
-```
+<!-- Per alcuni soggetti, le immagini sono state scattate in momenti diversi, variando l'illuminazione, le espressioni facciali (occhi aperti/chiusi, sorridenti/non sorridenti) e i dettagli del volto (occhiali/senza occhiali).  -->
 
----
+<!-- Tutte le immagini sono state scattate su uno sfondo scuro omogeneo con i soggetti in posizione eretta e frontale (con tolleranza per qualche movimento laterale). -->
 
-```{r}
-library(dplyr)
-showFace <- function(x){
-  x %>%
-    as.numeric() %>%
-    matrix(nrow = 64, byrow = F) %>% 
-    apply(2, rev) %>%  
-    t %>% 
-    image(col=grey(seq(0, 1, length=256)), xaxt="n", yaxt="n")
-}
+<!-- Il set di dati originale consisteva di $92\times 112$, mentre la versione che analizzeremo è composta da immagini $64\times 64$. Ciascuna immagine corrisponde ad una colonna (di lunghezza $64\times 64 = 4096$) della matrice $X$.  -->
 
-showFace(t(faces[,1]))
-```
 
----
+<!-- ```{r} -->
+<!-- rm(list=ls()) -->
+<!-- url <- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/faces.csv" -->
+<!-- faces <- read.csv2(url) -->
+<!-- ``` -->
 
-```{r}
-par(mfrow=c(4, 10))
-par(mar=c(0.05, 0.05, 0.05, 0.05))
-for (i in 1:40) {
-  showFace(t(faces[,i]))
-}
-```
+<!-- --- -->
 
----
+<!-- ```{r} -->
+<!-- face <- matrix(faces[,1], ncol=64) -->
+<!-- image(face, col=gray(0:255/255), asp=1) -->
+<!-- ``` -->
 
-```{r}
-X <- t(faces[,c(1:2,11:12,21:22,31:32)])
-n = nrow(X)
-p = ncol(X)
-Xtilde = scale(X, center=TRUE, scale=FALSE)
-xbar = colMeans(X)
+<!-- --- -->
 
-meanface <- matrix(xbar, ncol=64)
-showFace(meanface)
-```
+<!-- ```{r} -->
+<!-- library(dplyr) -->
+<!-- showFace <- function(x){ -->
+<!--   x %>% -->
+<!--     as.numeric() %>% -->
+<!--     matrix(nrow = 64, byrow = F) %>%  -->
+<!--     apply(2, rev) %>%   -->
+<!--     t %>%  -->
+<!--     image(col=grey(seq(0, 1, length=256)), xaxt="n", yaxt="n") -->
+<!-- } -->
 
----
+<!-- showFace(t(faces[,1])) -->
+<!-- ``` -->
 
-```{r}
-faceSVD <- svd(Xtilde)
-V = faceSVD$v
-par(mfrow=c(2, 4))
-par(mar=c(0.05, 0.05, 0.05, 0.05))
-for (i in 1:8) {
-  showFace(t(V[,i]))
-}
-```
+<!-- --- -->
+
+<!-- ```{r} -->
+<!-- par(mfrow=c(4, 10)) -->
+<!-- par(mar=c(0.05, 0.05, 0.05, 0.05)) -->
+<!-- for (i in 1:40) { -->
+<!--   showFace(t(faces[,i])) -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- ```{r} -->
+<!-- X <- t(faces[,c(1:2,11:12,21:22,31:32)]) -->
+<!-- n = nrow(X) -->
+<!-- p = ncol(X) -->
+<!-- Xtilde = scale(X, center=TRUE, scale=FALSE) -->
+<!-- xbar = colMeans(X) -->
+
+<!-- meanface <- matrix(xbar, ncol=64) -->
+<!-- showFace(meanface) -->
+<!-- ``` -->
+
+<!-- --- -->
+
+<!-- ```{r} -->
+<!-- faceSVD <- svd(Xtilde) -->
+<!-- V = faceSVD$v -->
+<!-- par(mfrow=c(2, 4)) -->
+<!-- par(mar=c(0.05, 0.05, 0.05, 0.05)) -->
+<!-- for (i in 1:8) { -->
+<!--   showFace(t(V[,i])) -->
+<!-- } -->
+<!-- ``` -->
 
 
 

@@ -27,8 +27,6 @@ class: center, middle, inverse, title-slide
 
 * `heptathlon` data, discusso in An introduction to Applied Multivariate Analysis with R, Sezione 3.10.2
 
-* Riconoscimento di volti mediante *eigenfaces*
-
 ---
 
 # `USArrests`
@@ -846,100 +844,84 @@ sono indicativi di una prestazione "migliore"
 
 6. Calcolare la correlazione (in valore assoluto) tra il vettore dei punteggi della prima componente principale e la variabile `score`, e  commentare.
 
----
+&lt;!-- --- --&gt;
 
-#  Olivetti `faces` dataset
-
-
-
-Dieci immagini per ciascuno dei 40 soggetti, raccolte tra il 1992 e il 1994. 
-
-Per alcuni soggetti, le immagini sono state scattate in momenti diversi, variando l'illuminazione, le espressioni facciali (occhi aperti/chiusi, sorridenti/non sorridenti) e i dettagli del volto (occhiali/senza occhiali). 
-
-Tutte le immagini sono state scattate su uno sfondo scuro omogeneo con i soggetti in posizione eretta e frontale (con tolleranza per qualche movimento laterale).
-
-Il set di dati originale consisteva di `\(92\times 112\)`, mentre la versione che analizzeremo è composta da immagini `\(64\times 64\)`. Ciascuna immagine corrisponde ad una colonna (di lunghezza `\(64\times 64 = 4096\)`) della matrice `\(X\)`. 
+&lt;!-- #  Olivetti `faces` dataset --&gt;
 
 
 
-```r
-rm(list=ls())
-url &lt;- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/faces.csv"
-faces &lt;- read.csv2(url)
-```
+&lt;!-- Dieci immagini per ciascuno dei 40 soggetti, raccolte tra il 1992 e il 1994.  --&gt;
 
----
+&lt;!-- Per alcuni soggetti, le immagini sono state scattate in momenti diversi, variando l'illuminazione, le espressioni facciali (occhi aperti/chiusi, sorridenti/non sorridenti) e i dettagli del volto (occhiali/senza occhiali).  --&gt;
 
+&lt;!-- Tutte le immagini sono state scattate su uno sfondo scuro omogeneo con i soggetti in posizione eretta e frontale (con tolleranza per qualche movimento laterale). --&gt;
 
-```r
-face &lt;- matrix(faces[,1], ncol=64)
-image(face, col=gray(0:255/255), asp=1)
-```
-
-![](9_pca2_files/figure-html/unnamed-chunk-22-1.png)&lt;!-- --&gt;
-
----
+&lt;!-- Il set di dati originale consisteva di `\(92\times 112\)`, mentre la versione che analizzeremo è composta da immagini `\(64\times 64\)`. Ciascuna immagine corrisponde ad una colonna (di lunghezza `\(64\times 64 = 4096\)`) della matrice `\(X\)`.  --&gt;
 
 
-```r
-library(dplyr)
-showFace &lt;- function(x){
-  x %&gt;%
-    as.numeric() %&gt;%
-    matrix(nrow = 64, byrow = F) %&gt;% 
-    apply(2, rev) %&gt;%  
-    t %&gt;% 
-    image(col=grey(seq(0, 1, length=256)), xaxt="n", yaxt="n")
-}
+&lt;!-- ```{r} --&gt;
+&lt;!-- rm(list=ls()) --&gt;
+&lt;!-- url &lt;- "https://raw.githubusercontent.com/aldosolari/AE/master/docs/dati/faces.csv" --&gt;
+&lt;!-- faces &lt;- read.csv2(url) --&gt;
+&lt;!-- ``` --&gt;
 
-showFace(t(faces[,1]))
-```
+&lt;!-- --- --&gt;
 
-![](9_pca2_files/figure-html/unnamed-chunk-23-1.png)&lt;!-- --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- face &lt;- matrix(faces[,1], ncol=64) --&gt;
+&lt;!-- image(face, col=gray(0:255/255), asp=1) --&gt;
+&lt;!-- ``` --&gt;
 
----
+&lt;!-- --- --&gt;
 
+&lt;!-- ```{r} --&gt;
+&lt;!-- library(dplyr) --&gt;
+&lt;!-- showFace &lt;- function(x){ --&gt;
+&lt;!--   x %&gt;% --&gt;
+&lt;!--     as.numeric() %&gt;% --&gt;
+&lt;!--     matrix(nrow = 64, byrow = F) %&gt;%  --&gt;
+&lt;!--     apply(2, rev) %&gt;%   --&gt;
+&lt;!--     t %&gt;%  --&gt;
+&lt;!--     image(col=grey(seq(0, 1, length=256)), xaxt="n", yaxt="n") --&gt;
+&lt;!-- } --&gt;
 
-```r
-par(mfrow=c(4, 10))
-par(mar=c(0.05, 0.05, 0.05, 0.05))
-for (i in 1:40) {
-  showFace(t(faces[,i]))
-}
-```
+&lt;!-- showFace(t(faces[,1])) --&gt;
+&lt;!-- ``` --&gt;
 
-![](9_pca2_files/figure-html/unnamed-chunk-24-1.png)&lt;!-- --&gt;
+&lt;!-- --- --&gt;
 
----
+&lt;!-- ```{r} --&gt;
+&lt;!-- par(mfrow=c(4, 10)) --&gt;
+&lt;!-- par(mar=c(0.05, 0.05, 0.05, 0.05)) --&gt;
+&lt;!-- for (i in 1:40) { --&gt;
+&lt;!--   showFace(t(faces[,i])) --&gt;
+&lt;!-- } --&gt;
+&lt;!-- ``` --&gt;
 
+&lt;!-- --- --&gt;
 
-```r
-X &lt;- t(faces[,c(1:2,11:12,21:22,31:32)])
-n = nrow(X)
-p = ncol(X)
-Xtilde = scale(X, center=TRUE, scale=FALSE)
-xbar = colMeans(X)
+&lt;!-- ```{r} --&gt;
+&lt;!-- X &lt;- t(faces[,c(1:2,11:12,21:22,31:32)]) --&gt;
+&lt;!-- n = nrow(X) --&gt;
+&lt;!-- p = ncol(X) --&gt;
+&lt;!-- Xtilde = scale(X, center=TRUE, scale=FALSE) --&gt;
+&lt;!-- xbar = colMeans(X) --&gt;
 
-meanface &lt;- matrix(xbar, ncol=64)
-showFace(meanface)
-```
+&lt;!-- meanface &lt;- matrix(xbar, ncol=64) --&gt;
+&lt;!-- showFace(meanface) --&gt;
+&lt;!-- ``` --&gt;
 
-![](9_pca2_files/figure-html/unnamed-chunk-25-1.png)&lt;!-- --&gt;
+&lt;!-- --- --&gt;
 
----
-
-
-```r
-faceSVD &lt;- svd(Xtilde)
-V = faceSVD$v
-par(mfrow=c(2, 4))
-par(mar=c(0.05, 0.05, 0.05, 0.05))
-for (i in 1:8) {
-  showFace(t(V[,i]))
-}
-```
-
-![](9_pca2_files/figure-html/unnamed-chunk-26-1.png)&lt;!-- --&gt;
+&lt;!-- ```{r} --&gt;
+&lt;!-- faceSVD &lt;- svd(Xtilde) --&gt;
+&lt;!-- V = faceSVD$v --&gt;
+&lt;!-- par(mfrow=c(2, 4)) --&gt;
+&lt;!-- par(mar=c(0.05, 0.05, 0.05, 0.05)) --&gt;
+&lt;!-- for (i in 1:8) { --&gt;
+&lt;!--   showFace(t(V[,i])) --&gt;
+&lt;!-- } --&gt;
+&lt;!-- ``` --&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

@@ -119,14 +119,7 @@ pca2$rotation[,] # coincide con V
 head( pca2$x ) # coincide con head(Y)
 ```
 
-5. Costruire il *biplot* e commentare. 
-
-```{r}
-# biplot
-biplot(pca)
-```
-
-6. Calcolare la correlazione tra il voto centrato sullo 0 dell'esame in `Statistics` (quinta colonna della matrice $\tilde{X}$) e i punteggi della prima componente principale (prima colonna della matrice $Y$). Si ricordi la formula
+5. Calcolare la correlazione tra il voto centrato sullo 0 dell'esame in `Statistics` (quinta colonna della matrice $\tilde{X}$) e i punteggi della prima componente principale (prima colonna della matrice $Y$). Si ricordi la formula
 $$\frac{v_{jk}\sqrt{\lambda_k}}{\sqrt{s_{jj}}}$$ per la $j$-sima colonna di $\tilde{X}$ e la $k$-sima colonna di $Y$.
 
 ```{r}
@@ -135,7 +128,7 @@ V[5,1]*pca$sdev[1]/sqrt(diag(S)[5])
 cor(Xtilde[,"Statistics"],Y[,1])
 ```
 
-7. Scegliere il numero $q$ di componenti principali utilizzando i 
+6. Scegliere il numero $q$ di componenti principali utilizzando i 
 criteri (i) proporzione di varianza spiegata dalle prime $q$ componenti superiore all'80\%; (ii) varianza spiegata da ciascuna componente maggiore di $c=\frac{1}{p}\sum_{j=1}^{p}\lambda_j$ (iii) utilizzando lo *scree plot*.
 
 ```{r}
@@ -149,6 +142,59 @@ pca$sdev^2 > c
 # scelta di q: scree plot
 plot(pca, type="line")
 ```
+
+
+# Biplot
+
+Con i dati utilizzati nell'esempio precedente, costruire il *biplot* con il comando `biplot()`.
+
+```{r}
+# biplot
+biplot(pca)
+```
+
+La funzione `biplot()` rappresenta
+
+1) gli AUTOVETTORI NON STANDARDIZZATI = AUTOVETTORI * SQRT(AUTOVALORI), moltiplicati poi per un fattore 0.8 * sqrt(n-1) 
+2) i PUNTEGGI RISCALATI (in modo che la somma dei valori al quadrato sia pari a 1)
+
+In R: 
+
+```{r}
+# AUTOVETTORI (PESI)
+V = eigen(S)$vectors
+V[,1] = -V[,1]
+
+# AUTOVALORI (VARIANZE)
+lambda = eigen(S)$values
+
+# AUTOVETTORI NON STANDARDIZZATI
+VL = V %*% diag(sqrt(lambda))
+
+# PUNTEGGI
+Y = Xtilde %*% V
+
+# BIPLOT
+PCA = princomp(Xtilde)
+biplot(PCA) 
+# sovrascrivo le frecce in blu per le prime due variabili
+arrows(0, 0,
+VL[1,1] * 0.8 * sqrt(n - 1), 
+VL[1,2] * 0.8 * sqrt(n - 1), 
+lwd = 1, angle = 30, length = 0.1, col = 4)
+arrows(0, 0,
+VL[2,1] * 0.8 * sqrt(n - 1), 
+VL[2,2] * 0.8 * sqrt(n - 1), 
+lwd = 1, angle = 30, length = 0.1, col = 4)
+
+# PUNTEGGI RISCALATI (la somma dei valori al quadrato di ciascuna colonna è 1)
+Ystd = Y %*% diag(1/(sqrt(lambda)*sqrt(n)))
+colSums(Ystd^2)
+labs = as.character(1:n)
+plot(Ystd[,1:2], asp=1, type = "n")
+text(Ystd[,1:2], labs, col=4)
+```
+
 
 
 # Dati Wine
@@ -259,12 +305,12 @@ image(face2, col=gray(0:255/255), asp=p/n)
 pixels = prod(dim(face))
 pixels2 = prod(dim(Yq)) + prod(dim(Vq)) + prod(dim(xbar))
 round(pixels/pixels2, 2) # fattore di riduzione
-
-# confronta memoria utilizzata
-size = object.size(face)
-size2 = object.size(Yq) + object.size(Vq) + object.size(xbar)
-round( size/size2, 2) # fattore di riduzione
 ```
+
+<!-- # confronta memoria utilizzata -->
+<!-- size = object.size(face) -->
+<!-- size2 = object.size(Yq) + object.size(Vq) + object.size(xbar) -->
+<!-- round( size/size2, 2) # fattore di riduzione -->
 
 <!-- # Dati PES -->
 
