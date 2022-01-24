@@ -99,29 +99,41 @@ round(R,2)
 ```
 
 3. Stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=1$ fattore (funzione `factanal()`, argomenti `factors=1` e  `rotation="none"`), ed ottenere
-* la stima della matrice dei pesi fattoriali $\hat{\Lambda}$;
-* la stima delle comunalità $\hat{h}^2_i$;
-* la stima delle varianze specifiche $\hat{\psi}_i$;
+* la stima della matrice dei pesi fattoriali $\hat{\Lambda}_z$;
+* la stima delle comunalità;
+* la stima delle varianze specifiche, i.e. gli elementi diagonali di $\hat{\Psi}$;
 
 ```{r}
 af <- factanal(x=X, factors=1, rotation="none") 
 af
 # stima dei pesi fattoriali
-hatLambda <- af$loadings[,]
-round(hatLambda,3)
+hatLambda_y <- af$loadings[,]
+round(hatLambda_y,3)
 # veri valori
 round(Lambday,3)
 # stima delle comunalità
 hatH2 <- apply(af$loadings^2,1,sum)
 round(hatH2,3)
 # stima delle varianze specifiche
-hatPsi <- diag(af$uniquenesses)
-round(diag(hatPsi),3)
+hatPsi_y <- diag(af$uniquenesses)
+round(diag(hatPsi_y),3)
 # veri valori
 round(diag(Psiy),3)
 # differenza vera correlazione e stima
-round(Corrx - ( hatLambda%*%t(hatLambda) + hatPsi ),5)
+round(Corrx - ( hatLambda_y%*%t(hatLambda_y) + hatPsi_y ),5)
 ```
+
+
+4. Calcolare le stime $\hat\Lambda = D^{1/2}\hat \Lambda_z$ e $\hat\Psi = D^{1/2}\hat\Psi_z D^{1/2}$ e confrontare $\hat \Sigma = \hat\Lambda \hat\Lambda' + \hat\Psi$ con $\Sigma$.
+
+```{r}
+D = diag(diag(Sigma))
+hatLambda = D^(1/2) %*% hatLambda_y 
+hatPsi <- D^(1/2) %*% hatPsi_y %*% D^(1/2)
+round( hatLambda %*% t(hatLambda) + hatPsi , 3)
+Sigma
+```
+
 
 
 # Dati Esami
@@ -143,6 +155,12 @@ R
 ```
 
 relativa ai voti di $n=220$ studenti maschi nelle materie *Gaelic*, *English*, *History*, *Arithmetic*, *Algebra* e *Geometry* ($p=6$). Interpretare la matrice di correlazione. 
+
+```{r}
+library(corrplot)
+corrplot(R, diag=FALSE, type = 'upper')
+```
+
 
 I voti tra le materie sono correlati positivamente, ovvero gli studenti che vanno bene in una specifica materia vanno bene anche nelle altre. Le correlazioni più forti si trovano nel gruppo delle materie matematiche, e in misura leggermente inferiore, nel gruppo delle
 materie umanistiche, mentre c'è meno correlazione tra i due gruppi di materie.  

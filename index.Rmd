@@ -45,12 +45,11 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 ||  || ||  ||  || ||
 || 13 || 18-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
 || 14 || 20-01-2022 || U6-30 || 12:30 - 14:30 (2 ore) ||
-|| 15 || 21-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) ||
+|| ~~15~~ || ~~21-01-2022~~ || ~~LAB905~~ || ~~13:30 - 16:30 (3 ore)~~ ||
 ||  || ||  ||  || ||
 ||  || ||  ||  || ||
-|| 16 || 25-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
-<!-- || 17 || 27-01-2022 || U6-30 || 12:30 - 15:30 (3 ore) || -->
-<!-- || 18 || 28-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) || -->
+|| 15 || 25-01-2022 || U6-30 ||08:30 - 10:30 (2 ore) ||
+|| 16 || 28-01-2022 || LAB905 || 13:30 - 16:30 (3 ore) ||
 
 Il calendario didattico potrà subire variazioni, si consiglia di consultare questa pagina regolarmente. 
 
@@ -241,14 +240,20 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
     
 * All’esame sarà possibile consultare sia la documentazione ufficiale di R che una selezione del codice utilizzato a lezione
 
-* Codice R che verrà reso disponibile all'esame : [codice_AE]()
+* Codice R che verrà reso disponibile all'esame : [codice_AE](docs/lab/AE_code.pdf)
 
 * I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente. 
 
 * Per l'accettazione del voto vale la regola del silenzio-assenso. Lo studente può rifiutare il voto o richiedere l'orale non oltre alla data prevista per la visione dei compiti. L'orale può essere richiesto anche dal docente. La data della prova orale non potrà essere inferiore a tre giorni naturali successivi continui dalla data di pubblicazione del voto. L'orale si basa sul tutto il programma del corso di AE. 
 
 
-# Appelli passati.
+## Simulazione prova d'esame.
+
+[TESTO](docs/appelli/AE25012022_testo.pdf)
+
+[SOLUZIONE]()
+
+## Appelli passati.
 
 Si riportano nel seguito il testo e le soluzioni di alcuni appelli passati a titolo esemplificativo ma non esaustivo. 
 
