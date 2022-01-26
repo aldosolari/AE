@@ -70,68 +70,106 @@ col="grey",type="l")
 
 ```{r}
 Sigma = Lambda %*% t(Lambda) + Psi
-Sigma
+round(Sigma,2)
 S = var(X) * ((n-1)/n)
 round(S,2)
 ```
 
-2. Per ciascuna osservazione $x$, si considerari la trasformazione di scala $z = A x$ per $A=D^{-1/2}$ dove $D = diag(\Sigma)$, ottenendo la matrice dei dati trasformati $Y = XA$.
-* Calcolare i pesi fattoriali $\Lambda_y = A \Lambda$ e le varianze specifiche $\Psi_y = A \Psi A'$
-* Calcolare la matrice di correlazione $\mathbb{C}\mathrm{ov}(z) = \mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}$ e confrontarla con la sua stima $R$ ottenuta dalla matrice dei dati $X$
+2. Calcolare la matrice di correlazione $\mathbb{C}\mathrm{orr}(x)=D^{-1/2}\Sigma D^{-1/2}$, con $D = diag(\Sigma)=diag(\sigma_{11},\ldots,\sigma_{pp})$, e confrontarla con la sua stima $R$ ottenuta dalla matrice dei dati $X$;
 
 ```{r}
-A = diag(diag(Sigma)^(-1/2))
-# dati riscalati
-Y = X %*% A
-# stima varianze
-round(diag( var(Y) * ((n-1)/n) ),2)
-# pesi fattoriali y
-Lambday = A %*% Lambda
-round(Lambday,2)
-Psiy = A %*% Psi %*% t(A)
-# varianze specifiche di y
-diag(Psiy)
-Corrx = Lambday %*% t(Lambday) + Psiy
-round(Corrx,2)
-# R
-R = cor(X)
+D = diag(diag(Sigma)^(-1/2))
+Corr_x = D %*% Sigma %*% D
+round(Corr_x,2)
+R = cor(X) 
 round(R,2)
+```
+
+3. Calcolare i pesi fattoriali $\Lambda_z = D^{-1/2} \Lambda$ e le varianze specifiche $\Psi_z = D^{-1/2} \Psi (D^{-1/2})'$ del modello fattoriale relativo alla standardizzazione
+$$\underset{p\times 1}{z} = D^{-1/2} \underset{p\times 1}{y} = \Lambda_zf + u_z$$
+
+
+```{r}
+# pesi fattoriali z
+Lambda_z = D %*% Lambda
+round(Lambda_z,2)
+# varianze specifiche z
+Psi_z = D %*% Psi %*% t(D)
+diag(Psi_z)
+# modello fattoriale per dati standardizzati
+Lambda_z %*% t(Lambda_z) + Psi_z
+Corr_x
 ```
 
 3. Stimare con il metodo della massima verosimiglianza il modello fattoriale con $k=1$ fattore (funzione `factanal()`, argomenti `factors=1` e  `rotation="none"`), ed ottenere
 * la stima della matrice dei pesi fattoriali $\hat{\Lambda}_z$;
 * la stima delle comunalità;
-* la stima delle varianze specifiche, i.e. gli elementi diagonali di $\hat{\Psi}$;
+* la stima delle varianze specifiche, i.e. gli elementi diagonali di $\hat{\Psi}_z$;
 
 ```{r}
-af <- factanal(x=X, factors=1, rotation="none") 
+af <- factanal(x=X, factors=1, rotation="none", scores = "regression") 
 af
 # stima dei pesi fattoriali
-hatLambda_y <- af$loadings[,]
-round(hatLambda_y,3)
+hatLambda_z <- af$loadings[,]
+round(hatLambda_z,3)
 # veri valori
-round(Lambday,3)
+round(Lambda_z,3)
 # stima delle comunalità
 hatH2 <- apply(af$loadings^2,1,sum)
 round(hatH2,3)
-# stima delle varianze specifiche
-hatPsi_y <- diag(af$uniquenesses)
-round(diag(hatPsi_y),3)
 # veri valori
-round(diag(Psiy),3)
-# differenza vera correlazione e stima
-round(Corrx - ( hatLambda_y%*%t(hatLambda_y) + hatPsi_y ),5)
+H2 <- apply(Lambda_z^2,1,sum)
+round(H2,3)
+# stima delle varianze specifiche
+hatPsi_z <- diag(af$uniquenesses)
+round(diag(hatPsi_z),3)
+# veri valori
+round(diag(Psi_z),3)
 ```
 
-
-4. Calcolare le stime $\hat\Lambda = D^{1/2}\hat \Lambda_z$ e $\hat\Psi = D^{1/2}\hat\Psi_z D^{1/2}$ e confrontare $\hat \Sigma = \hat\Lambda \hat\Lambda' + \hat\Psi$ con $\Sigma$.
+4. Calcolare la differenza tra $\mathbb{C}\mathrm{orr}(x)$ e $\hat{\Lambda}_z \hat{\Lambda}_z' + \hat{\Psi}_z$
 
 ```{r}
-D = diag(diag(Sigma))
-hatLambda = D^(1/2) %*% hatLambda_y 
-hatPsi <- D^(1/2) %*% hatPsi_y %*% D^(1/2)
-round( hatLambda %*% t(hatLambda) + hatPsi , 3)
-Sigma
+# differenza vera correlazione e stima
+round(Corr_x - ( hatLambda_z%*%t(hatLambda_z) + hatPsi_z ),5)
+```
+
+5. Calcolare le stime $\hat\Lambda = D^{1/2}\hat \Lambda_z$ e $\hat\Psi = D^{1/2}\hat\Psi_z D^{1/2}$ 
+
+```{r}
+A = diag(diag(Sigma))
+hatLambda = A^(1/2) %*% hatLambda_z
+round(hatLambda, 4)
+# vero valore
+Lambda
+hatPsi <- A^(1/2) %*% hatPsi_z %*% A^(1/2)
+round(hatPsi, 4)
+# vero valore
+Psi
+```
+
+6. Calcolare i punteggi fattoriali con il metodo di Thompson
+$$\hat f_i = \hat \Lambda' S^{-1}  x_i$$
+e confrontarli con le vere realizzazioni di $f$ tramite un diagramma di dispersione.
+
+```{r}
+Xtilde = scale(X, center=TRUE, scale=FALSE)
+hatf_thompson = apply(Xtilde,1, function(x) t(hatLambda) %*% solve(S) %*% x) 
+plot(hatf_thompson, f)
+abline(a=0,b=1)
+```
+
+7. Calcolare i punteggi fattoriali con il metodo di Bartlett
+$$\hat f_i = (\hat \Lambda' \hat{\Psi}^{-1} \hat \Lambda) \hat \Lambda' \hat{\Psi}^{-1}  x_i$$
+e confrontarli con le vere realizzazioni di $f$ tramite un diagramma di dispersione.
+
+```{r}
+hatf_bartlett = apply(Xtilde,1, function(x) solve(t(hatLambda) %*% solve(hatPsi) %*% hatLambda) %*% t(hatLambda) %*% solve(hatPsi)%*% x) 
+# uguale a 
+hatf = af$scores
+sum(hatf_bartlett- hatf)
+plot(hatf_bartlett, f)
+abline(a=0,b=1, "dashed")
 ```
 
 
@@ -230,9 +268,8 @@ pchisq(t, lower.tail=FALSE, df=gdl)
 ```
 
 
-
-
 # Dati Open/Closed Book Examination Data
+
 
 Caricare il dati `scor` presenti nella libreria `bootstrap` e calcolare la matrice di correlazione $\underset{p\times p}{R}$. 
 
@@ -269,8 +306,26 @@ abline(v=0)
 X[66,]
 ```
 
+# Stima del modello con il metodo dei fattori principali
 
-2. Calcolare la stima iniziale delle comunalità $\hat{h}^2_i$ come 
+Caricare il dati `scor` presenti nella libreria `bootstrap` e calcolare la matrice di correlazione $\underset{p\times p}{R}$. 
+
+```{r}
+library(bootstrap)
+
+# carico i dati:
+data(scor)
+X <- scor
+n <- nrow(X)
+p <- ncol(X)
+
+# matrice di correlazione
+R <- cor(X)
+round(R, 2)
+```
+
+
+1. Calcolare la stima iniziale delle comunalità $\hat{h}^2_i$ come 
 $$\hat{h}^2_i = \max_{j\neq i}|r_{ij}|$$  per $i=1,\ldots,p$, dove $r_{ij}$ è l'elemento di posizione $(i,j)$ della matrice $R$. Ottenere la matrice di correlazione ridotta $$R^*= R - \hat{\Psi}$$ dove $\hat{\Psi} = diag(\hat{\psi}_1,\ldots,\hat{\psi}_p)$ con $\hat{\psi}_i = 1 - \hat{h}^2_i$.
 
 ```{r}
@@ -287,7 +342,7 @@ Rstar <- R - Psi
 round(Rstar,2)
 ```
 
-3. Considerando il modello fattoriale con $k=2$ fattori
+2. Considerando il modello fattoriale con $k=2$ fattori
 
 * calcolare la stima della matrice dei pesi fattoriali $$\hat{\Lambda} = V_k L^{1/2}_k$$ 
 dopo aver ottenuto la decomposizione spettrale di $R^* = V L V'$ e dove
@@ -322,7 +377,7 @@ Rstar.new = R - Psi.new
 Rstar.new
 ```
 
-4. Iterare per 100 volte la procedura descritta al punto 3, ottenendo le stime finali per $\hat{\Lambda}$ e $\hat{\Psi}$. Calcolare la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$ e commentare. 
+3. Iterare per 100 volte la procedura descritta al punto 3, ottenendo le stime finali per $\hat{\Lambda}$ e $\hat{\Psi}$. Calcolare la differenza tra $R$ e  $\hat{\Lambda} \hat{\Lambda}' + \hat{\Psi}$ e commentare. 
 
 ```{r}
 for (i in 1:100){
@@ -345,94 +400,3 @@ fit = Lambda%*%t(Lambda) + Psi
 round( R - fit, 4)
 ```
 
-
-# Speranza di vita
-
-I dati nella seguente Tabella mostrano l'aspettativa di vita in anni per paese, età e sesso. I dati provengono da Key Tz e Flieger (1971) e riguardano le aspettative di vita
-negli anni '60.
-
-Per importare i dati:
-
-```{r}
-"life" <- 
-  structure(.Data = list(c(63., 34., 38., 59., 56., 62., 50., 65., 56., 69., 65., 64., 56., 60., 61., 49., 59., 63., 59., 65., 65., 64.,
-                           64., 67., 61., 68., 67., 65., 59., 58., 57.)
-                         , c(51., 29., 30., 42., 38., 44., 39., 44., 46., 47., 48., 50., 44., 44., 45., 40., 42., 44., 44., 48., 48., 63.,
-                             43., 45., 40., 46., 45., 46., 43., 44., 46.)
-                         , c(30., 13., 17., 20., 18., 24., 20., 22., 24., 24., 26., 28., 25., 22., 22., 22., 22., 23., 24., 28., 26., 21.,
-                             21., 23., 21., 23., 23., 24., 23., 24., 28.)
-                         , c(13., 5., 7., 6., 7., 7., 7., 7., 11., 8., 9., 11., 10., 6., 8., 9., 6., 8., 8., 14., 9., 7., 6., 8., 10., 8.,
-                             8., 9., 10., 9., 9.)
-                         , c(67., 38., 38., 64., 62., 69., 55., 72., 63., 75., 68., 66., 61., 65., 65., 51., 61., 67., 63., 68., 67., 68.,
-                             68., 74., 67., 75., 74., 71., 66., 62., 60.)
-                         , c(54., 32., 34., 46., 46., 50., 43., 50., 54., 53., 50., 51., 48., 45., 49., 41., 43., 48., 46., 51., 49., 47.,
-                             47., 51., 46., 52., 51., 51., 49., 47., 49.)
-                         , c(34., 17., 20., 25., 25., 28., 23., 27., 33., 29., 27., 29., 27., 25., 27., 23., 22., 26., 25., 29., 27., 25.,
-                             24., 28., 25., 29., 28., 28., 27., 25., 28.)
-                         , c(15., 6., 7., 8., 10., 14., 8., 9., 19., 10., 10., 11., 12., 9., 10., 8., 7., 9., 8., 13., 10., 9., 8., 10., 11.,
-                             10., 10., 10., 12., 10., 11.)
-  )
-  , class = "data.frame"
-  , names = c("m0", "m25", "m50", "m75", "w0", "w25", "w50", "w75")
-  , row.names = c("Algeria", "Cameroon", "Madagascar", "Mauritius", "Reunion", "Seychelles", "South Africa(C)", "South Africa(W)",
-                  "Tunisia", "Canada", "Costa Rica", "Dominican Rep", "El Salvador", "Greenland", "Grenada", "Guatemala",
-                  "Honduras", "Jamaica", "Mexico", "Nicaragua", "Panama", "Trinidad(62)", "Trinidad (67)", 
-                  "United States (66)", "United States (NW66)", "United States (W66)", "United States (67)", "Argentina",
-                  "Chile", "Columbia", "Ecuador")
-  )
-knitr::kable(life, "html")
-```
-
-1. Per iniziare, useremo il test per il numero di fattori incorporati nell'approccio alla massima verosimiglianza
-
-```{r}
-round(sapply(1:3, function(f)
-factanal(life, factors = f, method ="mle")$PVAL
-),4)
-```
-
-Questi risultati suggeriscono che una soluzione a tre fattori potrebbe essere adeguata per tenere conto
-per le covarianze osservate nei dati, sebbene debba essere ricordato che, con solo 31 paesi, l'uso di un risultato del test asintotico potrebbe essere piuttosto
-sospetto.
-
-La soluzione a tre fattori è la seguente (notare che la soluzione è quella
-risultante da una soluzione varimax. il valore predefinito per la funzione factanal()):
-
-```{r}
-factanal(life, factors = 3, method ="mle")
-```
-
-Esaminando i pesi stimati dei fattori,
-vediamo che 
-
-* il primo fattore è dominato dall'aspettativa di vita alla nascita (sia maschi che femmine); potrebbe essere etichettato *forza vitale alla nascita*
-
-* il secondo fattore secondo fattore misura sostanzialmente l'aspettativa di vita per le donne anziane; potrebbe essere etichettato  *forza vitale per le donne anziane*
-
-* il terzo fattore ha pesi più elevati per le aspettative di vita degli uomini di età compresa tra 50 e 75 anni: potrebbe essere etichettato *forza vitale per gli uomini anziani*
-
-Le stime dei punteggi fattoriali secondo il metodo di Thomson sono 
-
-```{r}
-scores <- factanal(life, factors = 3, method = "mle", scores = "regression")$scores
-scores
-```
-
-Possiamo usare i punteggi per interpretare i dati
-
-```{r}
-plot(scores[,1], scores[,2], type='n', xlab='Punteggi fattoriali I fattore', ylab='Punteggi fattoriali II fattore')
-text(scores[,1], scores[,2], labels = row.names(life), cex = 0.7 )
-```
-
-Vediamo che il Madagascar e il Camerun hanno i valori più bassi per il primo fattore, mentre gli Stati Uniti e il Canada hanno valori elevati.
-
-Il secondo fattore misura sostanzialmente l'aspettativa di vita per le donne anziane. Tunisia ha un punteggio elevato, mentre Honduras basso per questo fattore.
-
-```{r}
-plot(scores[,2], scores[,3], type='n', xlab='Punteggi fattoriali II fattore', ylab='Punteggi fattoriali III fattore')
-text(scores[,2], scores[,3], labels = row.names(life), cex = 0.7 )
-```
-
-
-Il terzo fattore riflette (principalmente) l'aspettativa di vita per gli uomini più anziani. Il Camerun ha il punteggio più basso per questo fattore, mentre L'Algeria ha il punteggio più alto.

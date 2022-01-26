@@ -182,8 +182,8 @@ Dott.ssa Chiara Gaia Magnani
 <td>[SLIDES](docs/slides/12_hclust.pdf).</td>
 <td>[R](docs/lab/12_hclust.html). </td>
 <td>JW §12.3, EH §6.3 </td>
-<td></td>
-<td></td>
+<td>[ESERCIZI](docs/esercizi/12_hclust_esercizi.pdf).</td>
+<td>[SOLUZIONI](docs/esercizi/12_hclust_esercizi.pdf).</td>
 </tr>
 
 <tr>
@@ -191,8 +191,8 @@ Dott.ssa Chiara Gaia Magnani
 <td>[SLIDES](docs/slides/13_fact.pdf).</td>
 <td>[R](docs/lab/14_fact.html). </td>
 <td>JW §9.1, §9.2, §9.3, §9.4</td>
-<td></td>
-<td></td>
+<td>[ESERCIZI](docs/esercizi/13_fact_esercizi.pdf).</td>
+<td>[SOLUZIONI](docs/esercizi/13_fact_esercizi.pdf).</td>
 </tr>
 
 <tr>
@@ -208,6 +208,9 @@ Dott.ssa Chiara Gaia Magnani
 
 
 Il  materiale didattico potrà subire variazioni, si consiglia di consultare questa pagina regolarmente. 
+
+
+I seguenti argomenti sono esclusi dal programma: *La dimostrazione relativa alla formula della correlazione tra punteggi componenti principali e variabili*; *Metodo di stima dei fattori principali*.
 
 
 ## Forum del corso. 
