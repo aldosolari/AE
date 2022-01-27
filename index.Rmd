@@ -61,6 +61,10 @@ Dott.ssa Chiara Gaia Magnani
 |-|-|-|-|-|-|-|-|-|-|
 || 1 || 27-01-2022 || U6-30 || 12:30 - 15:30 (3 ore) ||
 
+[Esercizi simulazione esame](docs/esercizi/AE - Esercitazione sim esame.pdf).
+
+[Esercizi vari](docs/esercizi/AE - Esercitazione esercizi vari.pdf).
+
 
 ## Materiale didattico.
 
