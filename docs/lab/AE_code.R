@@ -668,6 +668,166 @@ Y <- pca$x[,1:2]
 km.pca <- kmeans(Y, centers = Y[c(25,75,125),], nstart=1, algorithm = "Lloyd")
 table(km.pca$cluster, iris$Species)
 
+#---------------------------------------------------
+
+rm(list=ls())
+n <- 20
+p <- 3
+Lambda <- matrix(c(0.5,0.2,-0.1), ncol=1)
+Psi <- diag(c(0.0225, 0.0025, 0.008))
+X <- matrix(NA,nrow=n,ncol=p)
+set.seed(123)
+for (i in 1:n){
+  f <- rnorm(1)
+  u <- rnorm(p, mean=0, sd=sqrt(diag(Psi)) )
+  X[i,] <- Lambda %*% f + u 
+}
+Sigma = Lambda %*% t(Lambda) + Psi
+round(Sigma,2)
+S = var(X) * ((n-1)/n)
+round(S,2)
+D = diag(diag(Sigma)^(-1/2))
+Corr_x = D %*% Sigma %*% D
+round(Corr_x,2)
+R = cor(X) 
+round(R,2)
+Lambda_z = D %*% Lambda
+round(Lambda_z,2)
+Psi_z = D %*% Psi %*% t(D)
+diag(Psi_z)
+Lambda_z %*% t(Lambda_z) + Psi_z
+Corr_x
+af <- factanal(x=X, factors=1, rotation="none", scores = "regression") 
+af
+hatLambda_z <- af$loadings[,]
+round(hatLambda_z,3)
+round(Lambda_z,3)
+hatH2 <- apply(af$loadings^2,1,sum)
+round(hatH2,3)
+H2 <- apply(Lambda_z^2,1,sum)
+round(H2,3)
+hatPsi_z <- diag(af$uniquenesses)
+round(diag(hatPsi_z),3)
+round(diag(Psi_z),3)
+round(Corr_x - ( hatLambda_z%*%t(hatLambda_z) + hatPsi_z ),5)
+A = diag(diag(Sigma))
+hatLambda = A^(1/2) %*% hatLambda_z
+round(hatLambda, 4)
+Lambda
+hatPsi <- A^(1/2) %*% hatPsi_z %*% A^(1/2)
+round(hatPsi, 4)
+Psi
+Xtilde = scale(X, center=TRUE, scale=FALSE)
+hatf_thompson = apply(Xtilde,1, function(x) t(hatLambda) %*% solve(S) %*% x) 
+plot(hatf_thompson, f)
+abline(a=0,b=1)
+hatf_bartlett = apply(Xtilde,1, function(x) solve(t(hatLambda) %*% solve(hatPsi) %*% hatLambda) %*% t(hatLambda) %*% solve(hatPsi)%*% x) 
+hatf = af$scores
+sum(hatf_bartlett- hatf)
+plot(hatf_bartlett, f)
+abline(a=0,b=1, "dashed")
+
+#---------------------------------------------------
+
+rm(list=ls())
+R = matrix(c(
+  1.000, 0.439, 0.410, 0.288, 0.329, 0.248,
+  0.439, 1.000, 0.351, 0.354, 0.320, 0.329,
+  0.410, 0.351, 1.000, 0.164, 0.190, 0.181,
+  0.288, 0.354, 0.164, 1.000, 0.595, 0.470,
+  0.329, 0.320, 0.190, 0.595, 1.000, 0.464,
+  0.248, 0.329, 0.181, 0.470, 0.464, 1.000
+), byrow=T, ncol=6)
+colnames(R) = c("Gaelic", "English", "History", "Arithmetic", "Algebra", "Geometry")
+R
+library(corrplot)
+corrplot(R, diag=FALSE, type = 'upper')
+n = 220
+af <- factanal(covmat=R, factors=2, rotation="none", n.obs=n) 
+af
+Lambda <- af$loadings[,]
+round(Lambda,3)
+af2 <- factanal(covmat = R, factors=2, rotation="varimax", n.obs=n)
+af2
+af2$rotmat
+af2$loadings
+plot(af$loadings,xlim=c(-1,1), ylim=c(-1,1), pch="", asp=1)
+text(af$loadings, colnames(R))
+abline(h=0)
+abline(v=0)
+af2 <- varimax(af$loadings,normalize=FALSE)
+abline(0, af2$rotmat[2,1]/af2$rotmat[1,1], lty=2)
+abline(0, af2$rotmat[2,2]/af2$rotmat[1,2], lty=2)
+factanal(covmat=R, factors=1, n.obs = n)$PVAL
+k=1
+p=6
+af = factanal(covmat=R, factors=k, n.obs = n)
+hatLambda = af$loadings[,]
+hatPsi = diag(af$uniqueness)
+fit = hatLambda %*% t(hatLambda) + hatPsi
+t = n*log(det(fit)/det(R))
+t
+gdl = ((p-k)^2 - p - k)/2
+pchisq(t, lower.tail=FALSE, df=gdl)
+
+#---------------------------------------------------
+
+rm(list=ls())
+library(bootstrap)
+data(scor)
+X <- scor
+n <- nrow(X)
+p <- ncol(X)
+R <- cor(X)
+round(R, 2)
+af <- factanal(X, factors=2, rotation = "varimax", scores="regression")
+af$loadings
+puntfat <- af$scores
+plot(puntfat,pch="")
+text(puntfat, labels=c(1:88))
+abline(h=0)
+abline(v=0)
+X[66,]
+
+#---------------------------------------------------
+
+rm(list=ls())
+library(bootstrap)
+data(scor)
+X <- scor
+n <- nrow(X)
+p <- ncol(X)
+R <- cor(X)
+round(R, 2)
+R0 <- R - diag(rep(1,p))
+h2 <- apply(abs(R0), 2, max)
+h2 
+Psi = diag(1-h2)
+Psi
+Rstar <- R - Psi 
+round(Rstar,2)
+eigen <- eigen(Rstar)
+k = 2
+Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
+Lambda
+h2.new = apply(Lambda^2, 1, sum)
+h2.new
+Psi.new <- diag(1-h2.new)
+Psi.new
+Rstar.new = R - Psi.new
+Rstar.new
+for (i in 1:100){
+  h2 <- apply(Lambda^2, 1, sum)
+  Rstar <- R0 + diag(h2)
+  eigen <- eigen(Rstar)
+  Lambda <- eigen$vectors[,1:k] %*% diag(eigen$values[1:k]^{1/2})
+}
+Lambda
+h2 <- apply(Lambda^2, 1, sum)
+h2
+Psi = diag(1-h2)
+fit = Lambda%*%t(Lambda) + Psi
+round( R - fit, 4)
 
 
 
