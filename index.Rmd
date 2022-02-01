@@ -267,7 +267,7 @@ Questa attività formativa deve essere preceduta dal superamento degli esami di 
 
 [TESTO](docs/appelli/AE25012022_testo.pdf)
 
-[SOLUZIONE]()
+[SOLUZIONE](docs/appelli/AE25012022_soluzione.pdf)
 
 ## Appelli passati.
 
