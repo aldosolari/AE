@@ -10,6 +10,19 @@
 
 <title>Analisi Esplorativa</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
 <style type="text/css"></style>
 
 
@@ -24,17 +37,33 @@
 
 
 
-<p>Corso di Laurea Triennale in Scienze Statistiche ed Economiche, Università degli Studi di Milano-Bicocca, A.A. 2021/22.</p>
+<p>Corso di Laurea Triennale in Scienze Statistiche ed Economiche,
+Università degli Studi di Milano-Bicocca, A.A. 2021/22.</p>
 <div id="pagina-web-del-corso." class="section level2">
 <h2>Pagina WEB del corso.</h2>
-<p>Analisi Esplorativa (6 CFU) è una parte dell’insegnamento Analisi Statistica Multivariata (15 CFU). Si prega di leggere con attenzione tutte le informazioni presenti nel sito</p>
+<p>Analisi Esplorativa (6 CFU) è una parte dell’insegnamento Analisi
+Statistica Multivariata (15 CFU). Si prega di leggere con attenzione
+tutte le informazioni presenti nel sito</p>
 <ul>
-<li><a href="https://aldosolari.github.io/ASM/">Analisi Statistica Multivariata</a> (15 CFU)</li>
+<li><a href="https://aldosolari.github.io/ASM/">Analisi Statistica
+Multivariata</a> (15 CFU)</li>
 </ul>
 </div>
 <div id="calendario-delle-lezioni." class="section level2">
 <h2>Calendario delle lezioni.</h2>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -412,7 +441,8 @@
 </tr>
 </tbody>
 </table>
-<p>Il calendario didattico potrà subire variazioni, si consiglia di consultare questa pagina regolarmente.</p>
+<p>Il calendario didattico potrà subire variazioni, si consiglia di
+consultare questa pagina regolarmente.</p>
 </div>
 <div id="tutorato." class="section level2">
 <h2>Tutorato.</h2>
@@ -447,8 +477,10 @@
 </tr>
 </tbody>
 </table>
-<p><a href="docs/esercizi/AE%20-%20Esercitazione%20sim%20esame.pdf">Esercizi simulazione esame</a>.</p>
-<p><a href="docs/esercizi/AE%20-%20Esercitazione%20esercizi%20vari.pdf">Esercizi vari</a>.</p>
+<p><a href="docs/esercizi/AE%20-%20Esercitazione%20sim%20esame.pdf">Esercizi
+simulazione esame</a>.</p>
+<p><a href="docs/esercizi/AE%20-%20Esercitazione%20esercizi%20vari.pdf">Esercizi
+vari</a>.</p>
 </div>
 <div id="materiale-didattico." class="section level2">
 <h2>Materiale didattico.</h2>
@@ -530,7 +562,8 @@ JW §1.4, EH §2.2, 2.2.1, 2.2, 2.4
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/4_spaziBB.pdf">Spazio delle variabili e delle osservazioni</a>.
+<a href="docs/appunti/4_spaziBB.pdf">Spazio delle variabili e delle
+osservazioni</a>.
 </td>
 <td>
 <a href="docs/slides/4_spazi.pdf">SLIDES</a>.
@@ -570,7 +603,8 @@ JW §3.5
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/6_varianzeBB.pdf">Varianza totale e generalizzata</a>.
+<a href="docs/appunti/6_varianzeBB.pdf">Varianza totale e
+generalizzata</a>.
 </td>
 <td>
 <a href="docs/slides/6_varianze.pdf">SLIDES</a>.
@@ -590,7 +624,8 @@ JW §3.4
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/7_spectralBB.pdf">Teorema di decomposizione spettrale</a>.
+<a href="docs/appunti/7_spectralBB.pdf">Teorema di decomposizione
+spettrale</a>.
 </td>
 <td>
 <a href="docs/slides/7_spectral.pdf">SLIDES</a>.
@@ -610,7 +645,8 @@ JW §2A.14, §2A.15
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/8_pcaBB.pdf">Analisi delle componenti principali</a>.
+<a href="docs/appunti/8_pcaBB.pdf">Analisi delle componenti
+principali</a>.
 </td>
 <td>
 <a href="docs/slides/8_pca.pdf">SLIDES</a>.
@@ -648,7 +684,8 @@ JW §8.3
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/10_kmeansBB.pdf">Analisi dei gruppi: metodo delle K-medie</a>.
+<a href="docs/appunti/10_kmeansBB.pdf">Analisi dei gruppi: metodo delle
+K-medie</a>.
 </td>
 <td>
 <a href="docs/slides/10_kmeans.pdf">SLIDES</a>.
@@ -684,7 +721,8 @@ JW §12.2, §12.4
 </tr>
 <tr>
 <td>
-<a href="docs/appunti/12_hclustBB.pdf">Analisi dei gruppi: metodi gerarchici</a>.
+<a href="docs/appunti/12_hclustBB.pdf">Analisi dei gruppi: metodi
+gerarchici</a>.
 </td>
 <td>
 <a href="docs/slides/12_hclust.pdf">SLIDES</a>.
@@ -740,16 +778,28 @@ JW §9.5
 </td>
 </tr>
 </table>
-<p>Il materiale didattico potrà subire variazioni, si consiglia di consultare questa pagina regolarmente.</p>
-<p>I seguenti argomenti sono esclusi dal programma: <em>La dimostrazione relativa alla formula della correlazione tra punteggi componenti principali e variabili</em>; <em>Metodo di stima dei fattori principali</em>.</p>
+<p>Il materiale didattico potrà subire variazioni, si consiglia di
+consultare questa pagina regolarmente.</p>
+<p>I seguenti argomenti sono esclusi dal programma: <em>La dimostrazione
+relativa alla formula della correlazione tra punteggi componenti
+principali e variabili</em>; <em>Metodo di stima dei fattori
+principali</em>.</p>
 </div>
 <div id="forum-del-corso." class="section level2">
 <h2>Forum del corso.</h2>
-<p>Seppure l’email sia il modo di mettersi in contatto con un docente, gli studenti sono invitati a non porre domande relative all’insegnamento (chiarimenti, soluzione di esercizi, ecc..) tramite l‘utilizzo della posta elettronica, ma ad utilizzare il forum presente nella pagina <a href="https://elearning.unimib.it/">MOODLE</a> del corso oppure richiedere un ricevimento.</p>
+<p>Seppure l’email sia il modo di mettersi in contatto con un docente,
+gli studenti sono invitati a non porre domande relative all’insegnamento
+(chiarimenti, soluzione di esercizi, ecc..) tramite l‘utilizzo della
+posta elettronica, ma ad utilizzare il forum presente nella pagina <a href="https://elearning.unimib.it/">MOODLE</a> del corso oppure
+richiedere un ricevimento.</p>
 </div>
 <div id="propedeuticità." class="section level2">
 <h2>Propedeuticità.</h2>
-<p>Questa attività formativa deve essere preceduta dal superamento degli esami di Algebra lineare, Analisi Matematica I, Calcolo delle Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli argomenti trattati nel modulo R per l’Analisi Statistica Multivariata.</p>
+<p>Questa attività formativa deve essere preceduta dal superamento degli
+esami di Algebra lineare, Analisi Matematica I, Calcolo delle
+Probabilità e Statistica I. Si consiglia inoltre la conoscenza degli
+argomenti trattati nel modulo R per l’Analisi Statistica
+Multivariata.</p>
 </div>
 <div id="calendario-degli-esami." class="section level2">
 <h2>Calendario degli esami.</h2>
@@ -859,16 +909,28 @@ JW §9.5
 <div id="modalità-desame." class="section level2">
 <h2>Modalità d’esame.</h2>
 <ul>
-<li><p>L’esame si svolgerà in laboratorio e sarà possibile utilizzare R o RStudio.</p></li>
+<li><p>L’esame si svolgerà in laboratorio e sarà possibile utilizzare R
+o RStudio.</p></li>
 <li><p>La prova consiste in una serie di esercizi</p>
 <ul>
 <li>Esercizi di teoria</li>
 <li>Esercizi applicati (analisi dei dati)</li>
 </ul></li>
-<li><p>All’esame sarà possibile consultare sia la documentazione ufficiale di R che una selezione del codice utilizzato a lezione</p></li>
+<li><p>All’esame sarà possibile consultare sia la documentazione
+ufficiale di R che una selezione del codice utilizzato a
+lezione</p></li>
 <li><p>Codice R che verrà reso disponibile all’esame : <a href="docs/lab/AE_code.pdf">codice_AE</a></p></li>
-<li><p>I voti verranno pubblicati sui soliti canali. Nei giorni successivi alla pubblicazione del voto, verrà programmata una sessione per la visione compiti, unico momento nel quale ogni studente potrà chiedere chiarimenti sul proprio compito e voto corrispondente.</p></li>
-<li><p>Per l’accettazione del voto vale la regola del silenzio-assenso. Lo studente può rifiutare il voto o richiedere l’orale non oltre alla data prevista per la visione dei compiti. L’orale può essere richiesto anche dal docente. La data della prova orale non potrà essere inferiore a tre giorni naturali successivi continui dalla data di pubblicazione del voto. L’orale si basa sul tutto il programma del corso di AE.</p></li>
+<li><p>I voti verranno pubblicati sui soliti canali. Nei giorni
+successivi alla pubblicazione del voto, verrà programmata una sessione
+per la visione compiti, unico momento nel quale ogni studente potrà
+chiedere chiarimenti sul proprio compito e voto corrispondente.</p></li>
+<li><p>Per l’accettazione del voto vale la regola del silenzio-assenso.
+Lo studente può rifiutare il voto o richiedere l’orale non oltre alla
+data prevista per la visione dei compiti. L’orale può essere richiesto
+anche dal docente. La data della prova orale non potrà essere inferiore
+a tre giorni naturali successivi continui dalla data di pubblicazione
+del voto. L’orale si basa sul tutto il programma del corso di
+AE.</p></li>
 </ul>
 </div>
 <div id="simulazione-prova-desame." class="section level2">
@@ -879,14 +941,20 @@ JW §9.5
 <div id="appelli-a.a.-202122." class="section level2">
 <h2>Appelli A.A. 2021/22.</h2>
 <ul>
-<li><p><a href="docs/appelli/AE08022022_soluzione.pdf">8 Febbraio 2022</a></p></li>
-<li><p><a href="docs/appelli/AE28022022_soluzione.pdf">28 Febbraio 2022</a></p></li>
-<li><p><a href="docs/appelli/AE27042022_soluzione.pdf">27 Aprile 2022</a></p></li>
+<li><p><a href="docs/appelli/AE08022022_soluzione.pdf">8 Febbraio
+2022</a></p></li>
+<li><p><a href="docs/appelli/AE28022022_soluzione.pdf">28 Febbraio
+2022</a></p></li>
+<li><p><a href="docs/appelli/AE27042022_soluzione.pdf">27 Aprile
+2022</a></p></li>
+<li><p><a href="docs/appelli/AE24062022_soluzione.pdf">24 Giugno
+2022</a></p></li>
 </ul>
 </div>
 <div id="appelli-passati." class="section level2">
 <h2>Appelli passati.</h2>
-<p>Si riportano nel seguito il testo e le soluzioni di alcuni appelli passati a titolo esemplificativo ma non esaustivo.</p>
+<p>Si riportano nel seguito il testo e le soluzioni di alcuni appelli
+passati a titolo esemplificativo ma non esaustivo.</p>
 <ul>
 <li><a href="docs/appelli/AE070220.pdf">7 Febbraio 2020</a></li>
 <li><a href="docs/appelli/AE210220.pdf">21 Febbraio 2020</a></li>
@@ -900,10 +968,13 @@ JW §9.5
 <div id="libri-di-testo." class="section level2">
 <h2>Libri di testo.</h2>
 <ul>
-<li><p>Johnson, Wichern (2007) Applied Multivariate Statistical Analysis (6th Edition), Pearson Prentice Hall</p></li>
-<li><p>Everitt, Hothorn (2011) An Introduction to Applied Multivariate Analysis with R, Springer</p></li>
+<li><p>Johnson, Wichern (2007) Applied Multivariate Statistical Analysis
+(6th Edition), Pearson Prentice Hall</p></li>
+<li><p>Everitt, Hothorn (2011) An Introduction to Applied Multivariate
+Analysis with R, Springer</p></li>
 </ul>
-<p>Tutti i libri di testo sono disponibili in formato elettronico presso la <a href="https://www.biblio.unimib.it/it/risorse/accesso-alle-risorse-remoto">biblioteca</a>.</p>
+<p>Tutti i libri di testo sono disponibili in formato elettronico presso
+la <a href="https://www.biblio.unimib.it/it/risorse/accesso-alle-risorse-remoto">biblioteca</a>.</p>
 </div>
 
 
