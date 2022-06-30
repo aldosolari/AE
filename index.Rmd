@@ -19,7 +19,7 @@ Analisi Esplorativa (6 CFU) è una parte dell'insegnamento Analisi Statistica Mu
 ## Calendario delle lezioni.
 
 || Lezione || Data || Luogo || Orario ||
-|-|-|-|-|-|-|-|-|-|-|
+|-|-|-|-|-|-|-|-|
 ||  || ||  ||  || ||
 || 1 || 02-12-2021 || U6-30 || 12:30 - 15:30 (3 ore)  ||
 || 2 || 03-12-2021 || U9-01 || 13:30 - 16:30 (3 ore)  ||
